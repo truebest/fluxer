@@ -345,8 +345,8 @@ msgstr "{count, plural, one {# archivo adjunto} other {# archivos adjuntos}}"
 msgid "{count, plural, one {# blocked message} other {# blocked messages}}"
 msgstr "{count, plural, one {# mensaje bloqueado} other {# mensajes bloqueados}}"
 
-#: src/features/app/components/alerts/MaxBookmarksModal.tsx:50
-#: src/features/app/components/alerts/MaxBookmarksModal.tsx:83
+#: src/features/app/components/alerts/MaxBookmarksModal.tsx:51
+#: src/features/app/components/alerts/MaxBookmarksModal.tsx:76
 msgid "{count, plural, one {# bookmark} other {# bookmarks}}"
 msgstr "{count, plural, one {# marcador} other {# marcadores}}"
 
@@ -420,8 +420,8 @@ msgstr "{count, plural, one {# reacción} other {# reacciones}}"
 msgid "{count, plural, one {# reactor} other {# reactors}}"
 msgstr "{count, plural, one {# reacción} other {# reacciones}}"
 
-#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:44
-#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:82
+#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:45
+#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:79
 msgid "{count, plural, one {# saved media item} other {# saved media items}}"
 msgstr "{count, plural, one {# elemento multimedia guardado} other {# elementos multimedia guardados}}"
 
@@ -500,7 +500,7 @@ msgstr "{count, plural, one {Cerrar sesión en # dispositivo} other {Cerrar sesi
 msgid "{count, plural, one {Used # time.} other {Used # times.}}"
 msgstr "{count, plural, one {Usado # vez.} other {Usado # veces.}}"
 
-#: src/features/messaging/components/alerts/TooManyAttachmentsModal.tsx:21
+#: src/features/messaging/components/alerts/TooManyAttachmentsModal.tsx:20
 msgid "{count, plural, one {You can only upload # file at a time. Try again with fewer files.} other {You can only upload # files at a time. Try again with fewer files.}}"
 msgstr "{count, plural, one {Solo puedes subir # archivo a la vez. Inténtalo de nuevo con menos archivos.} other {Solo puedes subir # archivos a la vez. Inténtalo de nuevo con menos archivos.}}"
 
@@ -525,7 +525,7 @@ msgstr "{count, plural, one {Ya estás conectado a este canal de voz desde # otr
 msgid "{count, plural, one {You're already using the one allowed connection for this voice channel. Switch to this device or cancel.} other {You're already using all # allowed connections for this voice channel. Switch to this device or cancel.}}"
 msgstr "{count, plural, one {Ya estás usando la única conexión permitida para este canal de voz. Cambia a este dispositivo o cancela.} other {Ya estás usando todas las # conexiones permitidas para este canal de voz. Cambia a este dispositivo o cancela.}}"
 
-#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:65
+#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:62
 msgid "{count, plural, one {You're at the cap of # saved media item. Remove one to add another.} other {You're at the cap of # saved media items. Remove one to add another.}}"
 msgstr "{count, plural, one {Has alcanzado el límite de # elemento multimedia guardado. Elimina uno para añadir otro.} other {Has alcanzado el límite de # elementos multimedia guardados. Elimina uno para añadir otro.}}"
 
@@ -545,7 +545,7 @@ msgstr "{count, plural, one {Has alcanzado el límite de # paquete de stickers i
 msgid "{count, plural, one {You're at the limit of # sticker pack. Delete one to create another.} other {You're at the limit of # sticker packs. Delete one to create another.}}"
 msgstr "{count, plural, one {Has alcanzado el límite de # paquete de stickers. Elimina uno para crear otro.} other {Has alcanzado el límite de # paquetes de stickers. Elimina uno para crear otro.}}"
 
-#: src/features/guild/components/alerts/MaxGuildsModal.tsx:25
+#: src/features/guild/components/alerts/MaxGuildsModal.tsx:24
 msgid "{count, plural, one {You've reached the maximum number of communities you can join (# community). Leave a community before joining another one.} other {You've reached the maximum number of communities you can join (# communities). Leave a community before joining another one.}}"
 msgstr "{count, plural, one {Has alcanzado el número máximo de comunidades a las que puedes unirte (# comunidad). Abandona una comunidad antes de unirte a otra.} other {Has alcanzado el número máximo de comunidades a las que puedes unirte (# comunidades). Abandona una comunidad antes de unirte a otra.}}"
 
@@ -1124,22 +1124,22 @@ msgid "{productName} member since"
 msgstr "Miembro de {productName} desde"
 
 #. Body of the camera-permission-denied modal on web. {productName} is Fluxer.
-#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:40
+#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:39
 msgid "{productName} needs access to your camera to enable video chat. Grant camera permission in your browser settings and try again."
 msgstr "{productName} necesita acceder a tu cámara para habilitar el chat de vídeo. Concede permiso a la cámara en la configuración de tu navegador y vuelve a intentarlo."
 
 #. Body of the camera-permission-denied modal on Windows and Linux. {productName} is Fluxer.
-#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:35
+#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:34
 msgid "{productName} needs access to your camera. Allow camera access in your operating system privacy settings and restart the app."
 msgstr "{productName} necesita acceso a tu cámara. Permite el acceso a la cámara en la configuración de privacidad de tu sistema operativo y reinicia la aplicación."
 
 #. Body of the microphone-permission-denied modal on web. {productName} is Fluxer.
-#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:30
+#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:29
 msgid "{productName} needs access to your microphone to enable voice chat. Grant microphone permission in your browser settings and try again."
 msgstr "{productName} necesita acceso a tu micrófono para activar el chat de voz. Concede permiso para usar el micrófono en la configuración de tu navegador y vuelve a intentarlo."
 
 #. Body of the microphone-permission-denied modal on Windows and Linux. {productName} is Fluxer.
-#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:25
+#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:24
 msgid "{productName} needs access to your microphone. Allow microphone access in your operating system privacy settings and restart the app."
 msgstr "{productName} necesita acceso a tu micrófono. Permite el acceso al micrófono en la configuración de privacidad de tu sistema operativo y reinicia la aplicación."
 
@@ -1154,7 +1154,7 @@ msgid "{productName} needs microphone access to list your devices."
 msgstr "{productName} necesita acceso al micrófono para mostrar tus dispositivos."
 
 #. Body of the screen-permission-denied modal on non-mac desktop platforms. {productName} is Fluxer.
-#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:45
+#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:44
 msgid "{productName} needs screen recording access. Allow screen recording in your operating system privacy settings and restart the app."
 msgstr "{productName} necesita acceso a la grabación de pantalla. Permite la grabación de pantalla en los ajustes de privacidad de tu sistema operativo y reinicia la aplicación."
 
@@ -1179,7 +1179,7 @@ msgid "{productName} spellcheck settings…"
 msgstr "Ajustes de revisión ortográfica de {productName}…"
 
 #. Label in the invites disabled modal.
-#: src/features/invite/components/alerts/InvitesDisabledModal.tsx:14
+#: src/features/invite/components/alerts/InvitesDisabledModal.tsx:13
 msgid "{productName} spotted a possible raid here. Invites are paused — try again later."
 msgstr "{productName} ha detectado una posible incursión aquí. Las invitaciones están en pausa; inténtalo de nuevo más tarde."
 
@@ -1273,6 +1273,10 @@ msgstr "{seconds, plural, one {Esta invitación caduca en # segundo.} other {Est
 #: src/features/guild/components/modals/guild_tabs/guild_overview_tab/sections/IdleSettingsSection.tsx:36
 msgid "{seconds} seconds"
 msgstr "{seconds} segundos"
+
+#: src/features/guild/components/modals/guild_tabs/GuildBotsTab.tsx:273
+msgid "{selectedCount} channels"
+msgstr "{selectedCount} channels"
 
 #. Generic multi-select summary label. selectedCount is the number of selected options.
 #: src/features/ui/components/form/FormCombobox.tsx:79
@@ -1580,6 +1584,7 @@ msgstr "<0>Favoritos solo con URL (predeterminado)</0>: se sincronizan en todos 
 
 #. Summary chip text in the mobile channel search sheet when exactly one channel is selected as a filter.
 #: src/features/channel/components/bottomsheets/ChannelSearchBottomSheet.tsx:160
+#: src/features/guild/components/modals/guild_tabs/GuildBotsTab.tsx:271
 msgid "1 channel"
 msgstr "1 canal"
 
@@ -2349,7 +2354,7 @@ msgid "Activity log"
 msgstr "Registro de actividad"
 
 #. Community settings tab showing activity log entries and moderation history.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:61
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:63
 msgctxt "community-settings-tab"
 msgid "Activity log"
 msgstr "Registro de actividad"
@@ -2844,7 +2849,7 @@ msgid "Administrator"
 msgstr "Administrador"
 
 #. Error message in the invites disabled modal.
-#: src/features/invite/components/alerts/InvitesDisabledModal.tsx:18
+#: src/features/invite/components/alerts/InvitesDisabledModal.tsx:17
 msgid "Admins paused invites — you can't join right now."
 msgstr "Los administradores han pausado las invitaciones; no puedes unirte ahora mismo."
 
@@ -3423,12 +3428,12 @@ msgstr "Y otra llamada más"
 msgid "Animate on interaction"
 msgstr "Animar al interactuar"
 
-#: src/features/expressions/utils/AnimatedAvifModalUtils.tsx:27
+#: src/features/expressions/utils/AnimatedAvifModalUtils.tsx:26
 msgid "Animated {AVIF_FORMAT_LABEL} files aren't supported. Upload a static {AVIF_FORMAT_LABEL} file instead."
 msgstr "No se admiten archivos {AVIF_FORMAT_LABEL} animados. Sube un archivo {AVIF_FORMAT_LABEL} estático en su lugar."
 
 #. Modal title shown when an animated AVIF upload is rejected by the client.
-#: src/features/expressions/utils/AnimatedAvifModalUtils.tsx:12
+#: src/features/expressions/utils/AnimatedAvifModalUtils.tsx:11
 msgid "Animated {avifFormatLabel} not supported"
 msgstr "El formato {avifFormatLabel} animado no es compatible"
 
@@ -3476,7 +3481,7 @@ msgid "Animated emoji"
 msgstr "Emojis animados"
 
 #. Section heading for animated emoji in community emoji settings.
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:104
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:105
 msgid "Animated emoji ({emojiCount})"
 msgstr "Emojis animados ({emojiCount})"
 
@@ -4119,7 +4124,7 @@ msgid "Attachment upload"
 msgstr "Subida de archivos adjuntos"
 
 #. Short label in the attachment upload connectivity modal. Keep it concise.
-#: src/features/messaging/components/alerts/AttachmentUploadConnectivityModal.tsx:13
+#: src/features/messaging/components/alerts/AttachmentUploadConnectivityModal.tsx:12
 msgid "Attachment upload unavailable"
 msgstr "No se puede subir el archivo adjunto"
 
@@ -4685,8 +4690,8 @@ msgstr "Disponible en la aplicación de escritorio."
 #. Form label for a webhook avatar image.
 #. Settings search entry label. Also used as a search synonym in the settings search bar.
 #: src/features/ui/components/BaseAvatar.tsx:17
-#: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:374
-#: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:422
+#: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:372
+#: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:420
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:13
 #: src/features/webhook/components/WebhookListItem.tsx:251
 msgid "Avatar"
@@ -5015,7 +5020,7 @@ msgid "Banner preview"
 msgstr "Previsualización del banner"
 
 #. Community settings tab for banned users.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:91
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:98
 msgctxt "community-settings-tab"
 msgid "Bans"
 msgstr "Bloqueos"
@@ -5273,7 +5278,7 @@ msgid "Bookmark"
 msgstr "Marcar"
 
 #. Short label in the max bookmarks modal.
-#: src/features/app/components/alerts/MaxBookmarksModal.tsx:15
+#: src/features/app/components/alerts/MaxBookmarksModal.tsx:16
 msgid "Bookmark limit reached"
 msgstr "Límite de marcadores alcanzado"
 
@@ -5360,6 +5365,11 @@ msgstr "Biografía del bot"
 msgid "Bot biography"
 msgstr "Biografía del bot"
 
+#. Success toast after saving bot channel bindings.
+#: src/features/guild/components/modals/guild_tabs/GuildBotsTab.tsx:35
+msgid "Bot channel access updated"
+msgstr "Bot channel access updated"
+
 #. Short label in the guild privacy settings modal. Keep it concise. Keep the tone plain and specific.
 #: src/features/guild/components/modals/GuildPrivacySettingsModal.tsx:21
 msgid "Bot direct messages"
@@ -5432,7 +5442,14 @@ msgid "Both sides"
 msgstr "Ambos lados"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
+#: src/features/guild/components/modals/guild_tabs/GuildBotsTab.tsx:190
 #: src/features/user/components/settings_utils/search_index/ApplicationsIndex.ts:16
+msgid "Bots"
+msgstr "Bots"
+
+#. Community settings tab for configuring installed bots.
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:73
+msgctxt "community-settings-tab"
 msgid "Bots"
 msgstr "Bots"
 
@@ -5761,7 +5778,7 @@ msgid "Camera on"
 msgstr "Cámara activada"
 
 #. Title of the modal shown when camera permission is denied. Keep tone plain.
-#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:17
+#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:16
 msgid "Camera permission required"
 msgstr "Se necesitan permisos para la cámara"
 
@@ -5805,12 +5822,12 @@ msgid "Can't access that email?"
 msgstr "¿No puedes acceder a ese correo electrónico?"
 
 #. Error message in the attachment permission denied modal. Keep the tone plain and specific.
-#: src/features/messaging/components/alerts/AttachmentPermissionDeniedModal.tsx:12
+#: src/features/messaging/components/alerts/AttachmentPermissionDeniedModal.tsx:9
 msgid "Can't paste image here"
 msgstr "No se puede pegar la imagen aquí"
 
 #. Error message in the attachment permission denied modal. Keep the tone plain and specific.
-#: src/features/messaging/components/alerts/AttachmentPermissionDeniedModal.tsx:16
+#: src/features/messaging/components/alerts/AttachmentPermissionDeniedModal.tsx:13
 msgid "Can't upload files here"
 msgstr "No se pueden subir archivos aquí"
 
@@ -6142,8 +6159,8 @@ msgstr "Centrado"
 
 #. Title of the modal where the user picks an avatar source (file upload or GIF provider). Keep it concise.
 #: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:110
-#: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:396
-#: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:432
+#: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:394
+#: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:430
 msgid "Change avatar"
 msgstr "Cambiar avatar"
 
@@ -6982,6 +6999,10 @@ msgstr "Elige qué servicio de búsqueda inversa de imágenes se usa por defecto
 #: src/features/user/components/modals/tabs/chat_settings_tab/SearchEnginesTab.tsx:47
 msgid "Choose which search engine is used by default when searching selected text."
 msgstr "Elige qué motor de búsqueda se usa por defecto al buscar el texto seleccionado."
+
+#: src/features/guild/components/modals/guild_tabs/GuildBotsTab.tsx:193
+msgid "Choose which text channels each installed bot can read and send messages in."
+msgstr "Choose which text channels each installed bot can read and send messages in."
 
 #. Button or menu action label in the search engines tab. Keep it concise.
 #: src/features/user/components/modals/tabs/chat_settings_tab/SearchEnginesTab.tsx:80
@@ -7823,13 +7844,13 @@ msgstr "comunidad"
 #: src/features/app/config/AuditLogConstants.ts:152
 #: src/features/auth/components/pages/oauth_authorize_page/OAuthCommunityStep.tsx:48
 #: src/features/moderation/components/report_modal/IARModalPreview.tsx:16
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:253
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:269
 #: src/features/user/components/settings_utils/section_registry/PrivacySafetySections.ts:140
 msgid "Community"
 msgstr "Comunidad"
 
 #. Short label in the guild at capacity modal. Keep it concise.
-#: src/features/guild/components/alerts/GuildAtCapacityModal.tsx:9
+#: src/features/guild/components/alerts/GuildAtCapacityModal.tsx:8
 msgid "Community at capacity"
 msgstr "Comunidad llena"
 
@@ -8009,7 +8030,7 @@ msgid "Community record"
 msgstr "Registro de la comunidad"
 
 #. Root label for community settings modal and settings search paths.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:244
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:260
 msgid "Community settings"
 msgstr "Ajustes de la comunidad"
 
@@ -8042,7 +8063,7 @@ msgid "Community-wide"
 msgstr "Community-wide"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:276
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:271
 #: src/features/user/components/settings_utils/section_registry/AppearanceSections.ts:242
 msgid "Compact"
 msgstr "Compacto"
@@ -8449,7 +8470,7 @@ msgid "Contact support"
 msgstr "Contactar con soporte"
 
 #. Short label in the authentication content blocked handler. Keep the tone plain and specific.
-#: src/features/auth/components/ContentBlockedHandler.tsx:11
+#: src/features/auth/components/ContentBlockedHandler.tsx:10
 msgid "Content blocked"
 msgstr "Contenido bloqueado"
 
@@ -9000,7 +9021,7 @@ msgid "Could not load this page"
 msgstr "No se ha podido cargar esta página"
 
 #. Body of the modal shown when a screen share attempt fails. Advises the user to try sharing the full screen.
-#: src/features/voice/components/alerts/ScreenShareFailedModal.tsx:13
+#: src/features/voice/components/alerts/ScreenShareFailedModal.tsx:12
 msgid "Could not start the screen share. The selected source may no longer be available or may have blocked capture. Try sharing your entire screen or monitor instead of a specific window."
 msgstr "No se pudo iniciar la pantalla compartida. Es posible que la fuente seleccionada ya no esté disponible o que haya bloqueado la captura. Intenta compartir toda la pantalla o el monitor en lugar de una ventana específica."
 
@@ -9465,6 +9486,11 @@ msgstr "No se pudo desanclar esta conversación"
 msgid "Couldn't update alt text"
 msgstr "No se pudo actualizar el texto alternativo"
 
+#. Error toast after saving bot channel bindings fails.
+#: src/features/guild/components/modals/guild_tabs/GuildBotsTab.tsx:39
+msgid "Couldn't update bot channel access"
+msgstr "Couldn't update bot channel access"
+
 #. Error modal title shown when saving channel permission changes fails.
 #: src/features/channel/components/alerts/ChannelPermissionsUpdateFailedModal.tsx:9
 msgid "Couldn't update channel permissions"
@@ -9558,7 +9584,7 @@ msgid "Cover"
 msgstr "Portada"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:267
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:262
 #: src/features/user/components/settings_utils/section_registry/AppearanceSections.ts:246
 msgid "Cozy"
 msgstr "Acogedor"
@@ -9595,6 +9621,10 @@ msgstr "Crea una comunidad nueva o únete a una existente."
 #: src/features/channel/components/bottomsheets/channel_details_bottom_sheet/DMMembersList.tsx:19
 msgid "Create a new group with {userName}"
 msgstr "Crear un grupo nuevo con {userName}"
+
+#: src/features/guild/components/modals/guild_tabs/GuildBotsTab.tsx:228
+msgid "Create a text channel before attaching bots to this community."
+msgstr "Create a text channel before attaching bots to this community."
 
 #. Generic authentication action label for starting or submitting account creation.
 #: src/features/auth/components/pages/RegisterPage.tsx:42
@@ -11686,7 +11716,7 @@ msgid "Discovery"
 msgstr "Descubrir"
 
 #. Community settings tab for public community discovery/listing.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:76
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:83
 msgctxt "community-settings-tab"
 msgid "Discovery"
 msgstr "Descubrimiento"
@@ -12197,7 +12227,7 @@ msgstr "Borrador"
 msgid "Drag and drop"
 msgstr "Arrastrar y soltar"
 
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:295
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:290
 msgid "Drag and drop a sticker file here (one at a time)"
 msgstr "Arrastra y suelta un archivo de sticker aquí (uno a la vez)"
 
@@ -12206,7 +12236,7 @@ msgstr "Arrastra y suelta un archivo de sticker aquí (uno a la vez)"
 msgid "Drag and drop area for file upload"
 msgstr "Arrastra y suelta aquí los archivos para subirlos"
 
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:471
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:470
 msgid "Drag and drop emoji files here"
 msgstr "Arrastra y suelta aquí los archivos de emoji"
 
@@ -12792,7 +12822,7 @@ msgid "Emoji"
 msgstr "Emoji"
 
 #. Community settings tab for managing custom emoji uploaded to the community.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:36
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:38
 msgctxt "community-settings-tab"
 msgid "Emoji"
 msgstr "Emojis"
@@ -12848,7 +12878,7 @@ msgid "Emoji name must be at most 32 characters long"
 msgstr "El nombre del emoji debe tener 32 caracteres como máximo"
 
 #. Description in the community emoji upload section. {maxSize} is the formatted size limit.
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:95
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:96
 msgid "Emoji names need at least 2 characters and can use letters, numbers, and underscores. Emojis must be under {maxSize}. Static images are resized to 128x128 pixels and compressed automatically. Animated emojis and SVGs must already fit the limit."
 msgstr "Los nombres de los emojis deben tener al menos 2 caracteres y pueden usar letras, números y guiones bajos. Los emojis deben ser inferiores a {maxSize}. Las imágenes estáticas se redimensionan automáticamente a 128x128 píxeles y se comprimen. Los emojis animados y los SVG ya deben ajustarse al límite."
 
@@ -12896,7 +12926,7 @@ msgstr "Paquetes de emojis"
 msgid "Emoji picker"
 msgstr "Selector de emojis"
 
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:451
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:450
 msgid "Emoji slots"
 msgstr "Espacios para emojis"
 
@@ -14054,7 +14084,7 @@ msgstr "Purgar expresión"
 #. Community settings sidebar category grouping the emoji and stickers tabs.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:249
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:265
 #: src/features/user/components/settings_utils/search_index/ExpressionPacksIndex.ts:19
 #: src/features/user/components/settings_utils/section_registry/ChatSettingsSections.ts:134
 msgid "Expressions"
@@ -14219,7 +14249,12 @@ msgstr "Error al cargar"
 msgid "Failed to load authorized applications"
 msgstr "No se han podido cargar las aplicaciones autorizadas"
 
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:444
+#. Error message in the guild bots settings tab.
+#: src/features/guild/components/modals/guild_tabs/GuildBotsTab.tsx:27
+msgid "Failed to load bots"
+msgstr "Failed to load bots"
+
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:443
 msgid "Failed to load emojis. Try again later."
 msgstr "No se pudieron cargar los emojis. Inténtalo de nuevo más tarde."
 
@@ -14243,7 +14278,7 @@ msgid "Failed to load shareable sources."
 msgstr "No se han podido cargar las fuentes compartibles."
 
 #. Error message in the guild stickers tab.
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:74
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:71
 msgid "Failed to load stickers"
 msgstr "No se pudieron cargar los stickers"
 
@@ -14293,7 +14328,7 @@ msgid "Failed to pin message"
 msgstr "No se pudo fijar el mensaje"
 
 #. Error message in the guild emoji tab.
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:54
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:55
 msgid "Failed to prepare emojis"
 msgstr "No se han podido preparar los emojis"
 
@@ -14439,12 +14474,12 @@ msgid "Failed to upload custom sound"
 msgstr "No se pudo subir el sonido personalizado"
 
 #. Error message in the emoji upload failure modal. startLabel is a chunk label like "#1"; errorMsg is the server error.
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:62
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:63
 msgid "Failed to upload emojis starting at {startLabel}: {errorMsg}"
 msgstr "No se pudieron subir los emojis que empiezan por {startLabel}: {errorMsg}"
 
 #. Error message in the guild emoji tab.
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:58
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:59
 msgid "Failed to upload emojis. Try again."
 msgstr "No se pudieron subir los emojis. Inténtalo de nuevo."
 
@@ -14538,7 +14573,7 @@ msgid "Feature"
 msgstr "Función"
 
 #. Short label in the feature temporarily disabled modal.
-#: src/features/app/components/alerts/FeatureTemporarilyDisabledModal.tsx:9
+#: src/features/app/components/alerts/FeatureTemporarilyDisabledModal.tsx:8
 msgid "Feature temporarily disabled"
 msgstr "Función temporalmente desactivada"
 
@@ -14581,12 +14616,12 @@ msgid "File options"
 msgstr "Opciones de archivo"
 
 #. Title of the file-too-large alert variant that offers a Plutonium upsell.
-#: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:38
+#: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:35
 msgid "File size limit exceeded"
 msgstr "Se ha superado el límite de tamaño del archivo"
 
 #. Title of the file-too-large alert.
-#: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:34
+#: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:31
 msgid "File size too large"
 msgstr "El archivo es demasiado grande"
 
@@ -15436,7 +15471,7 @@ msgid "Gap"
 msgstr "Espacio"
 
 #. Short label in the temporary invite requires presence modal.
-#: src/features/app/components/alerts/TemporaryInviteRequiresPresenceModal.tsx:9
+#: src/features/app/components/alerts/TemporaryInviteRequiresPresenceModal.tsx:8
 msgid "Gateway connection required"
 msgstr "Se requiere conexión con la pasarela"
 
@@ -15753,7 +15788,7 @@ msgid "Give everyone on this instance the highest premium limits."
 msgstr "Otorga a todos en esta instancia los límites premium más altos."
 
 #. Modal body shown when the role-edit form is submitted with an empty role name.
-#: src/features/app/components/alerts/RoleNameBlankModal.tsx:13
+#: src/features/app/components/alerts/RoleNameBlankModal.tsx:12
 msgid "Give the role a name before saving."
 msgstr "Asigna un nombre al rol antes de guardar."
 
@@ -17088,7 +17123,7 @@ msgstr "Subida de imagen"
 msgid "Images"
 msgstr "Imágenes"
 
-#: src/features/messaging/components/alerts/AttachmentPermissionDeniedModal.tsx:38
+#: src/features/messaging/components/alerts/AttachmentPermissionDeniedModal.tsx:35
 msgid "Images pasted from your clipboard are sent as attachments, and you don't have permission to attach files in this channel."
 msgstr "Las imágenes pegadas desde tu portapapeles se envían como archivos adjuntos y no tienes permiso para adjuntar archivos en este canal."
 
@@ -17588,6 +17623,10 @@ msgstr "Instalada"
 msgid "Installed {installedCount} / {installedLimit}"
 msgstr "Instalados: {installedCount} / {installedLimit}"
 
+#: src/features/guild/components/modals/guild_tabs/GuildBotsTab.tsx:237
+msgid "Installed bots will appear here after they are added to this community."
+msgstr "Installed bots will appear here after they are added to this community."
+
 #: src/features/user/components/modals/tabs/ExpressionPacksTab.tsx:113
 msgid "Installed on {installedAt}"
 msgstr "Instalado el {installedAt}"
@@ -17624,9 +17663,9 @@ msgstr "URL de la instancia"
 msgid "Instant invites"
 msgstr "Invitaciones instantáneas"
 
-#. Community settings sidebar category grouping webhooks.
+#. Community settings sidebar category grouping webhooks and bots.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:257
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:273
 #: src/features/user/components/settings_utils/search_index/AuthorizedAppsIndex.ts:26
 msgid "Integrations"
 msgstr "Integraciones"
@@ -17969,7 +18008,7 @@ msgid "Invites"
 msgstr "Invitaciones"
 
 #. Community settings tab for invite link management.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:86
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:93
 msgctxt "community-settings-tab"
 msgid "Invites"
 msgstr "Invitaciones"
@@ -18014,7 +18053,7 @@ msgstr "Barra de notificaciones de invitaciones deshabilitadas"
 
 #. Button or menu action label in the invite accept modal. Keep it concise.
 #. Button or menu action label in the invites disabled modal. Keep it concise.
-#: src/features/invite/components/alerts/InvitesDisabledModal.tsx:10
+#: src/features/invite/components/alerts/InvitesDisabledModal.tsx:9
 #: src/features/invite/components/modals/InviteAcceptModal.tsx:49
 msgid "Invites paused"
 msgstr "Invitaciones en pausa"
@@ -19741,7 +19780,7 @@ msgid "Mature content media gate"
 msgstr "Bloqueo de contenido para adultos"
 
 #. Error message in the mature content rejected modal.
-#: src/features/moderation/components/alerts/MatureContentRejectedModal.tsx:9
+#: src/features/moderation/components/alerts/MatureContentRejectedModal.tsx:8
 msgid "Mature content not allowed"
 msgstr "Contenido para adultos no permitido"
 
@@ -19837,7 +19876,7 @@ msgid "Maximum screen share bitrate"
 msgstr "Tasa de bits máxima para compartir pantalla"
 
 #. Short label in the max favorite memes modal.
-#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:33
+#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:34
 #: src/features/expressions/components/modals/GiftAcceptModal.tsx:220
 #: src/features/expressions/components/modals/GiftAcceptModal.tsx:277
 msgid "Maybe later"
@@ -20045,7 +20084,7 @@ msgid "Members"
 msgstr "Miembros"
 
 #. Community settings tab for managing community members.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:81
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:88
 msgctxt "community-settings-tab"
 msgid "Members"
 msgstr "Miembros"
@@ -20533,7 +20572,7 @@ msgid "Microphone gain"
 msgstr "Ganancia del micrófono"
 
 #. Title of the modal shown when microphone permission is denied. Keep tone plain.
-#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:13
+#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:12
 msgid "Microphone permission required"
 msgstr "Se necesita permiso para el micrófono"
 
@@ -20744,7 +20783,7 @@ msgid "Moderation"
 msgstr "Moderación"
 
 #. Community settings tab for moderation and safety controls.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:56
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:58
 msgctxt "community-settings-tab"
 msgid "Moderation"
 msgstr "Moderación"
@@ -21539,7 +21578,7 @@ msgid "NEW"
 msgstr "NEW"
 
 #. Description text in the new account guild limit modal.
-#: src/features/guild/components/alerts/NewAccountGuildLimitModal.tsx:13
+#: src/features/guild/components/alerts/NewAccountGuildLimitModal.tsx:12
 msgid "New accounts can join up to 10 communities in the first 24 hours. Try again later."
 msgstr "Las cuentas nuevas pueden unirse a un máximo de 10 comunidades en las primeras 24 horas. Inténtalo de nuevo más tarde."
 
@@ -21810,6 +21849,10 @@ msgstr "Sin marcadores"
 msgid "No bot banner"
 msgstr "Sin banner de bot"
 
+#: src/features/guild/components/modals/guild_tabs/GuildBotsTab.tsx:236
+msgid "No bots installed"
+msgstr "No bots installed"
+
 #: src/features/user/components/modals/tabs/UserVideoTab.tsx:211
 msgid "No camera found"
 msgstr "No se ha encontrado ninguna cámara"
@@ -21846,6 +21889,10 @@ msgstr "No hay canales disponibles"
 #: src/features/search/components/search/ChannelFilterSheet.tsx:119
 msgid "No channels found"
 msgstr "No se encontraron canales"
+
+#: src/features/guild/components/modals/guild_tabs/GuildBotsTab.tsx:269
+msgid "No channels selected"
+msgstr "No channels selected"
 
 #. Empty-state text in the discovery page.
 #: src/features/discovery/discovery/DiscoveryPage.tsx:70
@@ -21902,11 +21949,11 @@ msgid "No embeds returned"
 msgstr "No se han devuelto elementos incrustados"
 
 #. Empty-state text in the guild emoji tab.
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:46
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:47
 msgid "No emoji slots available"
 msgstr "No hay ranuras de emoji disponibles"
 
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:479
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:478
 msgid "No emojis found matching your search."
 msgstr "No se han encontrado emojis que coincidan con tu búsqueda."
 
@@ -22157,7 +22204,7 @@ msgid "No scheduled messages"
 msgstr "No hay mensajes programados"
 
 #. Body of the screen-share-unsupported modal shown when xdg-desktop-portal returns no capturable sources.
-#: src/features/voice/components/alerts/ScreenShareUnsupportedModal.tsx:19
+#: src/features/voice/components/alerts/ScreenShareUnsupportedModal.tsx:18
 msgid "No screens or windows were returned by the Linux screen sharing portal. Try again after checking that your desktop environment allows screen capture."
 msgstr "No se devolvieron pantallas ni ventanas del portal de uso compartido de pantalla de Linux. Intenta volver a intentarlo después de verificar que tu entorno de escritorio permita la captura de pantalla."
 
@@ -22185,17 +22232,17 @@ msgid "No specific scopes requested."
 msgstr "No se han solicitado permisos específicos."
 
 #. Empty-state text in the guild stickers tab.
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:61
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:58
 msgid "No sticker slots available"
 msgstr "No hay ranuras para stickers disponibles"
 
 #. Empty-state text in the guild stickers tab.
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:57
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:54
 msgid "No stickers found"
 msgstr "No se encontraron stickers"
 
 #. Empty-state text in the guild stickers tab.
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:70
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:67
 msgid "No stickers found matching your search."
 msgstr "No se encontraron stickers que coincidan con tu búsqueda."
 
@@ -22220,6 +22267,10 @@ msgstr "Aún no hay stickers"
 #: src/features/guild/components/modals/guild_tabs/guild_overview_tab/sections/SystemWelcomeSection.tsx:16
 msgid "No system channel"
 msgstr "Sin canal del sistema"
+
+#: src/features/guild/components/modals/guild_tabs/GuildBotsTab.tsx:227
+msgid "No text channels"
+msgstr "No text channels"
 
 #. Screen-reader fragment indicating the message has no text body. Lowercase because it appears inside a longer sentence.
 #: src/features/channel/components/ChannelMessage.tsx:71
@@ -22322,7 +22373,7 @@ msgid "Noise suppression: {noiseSuppressionLabel}"
 msgstr "Supresión de ruido: {noiseSuppressionLabel}"
 
 #. Section heading for static emoji in community emoji settings.
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:100
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:101
 msgid "Non-animated emoji ({emojiCount})"
 msgstr "Emojis no animados ({emojiCount})"
 
@@ -22640,7 +22691,7 @@ msgid "One or more attachments couldn't be read or uploaded. The file may have b
 msgstr "No se pudieron leer o subir uno o más archivos adjuntos. Es posible que el archivo se haya movido o eliminado. Vuelve a añadirlo y reinténtalo."
 
 #. Body of the file-too-large alert for ambiguous count (single or multiple) over the per-file size limit.
-#: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:30
+#: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:27
 msgid "One or more files you're trying to upload exceed the maximum size limit of {maxSizeFormatted} per file."
 msgstr "Uno o varios de los archivos que intentas subir superan el límite de tamaño máximo de {maxSizeFormatted} por archivo."
 
@@ -23503,7 +23554,7 @@ msgid "Overview"
 msgstr "Información general"
 
 #. Community settings tab for basic server/community details.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:46
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:48
 msgctxt "community-settings-tab"
 msgid "Overview"
 msgstr "Información general"
@@ -23822,7 +23873,7 @@ msgstr "Las solicitudes de amistad pendientes aparecen aquí."
 #: src/features/expressions/utils/UnicodeEmojis.ts:21
 #: src/features/search/state/QuickSwitcherResultConverters.ts:22
 #: src/features/search/utils/QuickSwitcherModalUtils.tsx:51
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:261
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:277
 msgid "People"
 msgstr "Personas"
 
@@ -25918,8 +25969,8 @@ msgstr "Eliminar archivo adjunto"
 msgid "Remove authenticator app"
 msgstr "Eliminar aplicación de autenticación"
 
-#: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:406
-#: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:442
+#: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:404
+#: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:440
 msgid "Remove avatar"
 msgstr "Eliminar avatar"
 
@@ -27020,7 +27071,7 @@ msgid "Review the permissions {productName} uses for voice, video, screen sharin
 msgstr "Revisa los permisos que usa {productName} para voz, vídeo, compartir pantalla y accesos directos."
 
 #. Intro text in the error modal shown after some emoji uploads fail.
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:71
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:72
 msgid "Review these files and try again with smaller or simpler images."
 msgstr "Revisa estos archivos e inténtalo de nuevo con imágenes más pequeñas o sencillas."
 
@@ -27191,7 +27242,7 @@ msgid "Role name"
 msgstr "Nombre del rol"
 
 #. Validation modal title when the role-edit form is submitted with an empty role name.
-#: src/features/app/components/alerts/RoleNameBlankModal.tsx:9
+#: src/features/app/components/alerts/RoleNameBlankModal.tsx:8
 msgid "Role name is required"
 msgstr "El nombre del rol es obligatorio"
 
@@ -27211,7 +27262,7 @@ msgid "Roles"
 msgstr "Rol"
 
 #. Community settings tab for role hierarchy and permission rules.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:51
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:53
 msgctxt "community-settings-tab"
 msgid "Roles"
 msgstr "Roles ({FLUXER_TOKEN_0})"
@@ -27421,7 +27472,7 @@ msgid "Saved media autocomplete"
 msgstr "Autocompletar contenido guardado"
 
 #. Short label in the max favorite memes modal.
-#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:15
+#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:16
 msgid "Saved media limit reached"
 msgstr "Límite de contenido guardado alcanzado"
 
@@ -27528,7 +27579,7 @@ msgstr "Anuncios del lector de pantalla"
 
 #. Heading in the screen-share picker when macOS screen recording permission is missing.
 #. Title of the modal shown when screen recording permission is denied. Keep tone plain.
-#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:21
+#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:20
 #: src/features/voice/components/modals/screen_share_picker_modal/ScreenSharePickerDisplayPermissionPrompt.tsx:18
 msgid "Screen recording permission required"
 msgstr "Se necesita permiso para grabar la pantalla"
@@ -27561,7 +27612,7 @@ msgid "Screen share encoder controls"
 msgstr "Controles del codificador para compartir pantalla"
 
 #. Title of a modal shown when an active screen share stops unexpectedly.
-#: src/features/voice/engine/v2/VoiceEngineV2AppScreenShareExecutionAdapter.tsx:111
+#: src/features/voice/engine/v2/VoiceEngineV2AppScreenShareExecutionAdapter.tsx:110
 msgctxt "screen-share"
 msgid "Screen share ended"
 msgstr "Finalizó el uso compartido de pantalla"
@@ -27648,17 +27699,17 @@ msgid "Screen sharing codec"
 msgstr "Códec para compartir pantalla"
 
 #. Title of the modal shown when a screen share attempt fails due to a video source error.
-#: src/features/voice/components/alerts/ScreenShareFailedModal.tsx:9
+#: src/features/voice/components/alerts/ScreenShareFailedModal.tsx:8
 msgid "Screen sharing failed"
 msgstr "Error al compartir pantalla"
 
 #. Body of the screen-share-unsupported modal. Mentions specific browsers and OSes; keep all proper nouns intact.
-#: src/features/voice/components/alerts/ScreenShareUnsupportedModal.tsx:13
+#: src/features/voice/components/alerts/ScreenShareUnsupportedModal.tsx:12
 msgid "Screen sharing is not supported on this device or browser. This feature requires a desktop browser that supports screen sharing, such as Chrome, Firefox, or Edge on Windows, macOS, or Linux."
 msgstr "Compartir pantalla no es compatible con este dispositivo o navegador. Esta función requiere un navegador de escritorio que admita compartir pantalla, como Chrome, Firefox o Edge en Windows, macOS o Linux."
 
 #. Title of the modal shown when screen sharing is not supported on the current device / browser.
-#: src/features/voice/components/alerts/ScreenShareUnsupportedModal.tsx:9
+#: src/features/voice/components/alerts/ScreenShareUnsupportedModal.tsx:8
 msgid "Screen sharing not supported"
 msgstr "No se puede compartir la pantalla"
 
@@ -27795,7 +27846,7 @@ msgid "Search countries…"
 msgstr "Buscar países…"
 
 #. Button or menu action label in the guild emoji tab. Keep it concise.
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:91
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:92
 msgid "Search emojis"
 msgstr "Buscar emojis"
 
@@ -27960,7 +28011,7 @@ msgid "Search shortcuts…"
 msgstr "Buscar atajos…"
 
 #. Button or menu action label in the guild stickers tab. Keep it concise.
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:49
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:46
 msgid "Search stickers"
 msgstr "Buscar stickers"
 
@@ -29954,7 +30005,7 @@ msgid "Slow attachment upload"
 msgstr "Subida lenta de archivos adjuntos"
 
 #. Short label in the new account guild limit modal. Keep it concise.
-#: src/features/guild/components/alerts/NewAccountGuildLimitModal.tsx:9
+#: src/features/guild/components/alerts/NewAccountGuildLimitModal.tsx:8
 msgid "Slow down"
 msgstr "Ve más despacio"
 
@@ -30004,7 +30055,7 @@ msgstr "Modo lento · espera {remaining}"
 #. Developer tools debug menu label. Internal-only surface for developers; translators may keep this terse.
 #. Short label in the slowmode rate limited modal. Keep it concise.
 #: src/features/channel/components/channel_header_components/developer_tools/DeveloperOptionLabels.ts:249
-#: src/features/slowmode/components/alerts/SlowmodeRateLimitedModal.tsx:14
+#: src/features/slowmode/components/alerts/SlowmodeRateLimitedModal.tsx:13
 msgid "Slowmode active"
 msgstr "Modo lento activo"
 
@@ -30019,7 +30070,7 @@ msgid "Slowmode is enabled, but you are immune."
 msgstr "El modo lento está activado, pero eres inmune."
 
 #. Modal body shown when slowmode blocks sending a message. {duration} is a localized short duration such as "2 minutes".
-#: src/features/slowmode/components/alerts/SlowmodeRateLimitedModal.tsx:18
+#: src/features/slowmode/components/alerts/SlowmodeRateLimitedModal.tsx:17
 msgid "Slowmode is on — wait {duration} before sending another."
 msgstr "El modo lento está activado. Espera {duration} antes de enviar otro mensaje."
 
@@ -30150,12 +30201,12 @@ msgid "Sold out"
 msgstr "Agotado"
 
 #. Title of the error modal shown after some emoji uploads fail.
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:67
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:68
 msgid "Some emojis couldn't be added"
 msgstr "No se pudieron añadir algunos emojis"
 
 #. Body of the file-too-large alert when multiple files exceed the per-file size limit. maxSizeFormatted is the limit formatted with units.
-#: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:21
+#: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:18
 msgid "Some files you're trying to upload exceed the maximum size limit of {maxSizeFormatted} per file."
 msgstr "Algunos de los archivos que intentas subir superan el límite de tamaño máximo de {maxSizeFormatted} por archivo."
 
@@ -30948,7 +30999,7 @@ msgid "Sticker deleted"
 msgstr "Sticker eliminado"
 
 #. Short label in the guild stickers tab. Keep it concise.
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:53
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:50
 msgid "Sticker density"
 msgstr "Densidad de stickers"
 
@@ -30996,7 +31047,7 @@ msgstr "Límite de paquetes de stickers alcanzado"
 msgid "Sticker packs"
 msgstr "Paquetes de stickers"
 
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:283
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:278
 msgid "Sticker slots"
 msgstr "Espacios para stickers"
 
@@ -31026,13 +31077,13 @@ msgid "Stickers"
 msgstr "Stickers: {FLUXER_TOKEN_0}"
 
 #. Community settings tab for managing custom stickers uploaded to the community.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:41
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:43
 msgctxt "community-settings-tab"
 msgid "Stickers"
 msgstr "Pegatinas"
 
 #. Description in the community sticker upload section. {maxSize} is the formatted size limit.
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:82
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:79
 msgid "Stickers are saved at 320x320 pixels and must be under {maxSize}. Static images are resized and compressed automatically. Animated stickers and SVGs must already fit the limit."
 msgstr "Los stickers se guardan en 320x320 píxeles y deben ser inferiores a {maxSize}. Las imágenes estáticas se redimensionan y comprimen automáticamente. Los stickers animados y los SVG ya deben ajustarse al límite."
 
@@ -31862,7 +31913,7 @@ msgid "temporarily unavailable"
 msgstr "no disponible temporalmente"
 
 #. Modal body shown when the user tries to accept a temporary invite while the realtime connection is offline.
-#: src/features/app/components/alerts/TemporaryInviteRequiresPresenceModal.tsx:13
+#: src/features/app/components/alerts/TemporaryInviteRequiresPresenceModal.tsx:12
 msgid "Temporary invites need a live connection. Check yours and try again."
 msgstr "Las invitaciones temporales requieren una conexión activa. Comprueba la tuya y vuelve a intentarlo."
 
@@ -31982,12 +32033,12 @@ msgid "Text-to-speech"
 msgstr "Text-to-speech"
 
 #. Body of the TTS-unsupported modal. Mentions specific browsers; keep Chrome, Firefox, Edge, and Brave as literal proper nouns.
-#: src/features/voice/components/alerts/TtsUnsupportedModal.tsx:13
+#: src/features/voice/components/alerts/TtsUnsupportedModal.tsx:12
 msgid "Text-to-speech is not supported by your browser. Some browsers like Brave block this feature for privacy reasons. Try using Chrome, Firefox, or Edge, or adjust your browser's privacy settings."
 msgstr "Tu navegador no es compatible con la función de texto a voz. Algunos navegadores, como Brave, bloquean esta función por motivos de privacidad. Prueba a usar Chrome, Firefox o Edge, o ajusta la configuración de privacidad de tu navegador."
 
 #. Title of the modal shown when the browser does not support text-to-speech.
-#: src/features/voice/components/alerts/TtsUnsupportedModal.tsx:9
+#: src/features/voice/components/alerts/TtsUnsupportedModal.tsx:8
 msgid "Text-to-speech not supported"
 msgstr "Texto a voz no compatible"
 
@@ -32148,7 +32199,7 @@ msgid "The file contains the verification token we will fetch from <0>{dnsUrl}</
 msgstr "El archivo contiene el token de verificación que obtendremos de <0>{dnsUrl}</0>."
 
 #. Body of the file-too-large alert when a single file exceeds the per-file size limit.
-#: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:26
+#: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:23
 msgid "The file you're trying to upload exceeds the maximum size limit of {maxSizeFormatted}."
 msgstr "El archivo que intentas subir supera el límite de tamaño máximo de {maxSizeFormatted}."
 
@@ -32198,7 +32249,7 @@ msgid "The provided redirect_uri must use HTTP or HTTPS."
 msgstr "La redirect_uri proporcionada debe usar HTTP o HTTPS."
 
 #. Body of a modal shown when a browser screen share track ends outside the app, for example from the browser sharing controls.
-#: src/features/voice/engine/v2/VoiceEngineV2AppScreenShareExecutionAdapter.tsx:116
+#: src/features/voice/engine/v2/VoiceEngineV2AppScreenShareExecutionAdapter.tsx:115
 msgctxt "screen-share"
 msgid "The screen share source stopped sending video, so your screen share was stopped."
 msgstr "La fuente de uso compartido de pantalla dejó de enviar vídeo, por lo que se detuvo el uso compartido de pantalla."
@@ -32361,6 +32412,11 @@ msgstr "Hoy no hay ningún método de suscripción local basado en la aplicació
 msgid "There is no recovery once this starts. We will DM you when it finishes."
 msgstr "No hay recuperación una vez que esto comience. Te enviaremos un mensaje directo cuando termine."
 
+#. Error message in the guild bots settings tab.
+#: src/features/guild/components/modals/guild_tabs/GuildBotsTab.tsx:31
+msgid "There was an error loading the bots. Try again."
+msgstr "There was an error loading the bots. Try again."
+
 #: src/features/channel/components/modals/channel_tabs/ChannelInvitesTab.tsx:271
 msgid "There was an error loading the invite links for this channel. Try again."
 msgstr "Ha habido un error al cargar los enlaces de invitación para este canal. Inténtalo de nuevo."
@@ -32370,7 +32426,7 @@ msgid "There was an error loading the invites. Try again."
 msgstr "Ha habido un error al cargar las invitaciones. Inténtalo de nuevo."
 
 #. Error message in the guild stickers tab.
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:78
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:75
 msgid "There was an error loading the stickers. Try again."
 msgstr "Ha habido un error al cargar los stickers. Inténtalo de nuevo."
 
@@ -32516,7 +32572,7 @@ msgid "This channel is marked for mature content and may contain material that m
 msgstr "Este canal está marcado para contenido para adultos y puede contener material que podría ser inapropiado para algunos usuarios."
 
 #. Label in the mature content rejected modal.
-#: src/features/moderation/components/alerts/MatureContentRejectedModal.tsx:13
+#: src/features/moderation/components/alerts/MatureContentRejectedModal.tsx:12
 msgid "This channel is not marked for mature content. Mature content can only be sent in channels marked for mature content. Ask a moderator to update this channel if appropriate."
 msgstr "Este canal no está marcado para contenido para adultos. El contenido para adultos solo se puede enviar en canales marcados para contenido para adultos. Pide a un moderador que actualice este canal si es apropiado."
 
@@ -32579,7 +32635,7 @@ msgid "This community has paused invites. You can try again later."
 msgstr "Esta comunidad ha pausado las invitaciones. Puedes intentarlo de nuevo más tarde."
 
 #. Description text in the guild at capacity modal.
-#: src/features/guild/components/alerts/GuildAtCapacityModal.tsx:13
+#: src/features/guild/components/alerts/GuildAtCapacityModal.tsx:12
 msgid "This community has reached its maximum member limit and is not accepting new members at this time."
 msgstr "Esta comunidad ha alcanzado su límite máximo de miembros y no está aceptando nuevos miembros en este momento."
 
@@ -32657,7 +32713,7 @@ msgid "This doesn't look like a valid template response. Make sure you copied th
 msgstr "Parece que no es una respuesta de plantilla válida. Asegúrate de haber copiado el documento JSON completo."
 
 #. Generic per-file error text shown when preparing an emoji upload fails.
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:87
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:88
 msgid "This emoji could not be prepared. Try another file or try again in a moment."
 msgstr "No se ha podido preparar este emoji. Prueba con otro archivo o inténtalo de nuevo en un momento."
 
@@ -32674,7 +32730,7 @@ msgid "This expression is gone"
 msgstr "Esta expresión ya no existe"
 
 #. Modal body shown when an instance admin has temporarily disabled a feature. Keep plain.
-#: src/features/app/components/alerts/FeatureTemporarilyDisabledModal.tsx:13
+#: src/features/app/components/alerts/FeatureTemporarilyDisabledModal.tsx:12
 msgid "This feature is paused. Try again later."
 msgstr "Esta función está en pausa. Inténtalo de nuevo más tarde."
 
@@ -32684,7 +32740,7 @@ msgid "This field has an error"
 msgstr "Este campo tiene un error"
 
 #. Error text for animated emoji or SVG uploads that exceed the file size limit. {fileSize} and {maxSize} are formatted file sizes.
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:75
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:76
 msgid "This file is {fileSize}, over the {maxSize} limit. Animated emojis and SVGs must already be small enough to upload. Choose a smaller file or shorten the animation."
 msgstr "Este archivo tiene un tamaño de {fileSize}, superando el límite de {maxSize}. Los emojis animados y los SVG ya deben ser lo suficientemente pequeños para subirse. Elige un archivo más pequeño o acorta la animación."
 
@@ -32833,7 +32889,7 @@ msgid "This is not the community you're looking for."
 msgstr "Esta no es la comunidad que buscas."
 
 #. Description text in the too many reactions modal. Keep the tone plain and specific.
-#: src/features/messaging/components/alerts/TooManyReactionsModal.tsx:13
+#: src/features/messaging/components/alerts/TooManyReactionsModal.tsx:12
 msgid "This is one heavy message. Some reactions need to be removed before you can add more."
 msgstr "Este mensaje es demasiado pesado. Tienes que eliminar algunas reacciones antes de poder añadir más."
 
@@ -32855,7 +32911,7 @@ msgid "This is the third option description"
 msgstr "Esta es la descripción de la tercera opción"
 
 #. Extra file-too-large alert sentence shown when premium upload-limit upgrades are unavailable.
-#: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:42
+#: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:39
 msgid "This limit is configured by your instance administrator."
 msgstr "Este límite lo configura el administrador de tu instancia."
 
@@ -33570,7 +33626,7 @@ msgid "Too many attempts. Wait a bit, then try again."
 msgstr "Demasiados intentos. Espera un poco y vuelve a intentarlo."
 
 #. Error message in the max guilds modal.
-#: src/features/guild/components/alerts/MaxGuildsModal.tsx:10
+#: src/features/guild/components/alerts/MaxGuildsModal.tsx:9
 msgid "Too many communities"
 msgstr "Demasiadas comunidades"
 
@@ -34199,8 +34255,8 @@ msgstr "No se ha podido cargar la vista previa."
 msgid "Unable to load profile banner, badges, and bio."
 msgstr "No se pueden cargar el banner del perfil, las insignias ni la biografía."
 
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:272
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:328
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:271
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:327
 msgid "Unable to prepare any emojis for upload. The following errors occurred:"
 msgstr "No se han podido preparar los emojis para subirlos. Han ocurrido los siguientes errores:"
 
@@ -34932,7 +34988,7 @@ msgid "Unsupported icon format"
 msgstr "Formato de icono no compatible"
 
 #. Title of the error modal shown when an unsupported sticker file type is selected.
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:87
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:84
 msgid "Unsupported sticker file"
 msgstr "Archivo de sticker no compatible"
 
@@ -35135,8 +35191,8 @@ msgstr "Actualizar ahora"
 
 #. Short label in the max bookmarks modal. Preserve {premiumProductName}; it is inserted by code.
 #. Short label in the max favorite memes modal. Preserve {premiumProductName}; it is inserted by code.
-#: src/features/app/components/alerts/MaxBookmarksModal.tsx:35
-#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:29
+#: src/features/app/components/alerts/MaxBookmarksModal.tsx:36
+#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:30
 msgid "Upgrade to {premiumProductName}"
 msgstr "Actualiza a {premiumProductName}"
 
@@ -35208,7 +35264,7 @@ msgstr "Subir sonido personalizado para {label}"
 msgid "Upload directly to {displayName}"
 msgstr "Subir directamente a {displayName}"
 
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:454
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:453
 msgid "Upload emoji"
 msgstr "Subir emoji"
 
@@ -35252,7 +35308,7 @@ msgstr "Subir fotogramas de vista previa para los vídeos compartidos."
 msgid "Upload sound"
 msgstr "Subir sonido"
 
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:286
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:281
 msgid "Upload sticker"
 msgstr "Subir sticker"
 
@@ -36004,7 +36060,7 @@ msgid "Vanity URL"
 msgstr "URL personalizada"
 
 #. Community settings tab for the community vanity/custom invite link.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:71
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:78
 msgctxt "community-settings-tab"
 msgid "Vanity URL"
 msgstr "URL personalizada"
@@ -36996,7 +37052,7 @@ msgid "Volume sliders"
 msgstr "Controles de volumen"
 
 #. Description text in the message delete too quick modal. Keep the tone plain and specific.
-#: src/features/messaging/components/alerts/MessageDeleteTooQuickModal.tsx:13
+#: src/features/messaging/components/alerts/MessageDeleteTooQuickModal.tsx:12
 msgid "Wait a moment before deleting more messages."
 msgstr "Espera un momento antes de eliminar más mensajes."
 
@@ -37148,7 +37204,7 @@ msgstr "No hemos podido reenviar el mensaje en este momento."
 msgid "We couldn't import that theme library file."
 msgstr "No se pudo importar el archivo de la biblioteca de temas."
 
-#: src/features/messaging/components/alerts/AttachmentUploadConnectivityModal.tsx:24
+#: src/features/messaging/components/alerts/AttachmentUploadConnectivityModal.tsx:23
 msgid "We couldn't reach the attachment upload service. {PRODUCT_NAME} can fall back to the standard upload path for messages up to {fallbackSizeFormatted} total, but these attachments exceed that combined limit and can't be sent until connectivity is restored. Try again later or contact <0>{SUPPORT_EMAIL}</0> if this keeps happening."
 msgstr "No hemos podido contactar con el servicio de subida de archivos adjuntos. {PRODUCT_NAME} puede recurrir a la ruta de subida estándar para mensajes de hasta {fallbackSizeFormatted} en total, pero estos archivos adjuntos superan ese límite combinado y no se pueden enviar hasta que se restablezca la conectividad. Inténtalo de nuevo más tarde o contacta con <0>{SUPPORT_EMAIL}</0> si esto sigue ocurriendo."
 
@@ -37191,7 +37247,7 @@ msgid "We recommend saving these codes now so that you don't get locked out of y
 msgstr "Te recomendamos guardar estos códigos ahora para no quedarte fuera de tu cuenta."
 
 #. Error text for static emoji uploads that still exceed the file size limit after resizing. {fileSize} and {maxSize} are formatted file sizes.
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:81
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:82
 msgid "We resized and compressed this emoji to 128x128 pixels, but it is still {fileSize}. The limit is {maxSize}. Try a simpler image, fewer colors, or a smaller source file."
 msgstr "Hemos redimensionado y comprimido este emoji a 128x128 píxeles, pero sigue siendo {fileSize}. El límite es {maxSize}. Prueba con una imagen más sencilla, menos colores o un archivo de origen más pequeño."
 
@@ -37384,7 +37440,7 @@ msgid "Webhooks"
 msgstr "Webhooks"
 
 #. Community settings tab for configuring webhooks.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:66
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:68
 msgctxt "community-settings-tab"
 msgid "Webhooks"
 msgstr "Webhooks"
@@ -37657,8 +37713,8 @@ msgstr "Vaya, es un apocalipsis de escritura"
 
 #. Label in the too many attachments modal.
 #. Label in the too many reactions modal.
-#: src/features/messaging/components/alerts/TooManyAttachmentsModal.tsx:10
-#: src/features/messaging/components/alerts/TooManyReactionsModal.tsx:9
+#: src/features/messaging/components/alerts/TooManyAttachmentsModal.tsx:9
+#: src/features/messaging/components/alerts/TooManyReactionsModal.tsx:8
 msgid "Whoa, this is heavy"
 msgstr "Uf, esto es demasiado"
 
@@ -37741,7 +37797,7 @@ msgid "With {PREMIUM_PRODUCT_NAME}, you can use animated avatars ({ANIMATED_AVAT
 msgstr "Con {PREMIUM_PRODUCT_NAME}, puedes usar avatares animados ({ANIMATED_AVATAR_FORMATS}), banners de perfil, personalizar tu etiqueta y desbloquear muchas otras ventajas de {PREMIUM_PRODUCT_NAME}."
 
 #. Premium upsell sentence in the file-too-large alert. premiumProductName is the paid product name; fileSizeLimit is a localized file size.
-#: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:46
+#: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:43
 msgid "With {premiumProductName}, your per-file upload limit increases to {fileSizeLimit}, plus animated avatars, longer messages, and many other {premiumProductName} perks."
 msgstr "Con {premiumProductName}, tu límite de carga por archivo aumenta a {fileSizeLimit}, además de avatares animados, mensajes más largos y muchas otras ventajas de {premiumProductName}."
 
@@ -37871,7 +37927,7 @@ msgid "You are about to transfer ownership of this community to <0>{0}</0>. This
 msgstr "Vas a transferir la propiedad de esta comunidad a <0>{0}</0>. Esta acción es <1>irreversible</1> y perderás todos los privilegios de propietario."
 
 #. Error message in the user banned from guild modal. Keep the tone plain and specific.
-#: src/features/moderation/components/alerts/UserBannedFromGuildModal.tsx:13
+#: src/features/moderation/components/alerts/UserBannedFromGuildModal.tsx:12
 msgid "You are banned from this community and cannot join."
 msgstr "Te han expulsado de esta comunidad y no puedes unirte."
 
@@ -37994,7 +38050,7 @@ msgid "You can't add new reactions while you're on timeout."
 msgstr "No puedes añadir reacciones nuevas mientras estás en tiempo de espera."
 
 #. Description text in the attachment permission denied modal. Keep the tone plain and specific.
-#: src/features/messaging/components/alerts/AttachmentPermissionDeniedModal.tsx:20
+#: src/features/messaging/components/alerts/AttachmentPermissionDeniedModal.tsx:17
 msgid "You can't attach files in this channel."
 msgstr "No puedes adjuntar archivos en este canal."
 
@@ -38356,6 +38412,10 @@ msgstr "Necesitas el permiso \"{embedLinksPermissionLabel}\" para insertar enlac
 msgid "You need the \"{manageChannelsPermissionLabel}\" permission to edit these permissions."
 msgstr "Necesitas el permiso \"{manageChannelsPermissionLabel}\" para editar estos permisos."
 
+#: src/features/guild/components/modals/guild_tabs/GuildBotsTab.tsx:198
+msgid "You need the \"{manageGuildPermissionLabel}\" permission to view and edit bots for this community."
+msgstr "You need the \"{manageGuildPermissionLabel}\" permission to view and edit bots for this community."
+
 #. Tooltip on the disabled permission list in the role editor. {manageRolesPermissionLabel} is the localized name of the Manage Roles permission and should match its label exactly.
 #: src/features/guild/components/modals/guild_tabs/GuildRolesTab.tsx:59
 msgid "You need the \"{manageRolesPermissionLabel}\" permission to edit these permissions"
@@ -38502,17 +38562,17 @@ msgid "You're already Visionary"
 msgstr "Ya eres Visionario"
 
 #. Modal body shown when the bookmarks limit is reached on a self-hosted instance with no upgrade path. Limit count is interpolated.
-#: src/features/app/components/alerts/MaxBookmarksModal.tsx:19
+#: src/features/app/components/alerts/MaxBookmarksModal.tsx:20
 msgid "You're at {bookmarksText} — your instance admin sets this cap. Remove one to add another."
 msgstr "Has alcanzado el límite de {bookmarksText}. El administrador de tu instancia establece este límite. Elimina uno para añadir otro."
 
 #. Modal body shown when the bookmarks limit is reached and Plutonium is unavailable on this instance. Limit count is interpolated.
-#: src/features/app/components/alerts/MaxBookmarksModal.tsx:24
+#: src/features/app/components/alerts/MaxBookmarksModal.tsx:25
 msgid "You're at {bookmarksText}. Remove one to add another."
 msgstr "Has alcanzado el límite de {bookmarksText}. Elimina uno para añadir otro."
 
 #. Modal body shown when the favorite-memes limit is reached on a self-hosted instance with no Plutonium upgrade path. Limit text is interpolated.
-#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:19
+#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:20
 msgid "You're at the cap of {freeItemsText} — your instance admin sets this limit."
 msgstr "Has alcanzado el límite de {freeItemsText}. El administrador de tu instancia establece este límite."
 
@@ -38524,12 +38584,12 @@ msgid "You're at the creation limit. Delete one to create another."
 msgstr "Has alcanzado el límite de creación. Elimina uno para crear otro."
 
 #. Modal body shown when the free bookmarks limit is reached and Plutonium would increase it. Free and Plutonium limits are interpolated.
-#: src/features/app/components/alerts/MaxBookmarksModal.tsx:29
+#: src/features/app/components/alerts/MaxBookmarksModal.tsx:30
 msgid "You're at the free cap of {bookmarksText}. {premiumProductName} bumps you up to {premiumBookmarksText} — or remove one to add another."
 msgstr "Has alcanzado el límite gratuito de {bookmarksText}. {premiumProductName} te permite tener hasta {premiumBookmarksText}. Si no, elimina uno para añadir otro."
 
 #. Modal body shown when the free favorite-memes limit is reached and Plutonium would increase it. Free and Plutonium limits are interpolated.
-#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:24
+#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:25
 msgid "You're at the free cap of {freeItemsText}. {premiumProductName} bumps you up to {premiumItemsText}."
 msgstr "Has alcanzado el límite gratuito de {freeItemsText}. Con {premiumProductName} subirás a {premiumItemsText}."
 
@@ -38541,7 +38601,7 @@ msgid "You're at the install limit. Remove one to add another."
 msgstr "Has alcanzado el límite de instalación. Elimina uno para añadir otro."
 
 #. Short label in the user banned from guild modal. Keep it concise. Keep the tone plain and specific.
-#: src/features/moderation/components/alerts/UserBannedFromGuildModal.tsx:9
+#: src/features/moderation/components/alerts/UserBannedFromGuildModal.tsx:8
 msgid "You're banned"
 msgstr "Has sido expulsado"
 
@@ -38566,7 +38626,7 @@ msgid "You're deafened"
 msgstr "Estás silenciado."
 
 #. Label in the message delete too quick modal. Keep the tone plain and specific.
-#: src/features/messaging/components/alerts/MessageDeleteTooQuickModal.tsx:9
+#: src/features/messaging/components/alerts/MessageDeleteTooQuickModal.tsx:8
 msgid "You're deleting messages too quickly"
 msgstr "Estás eliminando mensajes demasiado rápido"
 
@@ -38725,12 +38785,12 @@ msgid "You've reached the group DM limit"
 msgstr "Has alcanzado el límite de MD de grupo"
 
 #. Emoji upload limit message in community emoji settings. Do not suggest that communities can be upgraded.
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:50
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:51
 msgid "You've reached the maximum number of emojis. Delete some existing emojis to make room."
 msgstr "Has alcanzado el número máximo de emojis. Elimina algunos emojis existentes para liberar espacio."
 
 #. Sticker upload limit message in community sticker settings. Do not suggest that communities can be upgraded.
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:65
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:62
 msgid "You've reached the maximum number of stickers. Delete some existing stickers to make room."
 msgstr "Has alcanzado el número máximo de stickers. Elimina algunos stickers existentes para hacer espacio."
 
@@ -38803,7 +38863,7 @@ msgid "Your account requires multi-factor authentication, but no supported metho
 msgstr "Tu cuenta requiere autenticación multifactor, pero no hay métodos compatibles configurados en este dispositivo. Inicia sesión en un dispositivo con tu aplicación de autenticación o clave de seguridad, o contacta con soporte."
 
 #. Modal body shown when the safety system blocks the requested action. Keep plain and calm; offer support path.
-#: src/features/auth/components/ContentBlockedHandler.tsx:15
+#: src/features/auth/components/ContentBlockedHandler.tsx:14
 msgid "Your action could not be completed because it was flagged by our safety systems. If you believe this is a mistake, please contact support."
 msgstr "No se ha podido completar tu acción porque ha sido marcada por nuestros sistemas de seguridad. Si crees que es un error, contacta con soporte."
 
@@ -38928,12 +38988,12 @@ msgid "Your IP address has been successfully authorized."
 msgstr "Tu dirección IP ha sido autorizada correctamente."
 
 #. Error message in the user ip banned from guild modal. Keep the tone plain and specific.
-#: src/features/moderation/components/alerts/UserIpBannedFromGuildModal.tsx:13
+#: src/features/moderation/components/alerts/UserIpBannedFromGuildModal.tsx:12
 msgid "Your IP address is banned from this community and you cannot join."
 msgstr "Tu dirección IP ha sido bloqueada en esta comunidad y no puedes unirte."
 
 #. Label in the user ip banned from guild modal. Keep the tone plain and specific.
-#: src/features/moderation/components/alerts/UserIpBannedFromGuildModal.tsx:9
+#: src/features/moderation/components/alerts/UserIpBannedFromGuildModal.tsx:8
 msgid "Your IP is banned"
 msgstr "Tu IP ha sido bloqueada"
 

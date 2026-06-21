@@ -2,6 +2,7 @@
 
 import GuildAuditLogTab from '@app/features/guild/components/modals/guild_tabs/GuildAuditLogTab';
 import GuildBansTab from '@app/features/guild/components/modals/guild_tabs/GuildBansTab';
+import GuildBotsTab from '@app/features/guild/components/modals/guild_tabs/GuildBotsTab';
 import GuildDiscoveryTab from '@app/features/guild/components/modals/guild_tabs/GuildDiscoveryTab';
 import GuildEmojiTab from '@app/features/guild/components/modals/guild_tabs/GuildEmojiTab';
 import GuildInvitesTab from '@app/features/guild/components/modals/guild_tabs/GuildInvitesTab';
@@ -24,6 +25,7 @@ import {
 	type IconWeight,
 	LinkIcon,
 	ProhibitIcon,
+	RobotIcon,
 	ShieldIcon,
 	SmileyIcon,
 	StickerIcon,
@@ -68,6 +70,11 @@ const WEBHOOKS_DESCRIPTOR = msg({
 	context: 'community-settings-tab',
 	comment: 'Community settings tab for configuring webhooks.',
 });
+const BOTS_DESCRIPTOR = msg({
+	message: 'Bots',
+	context: 'community-settings-tab',
+	comment: 'Community settings tab for configuring installed bots.',
+});
 const VANITY_URL_DESCRIPTOR = msg({
 	message: 'Vanity URL',
 	context: 'community-settings-tab',
@@ -102,6 +109,7 @@ export type GuildSettingsTabType =
 	| 'moderation'
 	| 'audit_log'
 	| 'webhooks'
+	| 'bots'
 	| 'vanity_url'
 	| 'discovery'
 	| 'members'
@@ -217,6 +225,14 @@ const GUILD_SETTINGS_TABS_DESCRIPTORS: Array<GuildSettingsTabDescriptor> = [
 		permission: Permissions.MANAGE_WEBHOOKS,
 	},
 	{
+		type: 'bots',
+		category: 'integrations',
+		label: BOTS_DESCRIPTOR,
+		icon: RobotIcon,
+		component: GuildBotsTab,
+		permission: Permissions.MANAGE_GUILD,
+	},
+	{
 		type: 'members',
 		category: 'user_management',
 		label: MEMBERS_DESCRIPTOR,
@@ -256,7 +272,7 @@ const COMMUNITY_CATEGORY_DESCRIPTOR = msg({
 });
 const INTEGRATIONS_CATEGORY_DESCRIPTOR = msg({
 	message: 'Integrations',
-	comment: 'Community settings sidebar category grouping webhooks.',
+	comment: 'Community settings sidebar category grouping webhooks and bots.',
 });
 const PEOPLE_CATEGORY_DESCRIPTOR = msg({
 	message: 'People',

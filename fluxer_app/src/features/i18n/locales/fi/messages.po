@@ -345,8 +345,8 @@ msgstr "{count, plural, one {# liite} other {# liitettä}}"
 msgid "{count, plural, one {# blocked message} other {# blocked messages}}"
 msgstr "{count, plural, one {# estetty viesti} other {# estettyä viestiä}}"
 
-#: src/features/app/components/alerts/MaxBookmarksModal.tsx:50
-#: src/features/app/components/alerts/MaxBookmarksModal.tsx:83
+#: src/features/app/components/alerts/MaxBookmarksModal.tsx:51
+#: src/features/app/components/alerts/MaxBookmarksModal.tsx:76
 msgid "{count, plural, one {# bookmark} other {# bookmarks}}"
 msgstr "{count, plural, one {# kirjanmerkki} other {# kirjanmerkkiä}}"
 
@@ -420,8 +420,8 @@ msgstr "{count, plural, one {# reaktio} other {# reaktiota}}"
 msgid "{count, plural, one {# reactor} other {# reactors}}"
 msgstr "{count, plural, one {# reagoija} other {# reagoijaa}}"
 
-#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:44
-#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:82
+#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:45
+#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:79
 msgid "{count, plural, one {# saved media item} other {# saved media items}}"
 msgstr "{count, plural, one {# tallennettu media} other {# tallennettua mediaa}}"
 
@@ -500,7 +500,7 @@ msgstr "{count, plural, one {Kirjaudu ulos # laitteesta} other {Kirjaudu ulos # 
 msgid "{count, plural, one {Used # time.} other {Used # times.}}"
 msgstr "{count, plural, one {Käytetty # kerran.} other {Käytetty # kertaa.}}"
 
-#: src/features/messaging/components/alerts/TooManyAttachmentsModal.tsx:21
+#: src/features/messaging/components/alerts/TooManyAttachmentsModal.tsx:20
 msgid "{count, plural, one {You can only upload # file at a time. Try again with fewer files.} other {You can only upload # files at a time. Try again with fewer files.}}"
 msgstr "{count, plural, one {Voit lähettää vain yhden tiedoston kerrallaan. Yritä uudelleen pienemmällä määrällä tiedostoja.} other {Voit lähettää vain # tiedostoa kerrallaan. Yritä uudelleen pienemmällä määrällä tiedostoja.}}"
 
@@ -525,7 +525,7 @@ msgstr "{count, plural, one {Olet jo yhteydessä tähän äänikanavaan # toisel
 msgid "{count, plural, one {You're already using the one allowed connection for this voice channel. Switch to this device or cancel.} other {You're already using all # allowed connections for this voice channel. Switch to this device or cancel.}}"
 msgstr "{count, plural, one {Käytät jo yhtä sallittua yhteyttä tälle äänikanavalle. Vaihda tähän laitteeseen tai peruuta.} other {Käytät jo kaikkia # sallittuja yhteyksiä tälle äänikanavalle. Vaihda tähän laitteeseen tai peruuta.}}"
 
-#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:65
+#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:62
 msgid "{count, plural, one {You're at the cap of # saved media item. Remove one to add another.} other {You're at the cap of # saved media items. Remove one to add another.}}"
 msgstr "{count, plural, one {Olet tallennettujen mediatiedostojen enimmäismäärässä. Poista yksi lisätäksesi toisen.} other {Olet tallennettujen mediatiedostojen enimmäismäärässä. Poista yksi lisätäksesi toisen.}}"
 
@@ -545,7 +545,7 @@ msgstr "{count, plural, one {Olet asentanut enimmäismäärän tarrapaketteja (#
 msgid "{count, plural, one {You're at the limit of # sticker pack. Delete one to create another.} other {You're at the limit of # sticker packs. Delete one to create another.}}"
 msgstr "{count, plural, one {Olet saavuttanut yhden tarrasetin rajan. Poista yksi luodaksesi uuden.} other {Olet saavuttanut tarrasettien rajan. Poista yksi luodaksesi uuden.}}"
 
-#: src/features/guild/components/alerts/MaxGuildsModal.tsx:25
+#: src/features/guild/components/alerts/MaxGuildsModal.tsx:24
 msgid "{count, plural, one {You've reached the maximum number of communities you can join (# community). Leave a community before joining another one.} other {You've reached the maximum number of communities you can join (# communities). Leave a community before joining another one.}}"
 msgstr "{count, plural, one {Olet saavuttanut yhteisöjen enimmäismäärän (# yhteisö). Poistu yhteisöstä ennen kuin liityt toiseen.} other {Olet saavuttanut yhteisöjen enimmäismäärän (# yhteisöä). Poistu yhteisöstä ennen kuin liityt toiseen.}}"
 
@@ -1124,22 +1124,22 @@ msgid "{productName} member since"
 msgstr "{productName}n jäsen alkaen"
 
 #. Body of the camera-permission-denied modal on web. {productName} is Fluxer.
-#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:40
+#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:39
 msgid "{productName} needs access to your camera to enable video chat. Grant camera permission in your browser settings and try again."
 msgstr "{productName} tarvitsee pääsyn kameraasi videokeskustelun mahdollistamiseksi. Myönnä kameralle lupa selaimesi asetuksista ja yritä uudelleen."
 
 #. Body of the camera-permission-denied modal on Windows and Linux. {productName} is Fluxer.
-#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:35
+#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:34
 msgid "{productName} needs access to your camera. Allow camera access in your operating system privacy settings and restart the app."
 msgstr "{productName} tarvitsee pääsyn kameraasi. Salli kameran käyttö käyttöjärjestelmän tietosuoja-asetuksista ja käynnistä sovellus uudelleen."
 
 #. Body of the microphone-permission-denied modal on web. {productName} is Fluxer.
-#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:30
+#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:29
 msgid "{productName} needs access to your microphone to enable voice chat. Grant microphone permission in your browser settings and try again."
 msgstr "{productName} tarvitsee pääsyn mikrofoniisi äänichatin mahdollistamiseksi. Myönnä mikrofonilupa selaimesi asetuksista ja yritä uudelleen."
 
 #. Body of the microphone-permission-denied modal on Windows and Linux. {productName} is Fluxer.
-#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:25
+#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:24
 msgid "{productName} needs access to your microphone. Allow microphone access in your operating system privacy settings and restart the app."
 msgstr "{productName} tarvitsee pääsyn mikrofoniisi. Salli mikrofonin käyttö käyttöjärjestelmän tietosuoja-asetuksista ja käynnistä sovellus uudelleen."
 
@@ -1154,7 +1154,7 @@ msgid "{productName} needs microphone access to list your devices."
 msgstr "{productName} tarvitsee mikrofonin käyttöoikeuden luetteloidakseen laitteesi."
 
 #. Body of the screen-permission-denied modal on non-mac desktop platforms. {productName} is Fluxer.
-#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:45
+#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:44
 msgid "{productName} needs screen recording access. Allow screen recording in your operating system privacy settings and restart the app."
 msgstr "{productName} tarvitsee pääsyn näytön tallennukseen. Salli näytön tallennus käyttöjärjestelmäsi tietosuoja-asetuksissa ja käynnistä sovellus uudelleen."
 
@@ -1179,7 +1179,7 @@ msgid "{productName} spellcheck settings…"
 msgstr "{productName}-oikoluvun asetukset…"
 
 #. Label in the invites disabled modal.
-#: src/features/invite/components/alerts/InvitesDisabledModal.tsx:14
+#: src/features/invite/components/alerts/InvitesDisabledModal.tsx:13
 msgid "{productName} spotted a possible raid here. Invites are paused — try again later."
 msgstr "{productName} havaitsi mahdollisen hyökkäyksen. Kutsut on keskeytetty – yritä myöhemmin uudelleen."
 
@@ -1273,6 +1273,10 @@ msgstr "{seconds, plural, one {Tämä kutsu vanhenee # sekunnissa.} other {Täm�
 #: src/features/guild/components/modals/guild_tabs/guild_overview_tab/sections/IdleSettingsSection.tsx:36
 msgid "{seconds} seconds"
 msgstr "{seconds} sekuntia"
+
+#: src/features/guild/components/modals/guild_tabs/GuildBotsTab.tsx:273
+msgid "{selectedCount} channels"
+msgstr "{selectedCount} channels"
 
 #. Generic multi-select summary label. selectedCount is the number of selected options.
 #: src/features/ui/components/form/FormCombobox.tsx:79
@@ -1580,6 +1584,7 @@ msgstr "<0>Vain URL-suosikit (oletus)</0>: synkronoidaan laitteidesi välillä, 
 
 #. Summary chip text in the mobile channel search sheet when exactly one channel is selected as a filter.
 #: src/features/channel/components/bottomsheets/ChannelSearchBottomSheet.tsx:160
+#: src/features/guild/components/modals/guild_tabs/GuildBotsTab.tsx:271
 msgid "1 channel"
 msgstr "1 kanava"
 
@@ -2349,7 +2354,7 @@ msgid "Activity log"
 msgstr "Aktiviteettiloki"
 
 #. Community settings tab showing activity log entries and moderation history.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:61
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:63
 msgctxt "community-settings-tab"
 msgid "Activity log"
 msgstr "Aktiviteettiloki"
@@ -2844,7 +2849,7 @@ msgid "Administrator"
 msgstr "Järjestelmänvalvoja"
 
 #. Error message in the invites disabled modal.
-#: src/features/invite/components/alerts/InvitesDisabledModal.tsx:18
+#: src/features/invite/components/alerts/InvitesDisabledModal.tsx:17
 msgid "Admins paused invites — you can't join right now."
 msgstr "Ylläpitäjät keskeyttivät kutsut – et voi liittyä juuri nyt."
 
@@ -3423,12 +3428,12 @@ msgstr "Ja 1 muu puhelu"
 msgid "Animate on interaction"
 msgstr "Animoi vuorovaikutuksessa"
 
-#: src/features/expressions/utils/AnimatedAvifModalUtils.tsx:27
+#: src/features/expressions/utils/AnimatedAvifModalUtils.tsx:26
 msgid "Animated {AVIF_FORMAT_LABEL} files aren't supported. Upload a static {AVIF_FORMAT_LABEL} file instead."
 msgstr "Animoidut {AVIF_FORMAT_LABEL}-tiedostot eivät ole tuettuja. Lataa sen sijaan staattinen {AVIF_FORMAT_LABEL}-tiedosto."
 
 #. Modal title shown when an animated AVIF upload is rejected by the client.
-#: src/features/expressions/utils/AnimatedAvifModalUtils.tsx:12
+#: src/features/expressions/utils/AnimatedAvifModalUtils.tsx:11
 msgid "Animated {avifFormatLabel} not supported"
 msgstr "Animoitua {avifFormatLabel}-tiedostoa ei tueta"
 
@@ -3476,7 +3481,7 @@ msgid "Animated emoji"
 msgstr "Animoidut emojit"
 
 #. Section heading for animated emoji in community emoji settings.
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:104
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:105
 msgid "Animated emoji ({emojiCount})"
 msgstr "Animoidut emojit ({emojiCount})"
 
@@ -4119,7 +4124,7 @@ msgid "Attachment upload"
 msgstr "Liitteen lataus"
 
 #. Short label in the attachment upload connectivity modal. Keep it concise.
-#: src/features/messaging/components/alerts/AttachmentUploadConnectivityModal.tsx:13
+#: src/features/messaging/components/alerts/AttachmentUploadConnectivityModal.tsx:12
 msgid "Attachment upload unavailable"
 msgstr "Liitteen lähetys ei ole käytettävissä"
 
@@ -4685,8 +4690,8 @@ msgstr "Saatavilla työpöytäsovelluksessa."
 #. Form label for a webhook avatar image.
 #. Settings search entry label. Also used as a search synonym in the settings search bar.
 #: src/features/ui/components/BaseAvatar.tsx:17
-#: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:374
-#: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:422
+#: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:372
+#: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:420
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:13
 #: src/features/webhook/components/WebhookListItem.tsx:251
 msgid "Avatar"
@@ -5015,7 +5020,7 @@ msgid "Banner preview"
 msgstr "Bannerin esikatselu"
 
 #. Community settings tab for banned users.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:91
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:98
 msgctxt "community-settings-tab"
 msgid "Bans"
 msgstr "Porttikiellot"
@@ -5273,7 +5278,7 @@ msgid "Bookmark"
 msgstr "Kirjanmerkki"
 
 #. Short label in the max bookmarks modal.
-#: src/features/app/components/alerts/MaxBookmarksModal.tsx:15
+#: src/features/app/components/alerts/MaxBookmarksModal.tsx:16
 msgid "Bookmark limit reached"
 msgstr "Kirjanmerkkien enimmäismäärä saavutettu"
 
@@ -5360,6 +5365,11 @@ msgstr "Botin kuvaus"
 msgid "Bot biography"
 msgstr "Botin biografia"
 
+#. Success toast after saving bot channel bindings.
+#: src/features/guild/components/modals/guild_tabs/GuildBotsTab.tsx:35
+msgid "Bot channel access updated"
+msgstr "Bot channel access updated"
+
 #. Short label in the guild privacy settings modal. Keep it concise. Keep the tone plain and specific.
 #: src/features/guild/components/modals/GuildPrivacySettingsModal.tsx:21
 msgid "Bot direct messages"
@@ -5432,9 +5442,16 @@ msgid "Both sides"
 msgstr "Molemmat"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
+#: src/features/guild/components/modals/guild_tabs/GuildBotsTab.tsx:190
 #: src/features/user/components/settings_utils/search_index/ApplicationsIndex.ts:16
 msgid "Bots"
 msgstr "Botit"
+
+#. Community settings tab for configuring installed bots.
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:73
+msgctxt "community-settings-tab"
+msgid "Bots"
+msgstr "Bots"
 
 #: src/features/user/components/modals/tabs/component_gallery_tab/OverlaysTab.tsx:98
 msgid "Bottom"
@@ -5761,7 +5778,7 @@ msgid "Camera on"
 msgstr "Kamera päällä"
 
 #. Title of the modal shown when camera permission is denied. Keep tone plain.
-#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:17
+#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:16
 msgid "Camera permission required"
 msgstr "Kameran käyttöoikeus tarvitaan"
 
@@ -5805,12 +5822,12 @@ msgid "Can't access that email?"
 msgstr "Etkö pääse käyttämään sähköpostia?"
 
 #. Error message in the attachment permission denied modal. Keep the tone plain and specific.
-#: src/features/messaging/components/alerts/AttachmentPermissionDeniedModal.tsx:12
+#: src/features/messaging/components/alerts/AttachmentPermissionDeniedModal.tsx:9
 msgid "Can't paste image here"
 msgstr "Kuvaa ei voi liittää tähän"
 
 #. Error message in the attachment permission denied modal. Keep the tone plain and specific.
-#: src/features/messaging/components/alerts/AttachmentPermissionDeniedModal.tsx:16
+#: src/features/messaging/components/alerts/AttachmentPermissionDeniedModal.tsx:13
 msgid "Can't upload files here"
 msgstr "Tiedostojen lähetys ei onnistu tähän"
 
@@ -6142,8 +6159,8 @@ msgstr "Keskitetty"
 
 #. Title of the modal where the user picks an avatar source (file upload or GIF provider). Keep it concise.
 #: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:110
-#: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:396
-#: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:432
+#: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:394
+#: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:430
 msgid "Change avatar"
 msgstr "Vaihda profiilikuva"
 
@@ -6982,6 +6999,10 @@ msgstr "Valitse oletuspalvelu, jota käytetään kuvan käänteisessä kuvahauss
 #: src/features/user/components/modals/tabs/chat_settings_tab/SearchEnginesTab.tsx:47
 msgid "Choose which search engine is used by default when searching selected text."
 msgstr "Valitse oletushakukone valitun tekstin hakuun."
+
+#: src/features/guild/components/modals/guild_tabs/GuildBotsTab.tsx:193
+msgid "Choose which text channels each installed bot can read and send messages in."
+msgstr "Choose which text channels each installed bot can read and send messages in."
 
 #. Button or menu action label in the search engines tab. Keep it concise.
 #: src/features/user/components/modals/tabs/chat_settings_tab/SearchEnginesTab.tsx:80
@@ -7823,13 +7844,13 @@ msgstr "yhteisö"
 #: src/features/app/config/AuditLogConstants.ts:152
 #: src/features/auth/components/pages/oauth_authorize_page/OAuthCommunityStep.tsx:48
 #: src/features/moderation/components/report_modal/IARModalPreview.tsx:16
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:253
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:269
 #: src/features/user/components/settings_utils/section_registry/PrivacySafetySections.ts:140
 msgid "Community"
 msgstr "Yhteisö"
 
 #. Short label in the guild at capacity modal. Keep it concise.
-#: src/features/guild/components/alerts/GuildAtCapacityModal.tsx:9
+#: src/features/guild/components/alerts/GuildAtCapacityModal.tsx:8
 msgid "Community at capacity"
 msgstr "Yhteisö täynnä"
 
@@ -8009,7 +8030,7 @@ msgid "Community record"
 msgstr "Yhteisötietue"
 
 #. Root label for community settings modal and settings search paths.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:244
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:260
 msgid "Community settings"
 msgstr "Yhteisön asetukset"
 
@@ -8042,7 +8063,7 @@ msgid "Community-wide"
 msgstr "Community-wide"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:276
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:271
 #: src/features/user/components/settings_utils/section_registry/AppearanceSections.ts:242
 msgid "Compact"
 msgstr "Tiivis"
@@ -8449,7 +8470,7 @@ msgid "Contact support"
 msgstr "Ota yhteyttä tukeen"
 
 #. Short label in the authentication content blocked handler. Keep the tone plain and specific.
-#: src/features/auth/components/ContentBlockedHandler.tsx:11
+#: src/features/auth/components/ContentBlockedHandler.tsx:10
 msgid "Content blocked"
 msgstr "Sisältö estetty"
 
@@ -9000,7 +9021,7 @@ msgid "Could not load this page"
 msgstr "Sivua ei voitu ladata"
 
 #. Body of the modal shown when a screen share attempt fails. Advises the user to try sharing the full screen.
-#: src/features/voice/components/alerts/ScreenShareFailedModal.tsx:13
+#: src/features/voice/components/alerts/ScreenShareFailedModal.tsx:12
 msgid "Could not start the screen share. The selected source may no longer be available or may have blocked capture. Try sharing your entire screen or monitor instead of a specific window."
 msgstr "Näytön jakamista ei voitu aloittaa. Valittu lähde ei ehkä ole enää käytettävissä tai sen kaappaus on estetty. Yritä jakaa koko näyttösi tai monitorisi tietyn ikkunan sijaan."
 
@@ -9465,6 +9486,11 @@ msgstr "Keskustelun irrottaminen epäonnistui"
 msgid "Couldn't update alt text"
 msgstr "Vaihtoehtoista tekstiä ei voitu päivittää"
 
+#. Error toast after saving bot channel bindings fails.
+#: src/features/guild/components/modals/guild_tabs/GuildBotsTab.tsx:39
+msgid "Couldn't update bot channel access"
+msgstr "Couldn't update bot channel access"
+
 #. Error modal title shown when saving channel permission changes fails.
 #: src/features/channel/components/alerts/ChannelPermissionsUpdateFailedModal.tsx:9
 msgid "Couldn't update channel permissions"
@@ -9558,7 +9584,7 @@ msgid "Cover"
 msgstr "Kansi"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:267
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:262
 #: src/features/user/components/settings_utils/section_registry/AppearanceSections.ts:246
 msgid "Cozy"
 msgstr "Kotoisa"
@@ -9595,6 +9621,10 @@ msgstr "Luo uusi yhteisö tai liity olemassa olevaan."
 #: src/features/channel/components/bottomsheets/channel_details_bottom_sheet/DMMembersList.tsx:19
 msgid "Create a new group with {userName}"
 msgstr "Luo uusi ryhmä käyttäjän {userName} kanssa"
+
+#: src/features/guild/components/modals/guild_tabs/GuildBotsTab.tsx:228
+msgid "Create a text channel before attaching bots to this community."
+msgstr "Create a text channel before attaching bots to this community."
 
 #. Generic authentication action label for starting or submitting account creation.
 #: src/features/auth/components/pages/RegisterPage.tsx:42
@@ -11686,7 +11716,7 @@ msgid "Discovery"
 msgstr "Löydä"
 
 #. Community settings tab for public community discovery/listing.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:76
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:83
 msgctxt "community-settings-tab"
 msgid "Discovery"
 msgstr "Löydettävyys"
@@ -12197,7 +12227,7 @@ msgstr "Luonnos"
 msgid "Drag and drop"
 msgstr "Vedä ja pudota"
 
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:295
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:290
 msgid "Drag and drop a sticker file here (one at a time)"
 msgstr "Vedä ja pudota tähän tarratiedosto (yksi kerrallaan)"
 
@@ -12206,7 +12236,7 @@ msgstr "Vedä ja pudota tähän tarratiedosto (yksi kerrallaan)"
 msgid "Drag and drop area for file upload"
 msgstr "Vedä ja pudota tiedostoja tähän"
 
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:471
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:470
 msgid "Drag and drop emoji files here"
 msgstr "Vedä ja pudota emojitiedostot tähän"
 
@@ -12792,7 +12822,7 @@ msgid "Emoji"
 msgstr "Emoji"
 
 #. Community settings tab for managing custom emoji uploaded to the community.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:36
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:38
 msgctxt "community-settings-tab"
 msgid "Emoji"
 msgstr "Emojit"
@@ -12848,7 +12878,7 @@ msgid "Emoji name must be at most 32 characters long"
 msgstr "Emojin nimen pituus saa olla enintään 32 merkkiä"
 
 #. Description in the community emoji upload section. {maxSize} is the formatted size limit.
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:95
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:96
 msgid "Emoji names need at least 2 characters and can use letters, numbers, and underscores. Emojis must be under {maxSize}. Static images are resized to 128x128 pixels and compressed automatically. Animated emojis and SVGs must already fit the limit."
 msgstr "Emoji-nimien tulee olla vähintään 2 merkkiä pitkiä, ja niissä voidaan käyttää kirjaimia, numeroita ja alaviivoja. Emojien koko saa olla enintään {maxSize}. Staattiset kuvat muokataan automaattisesti kokoon 128x128 pikseliä ja pakataan. Animoitujen emojien ja SVG-kuvien on oltava valmiiksi määritellyn koon mukaisia."
 
@@ -12896,7 +12926,7 @@ msgstr "Emojipaketit"
 msgid "Emoji picker"
 msgstr "Emojivalitsin"
 
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:451
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:450
 msgid "Emoji slots"
 msgstr "Emojipaikat"
 
@@ -14054,7 +14084,7 @@ msgstr "Lausekkeiden poisto"
 #. Community settings sidebar category grouping the emoji and stickers tabs.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:249
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:265
 #: src/features/user/components/settings_utils/search_index/ExpressionPacksIndex.ts:19
 #: src/features/user/components/settings_utils/section_registry/ChatSettingsSections.ts:134
 msgid "Expressions"
@@ -14219,7 +14249,12 @@ msgstr "Lataus epäonnistui"
 msgid "Failed to load authorized applications"
 msgstr "Valtuutettujen sovellusten lataaminen epäonnistui"
 
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:444
+#. Error message in the guild bots settings tab.
+#: src/features/guild/components/modals/guild_tabs/GuildBotsTab.tsx:27
+msgid "Failed to load bots"
+msgstr "Failed to load bots"
+
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:443
 msgid "Failed to load emojis. Try again later."
 msgstr "Emojien lataus epäonnistui. Yritä uudelleen myöhemmin."
 
@@ -14243,7 +14278,7 @@ msgid "Failed to load shareable sources."
 msgstr "Jaettavia lähteitä ei voitu ladata."
 
 #. Error message in the guild stickers tab.
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:74
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:71
 msgid "Failed to load stickers"
 msgstr "Tarragallerian lataus epäonnistui"
 
@@ -14293,7 +14328,7 @@ msgid "Failed to pin message"
 msgstr "Viestin kiinnitys epäonnistui"
 
 #. Error message in the guild emoji tab.
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:54
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:55
 msgid "Failed to prepare emojis"
 msgstr "Emojien valmistelu epäonnistui"
 
@@ -14439,12 +14474,12 @@ msgid "Failed to upload custom sound"
 msgstr "Mukautetun äänen lataaminen epäonnistui"
 
 #. Error message in the emoji upload failure modal. startLabel is a chunk label like "#1"; errorMsg is the server error.
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:62
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:63
 msgid "Failed to upload emojis starting at {startLabel}: {errorMsg}"
 msgstr "Emojien lataus epäonnistui alkaen {startLabel}: {errorMsg}"
 
 #. Error message in the guild emoji tab.
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:58
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:59
 msgid "Failed to upload emojis. Try again."
 msgstr "Emojien lataaminen epäonnistui. Yritä uudelleen."
 
@@ -14538,7 +14573,7 @@ msgid "Feature"
 msgstr "Ominaisuus"
 
 #. Short label in the feature temporarily disabled modal.
-#: src/features/app/components/alerts/FeatureTemporarilyDisabledModal.tsx:9
+#: src/features/app/components/alerts/FeatureTemporarilyDisabledModal.tsx:8
 msgid "Feature temporarily disabled"
 msgstr "Ominaisuus poissa käytöstä"
 
@@ -14581,12 +14616,12 @@ msgid "File options"
 msgstr "Tiedostovalinnat"
 
 #. Title of the file-too-large alert variant that offers a Plutonium upsell.
-#: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:38
+#: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:35
 msgid "File size limit exceeded"
 msgstr "Tiedoston koko ylittää rajoituksen"
 
 #. Title of the file-too-large alert.
-#: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:34
+#: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:31
 msgid "File size too large"
 msgstr "Tiedosto on liian suuri"
 
@@ -15436,7 +15471,7 @@ msgid "Gap"
 msgstr "Väli"
 
 #. Short label in the temporary invite requires presence modal.
-#: src/features/app/components/alerts/TemporaryInviteRequiresPresenceModal.tsx:9
+#: src/features/app/components/alerts/TemporaryInviteRequiresPresenceModal.tsx:8
 msgid "Gateway connection required"
 msgstr "Gateway-yhteys tarvitaan"
 
@@ -15753,7 +15788,7 @@ msgid "Give everyone on this instance the highest premium limits."
 msgstr "Anna kaikille tässä instanssissa korkeimmat premium-rajat."
 
 #. Modal body shown when the role-edit form is submitted with an empty role name.
-#: src/features/app/components/alerts/RoleNameBlankModal.tsx:13
+#: src/features/app/components/alerts/RoleNameBlankModal.tsx:12
 msgid "Give the role a name before saving."
 msgstr "Anna roolille nimi ennen tallentamista."
 
@@ -17088,7 +17123,7 @@ msgstr "Kuvan lataus"
 msgid "Images"
 msgstr "Kuvat"
 
-#: src/features/messaging/components/alerts/AttachmentPermissionDeniedModal.tsx:38
+#: src/features/messaging/components/alerts/AttachmentPermissionDeniedModal.tsx:35
 msgid "Images pasted from your clipboard are sent as attachments, and you don't have permission to attach files in this channel."
 msgstr "Leikepöydältä liitetyt kuvat lähetetään liitteinä, eikä sinulla ole oikeutta liittää tiedostoja tälle kanavalle."
 
@@ -17588,6 +17623,10 @@ msgstr "Asennettu"
 msgid "Installed {installedCount} / {installedLimit}"
 msgstr "Asennettu {installedCount} / {installedLimit}"
 
+#: src/features/guild/components/modals/guild_tabs/GuildBotsTab.tsx:237
+msgid "Installed bots will appear here after they are added to this community."
+msgstr "Installed bots will appear here after they are added to this community."
+
 #: src/features/user/components/modals/tabs/ExpressionPacksTab.tsx:113
 msgid "Installed on {installedAt}"
 msgstr "Asennettu: {installedAt}"
@@ -17624,9 +17663,9 @@ msgstr "Palvelimen osoite"
 msgid "Instant invites"
 msgstr "Kutsulinkit"
 
-#. Community settings sidebar category grouping webhooks.
+#. Community settings sidebar category grouping webhooks and bots.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:257
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:273
 #: src/features/user/components/settings_utils/search_index/AuthorizedAppsIndex.ts:26
 msgid "Integrations"
 msgstr "Integraatiot"
@@ -17969,7 +18008,7 @@ msgid "Invites"
 msgstr "Kutsut"
 
 #. Community settings tab for invite link management.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:86
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:93
 msgctxt "community-settings-tab"
 msgid "Invites"
 msgstr "Kutsut"
@@ -18014,7 +18053,7 @@ msgstr "Kutsut poissa käytöstä -ilmoituspalkki"
 
 #. Button or menu action label in the invite accept modal. Keep it concise.
 #. Button or menu action label in the invites disabled modal. Keep it concise.
-#: src/features/invite/components/alerts/InvitesDisabledModal.tsx:10
+#: src/features/invite/components/alerts/InvitesDisabledModal.tsx:9
 #: src/features/invite/components/modals/InviteAcceptModal.tsx:49
 msgid "Invites paused"
 msgstr "Kutsut keskeytetty"
@@ -19741,7 +19780,7 @@ msgid "Mature content media gate"
 msgstr "Sisällön ikärajoitus"
 
 #. Error message in the mature content rejected modal.
-#: src/features/moderation/components/alerts/MatureContentRejectedModal.tsx:9
+#: src/features/moderation/components/alerts/MatureContentRejectedModal.tsx:8
 msgid "Mature content not allowed"
 msgstr "Sopimatonta sisältöä ei sallita"
 
@@ -19837,7 +19876,7 @@ msgid "Maximum screen share bitrate"
 msgstr "Näytönjaon enimmäisbitrate"
 
 #. Short label in the max favorite memes modal.
-#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:33
+#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:34
 #: src/features/expressions/components/modals/GiftAcceptModal.tsx:220
 #: src/features/expressions/components/modals/GiftAcceptModal.tsx:277
 msgid "Maybe later"
@@ -20045,7 +20084,7 @@ msgid "Members"
 msgstr "Jäsenet"
 
 #. Community settings tab for managing community members.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:81
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:88
 msgctxt "community-settings-tab"
 msgid "Members"
 msgstr "Jäsenet"
@@ -20533,7 +20572,7 @@ msgid "Microphone gain"
 msgstr "Mikrofonin vahvistus"
 
 #. Title of the modal shown when microphone permission is denied. Keep tone plain.
-#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:13
+#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:12
 msgid "Microphone permission required"
 msgstr "Mikrofonilupa vaaditaan"
 
@@ -20744,7 +20783,7 @@ msgid "Moderation"
 msgstr "Moderointi"
 
 #. Community settings tab for moderation and safety controls.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:56
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:58
 msgctxt "community-settings-tab"
 msgid "Moderation"
 msgstr "Moderointi"
@@ -21539,7 +21578,7 @@ msgid "NEW"
 msgstr "NEW"
 
 #. Description text in the new account guild limit modal.
-#: src/features/guild/components/alerts/NewAccountGuildLimitModal.tsx:13
+#: src/features/guild/components/alerts/NewAccountGuildLimitModal.tsx:12
 msgid "New accounts can join up to 10 communities in the first 24 hours. Try again later."
 msgstr "Uudet tilit voivat liittyä enintään 10 yhteisöön ensimmäisten 24 tunnin aikana. Yritä uudelleen myöhemmin."
 
@@ -21810,6 +21849,10 @@ msgstr "Ei kirjanmerkkejä"
 msgid "No bot banner"
 msgstr "Ei bottibanneria"
 
+#: src/features/guild/components/modals/guild_tabs/GuildBotsTab.tsx:236
+msgid "No bots installed"
+msgstr "No bots installed"
+
 #: src/features/user/components/modals/tabs/UserVideoTab.tsx:211
 msgid "No camera found"
 msgstr "Kameraa ei löydy"
@@ -21846,6 +21889,10 @@ msgstr "Kanavia ei saatavilla"
 #: src/features/search/components/search/ChannelFilterSheet.tsx:119
 msgid "No channels found"
 msgstr "Kanavia ei löytynyt"
+
+#: src/features/guild/components/modals/guild_tabs/GuildBotsTab.tsx:269
+msgid "No channels selected"
+msgstr "No channels selected"
 
 #. Empty-state text in the discovery page.
 #: src/features/discovery/discovery/DiscoveryPage.tsx:70
@@ -21902,11 +21949,11 @@ msgid "No embeds returned"
 msgstr "Upotuksia ei palautettu"
 
 #. Empty-state text in the guild emoji tab.
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:46
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:47
 msgid "No emoji slots available"
 msgstr "Ei emojipaikkoja vapaana"
 
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:479
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:478
 msgid "No emojis found matching your search."
 msgstr "Hakua vastaavia emojeita ei löytynyt."
 
@@ -22157,7 +22204,7 @@ msgid "No scheduled messages"
 msgstr "Ei ajoitettuja viestejä"
 
 #. Body of the screen-share-unsupported modal shown when xdg-desktop-portal returns no capturable sources.
-#: src/features/voice/components/alerts/ScreenShareUnsupportedModal.tsx:19
+#: src/features/voice/components/alerts/ScreenShareUnsupportedModal.tsx:18
 msgid "No screens or windows were returned by the Linux screen sharing portal. Try again after checking that your desktop environment allows screen capture."
 msgstr "Linuxin näytönjakamisportaali ei palauttanut yhtään näyttöä tai ikkunaa. Yritä uudelleen sen jälkeen, kun olet tarkistanut, että työpöytäympäristösi sallii näytön jakamisen."
 
@@ -22185,17 +22232,17 @@ msgid "No specific scopes requested."
 msgstr "Erityisiä käyttöoikeuksia ei pyydetty."
 
 #. Empty-state text in the guild stickers tab.
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:61
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:58
 msgid "No sticker slots available"
 msgstr "Ei tarrojen paikkoja saatavilla"
 
 #. Empty-state text in the guild stickers tab.
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:57
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:54
 msgid "No stickers found"
 msgstr "Tarroja ei löytynyt"
 
 #. Empty-state text in the guild stickers tab.
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:70
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:67
 msgid "No stickers found matching your search."
 msgstr "Hakua vastaavia tarroja ei löytynyt."
 
@@ -22220,6 +22267,10 @@ msgstr "Ei tarroja vielä"
 #: src/features/guild/components/modals/guild_tabs/guild_overview_tab/sections/SystemWelcomeSection.tsx:16
 msgid "No system channel"
 msgstr "Ei järjestelmäkanavaa"
+
+#: src/features/guild/components/modals/guild_tabs/GuildBotsTab.tsx:227
+msgid "No text channels"
+msgstr "No text channels"
 
 #. Screen-reader fragment indicating the message has no text body. Lowercase because it appears inside a longer sentence.
 #: src/features/channel/components/ChannelMessage.tsx:71
@@ -22322,7 +22373,7 @@ msgid "Noise suppression: {noiseSuppressionLabel}"
 msgstr "Melunvaimennus: {noiseSuppressionLabel}"
 
 #. Section heading for static emoji in community emoji settings.
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:100
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:101
 msgid "Non-animated emoji ({emojiCount})"
 msgstr "Ei-animoidut emojit ({emojiCount})"
 
@@ -22640,7 +22691,7 @@ msgid "One or more attachments couldn't be read or uploaded. The file may have b
 msgstr "Yhtä tai useampaa liitettä ei voitu lukea tai ladata. Tiedosto on ehkä siirretty tai poistettu. Lisää se uudelleen ja yritä myöhemmin."
 
 #. Body of the file-too-large alert for ambiguous count (single or multiple) over the per-file size limit.
-#: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:30
+#: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:27
 msgid "One or more files you're trying to upload exceed the maximum size limit of {maxSizeFormatted} per file."
 msgstr "Yksi tai useampi tiedostoista, joita yrität ladata, ylittää tiedostokohtaisen enimmäiskoon {maxSizeFormatted}."
 
@@ -23503,7 +23554,7 @@ msgid "Overview"
 msgstr "Yleiskatsaus"
 
 #. Community settings tab for basic server/community details.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:46
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:48
 msgctxt "community-settings-tab"
 msgid "Overview"
 msgstr "Yleiskatsaus"
@@ -23822,7 +23873,7 @@ msgstr "Tässä näkyvät odottavat kaveripyynnöt."
 #: src/features/expressions/utils/UnicodeEmojis.ts:21
 #: src/features/search/state/QuickSwitcherResultConverters.ts:22
 #: src/features/search/utils/QuickSwitcherModalUtils.tsx:51
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:261
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:277
 msgid "People"
 msgstr "Ihmiset"
 
@@ -25918,8 +25969,8 @@ msgstr "Poista liite"
 msgid "Remove authenticator app"
 msgstr "Poista todennussovellus"
 
-#: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:406
-#: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:442
+#: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:404
+#: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:440
 msgid "Remove avatar"
 msgstr "Poista profiilikuva"
 
@@ -27020,7 +27071,7 @@ msgid "Review the permissions {productName} uses for voice, video, screen sharin
 msgstr "Tarkista {productName}:n käyttämät käyttöoikeudet ääni-, video-, näytön jakamis- ja pikakuvatoimintoja varten."
 
 #. Intro text in the error modal shown after some emoji uploads fail.
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:71
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:72
 msgid "Review these files and try again with smaller or simpler images."
 msgstr "Tarkista nämä tiedostot ja yritä uudelleen pienemmillä tai yksinkertaisemmilla kuvilla."
 
@@ -27191,7 +27242,7 @@ msgid "Role name"
 msgstr "Roolin nimi"
 
 #. Validation modal title when the role-edit form is submitted with an empty role name.
-#: src/features/app/components/alerts/RoleNameBlankModal.tsx:9
+#: src/features/app/components/alerts/RoleNameBlankModal.tsx:8
 msgid "Role name is required"
 msgstr "Roolin nimi on pakollinen"
 
@@ -27211,7 +27262,7 @@ msgid "Roles"
 msgstr "Roolit"
 
 #. Community settings tab for role hierarchy and permission rules.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:51
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:53
 msgctxt "community-settings-tab"
 msgid "Roles"
 msgstr "Roolit"
@@ -27421,7 +27472,7 @@ msgid "Saved media autocomplete"
 msgstr "Tallennetun median automaattinen täydennys"
 
 #. Short label in the max favorite memes modal.
-#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:15
+#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:16
 msgid "Saved media limit reached"
 msgstr "Tallennettujen medioiden raja saavutettu"
 
@@ -27528,7 +27579,7 @@ msgstr "Ruudunlukijan ilmoitukset"
 
 #. Heading in the screen-share picker when macOS screen recording permission is missing.
 #. Title of the modal shown when screen recording permission is denied. Keep tone plain.
-#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:21
+#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:20
 #: src/features/voice/components/modals/screen_share_picker_modal/ScreenSharePickerDisplayPermissionPrompt.tsx:18
 msgid "Screen recording permission required"
 msgstr "Näytön tallennukseen tarvitaan lupa"
@@ -27561,7 +27612,7 @@ msgid "Screen share encoder controls"
 msgstr "Näytönjakamisen kooderin asetukset"
 
 #. Title of a modal shown when an active screen share stops unexpectedly.
-#: src/features/voice/engine/v2/VoiceEngineV2AppScreenShareExecutionAdapter.tsx:111
+#: src/features/voice/engine/v2/VoiceEngineV2AppScreenShareExecutionAdapter.tsx:110
 msgctxt "screen-share"
 msgid "Screen share ended"
 msgstr "Näytönjako päättyi"
@@ -27648,17 +27699,17 @@ msgid "Screen sharing codec"
 msgstr "Näytönjaon koodekki"
 
 #. Title of the modal shown when a screen share attempt fails due to a video source error.
-#: src/features/voice/components/alerts/ScreenShareFailedModal.tsx:9
+#: src/features/voice/components/alerts/ScreenShareFailedModal.tsx:8
 msgid "Screen sharing failed"
 msgstr "Näytön jakaminen epäonnistui"
 
 #. Body of the screen-share-unsupported modal. Mentions specific browsers and OSes; keep all proper nouns intact.
-#: src/features/voice/components/alerts/ScreenShareUnsupportedModal.tsx:13
+#: src/features/voice/components/alerts/ScreenShareUnsupportedModal.tsx:12
 msgid "Screen sharing is not supported on this device or browser. This feature requires a desktop browser that supports screen sharing, such as Chrome, Firefox, or Edge on Windows, macOS, or Linux."
 msgstr "Näytön jakaminen ei ole tuettu tällä laitteella tai selaimella. Tämä ominaisuus vaatii näytön jakamista tukevan työpöytäselaimen, kuten Chromen, Firefoxin tai Edgen Windowsissa, macOS:ssä tai Linuxissa."
 
 #. Title of the modal shown when screen sharing is not supported on the current device / browser.
-#: src/features/voice/components/alerts/ScreenShareUnsupportedModal.tsx:9
+#: src/features/voice/components/alerts/ScreenShareUnsupportedModal.tsx:8
 msgid "Screen sharing not supported"
 msgstr "Näytön jakaminen ei ole tuettu"
 
@@ -27795,7 +27846,7 @@ msgid "Search countries…"
 msgstr "Hae maita…"
 
 #. Button or menu action label in the guild emoji tab. Keep it concise.
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:91
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:92
 msgid "Search emojis"
 msgstr "Hae emojeita"
 
@@ -27960,7 +28011,7 @@ msgid "Search shortcuts…"
 msgstr "Hae pikanäppäimiä…"
 
 #. Button or menu action label in the guild stickers tab. Keep it concise.
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:49
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:46
 msgid "Search stickers"
 msgstr "Hae tarroja"
 
@@ -29954,7 +30005,7 @@ msgid "Slow attachment upload"
 msgstr "Hidas liitteen lähetys"
 
 #. Short label in the new account guild limit modal. Keep it concise.
-#: src/features/guild/components/alerts/NewAccountGuildLimitModal.tsx:9
+#: src/features/guild/components/alerts/NewAccountGuildLimitModal.tsx:8
 msgid "Slow down"
 msgstr "Hidasta vähän"
 
@@ -30004,7 +30055,7 @@ msgstr "Hidas tila · odota {remaining}"
 #. Developer tools debug menu label. Internal-only surface for developers; translators may keep this terse.
 #. Short label in the slowmode rate limited modal. Keep it concise.
 #: src/features/channel/components/channel_header_components/developer_tools/DeveloperOptionLabels.ts:249
-#: src/features/slowmode/components/alerts/SlowmodeRateLimitedModal.tsx:14
+#: src/features/slowmode/components/alerts/SlowmodeRateLimitedModal.tsx:13
 msgid "Slowmode active"
 msgstr "Hidas tila käytössä"
 
@@ -30019,7 +30070,7 @@ msgid "Slowmode is enabled, but you are immune."
 msgstr "Hidas tila on käytössä, mutta sinuun se ei vaikuta."
 
 #. Modal body shown when slowmode blocks sending a message. {duration} is a localized short duration such as "2 minutes".
-#: src/features/slowmode/components/alerts/SlowmodeRateLimitedModal.tsx:18
+#: src/features/slowmode/components/alerts/SlowmodeRateLimitedModal.tsx:17
 msgid "Slowmode is on — wait {duration} before sending another."
 msgstr "Hidas tila on käytössä – odota {duration} ennen kuin lähetät uuden viestin."
 
@@ -30150,12 +30201,12 @@ msgid "Sold out"
 msgstr "Loppuunmyyty"
 
 #. Title of the error modal shown after some emoji uploads fail.
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:67
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:68
 msgid "Some emojis couldn't be added"
 msgstr "Joitakin emojeita ei voitu lisätä"
 
 #. Body of the file-too-large alert when multiple files exceed the per-file size limit. maxSizeFormatted is the limit formatted with units.
-#: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:21
+#: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:18
 msgid "Some files you're trying to upload exceed the maximum size limit of {maxSizeFormatted} per file."
 msgstr "Jotkin tiedostot, joita yrität ladata, ylittävät tiedostokohtaisen enimmäiskoon {maxSizeFormatted}."
 
@@ -30948,7 +30999,7 @@ msgid "Sticker deleted"
 msgstr "Tarra poistettu"
 
 #. Short label in the guild stickers tab. Keep it concise.
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:53
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:50
 msgid "Sticker density"
 msgstr "Tarrojen tiheys"
 
@@ -30996,7 +31047,7 @@ msgstr "Tarrapakettien enimmäismäärä saavutettu"
 msgid "Sticker packs"
 msgstr "Tarrapaketit"
 
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:283
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:278
 msgid "Sticker slots"
 msgstr "Tarratilat"
 
@@ -31026,13 +31077,13 @@ msgid "Stickers"
 msgstr "Tarrat"
 
 #. Community settings tab for managing custom stickers uploaded to the community.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:41
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:43
 msgctxt "community-settings-tab"
 msgid "Stickers"
 msgstr "Tarrat"
 
 #. Description in the community sticker upload section. {maxSize} is the formatted size limit.
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:82
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:79
 msgid "Stickers are saved at 320x320 pixels and must be under {maxSize}. Static images are resized and compressed automatically. Animated stickers and SVGs must already fit the limit."
 msgstr "Tarrat tallennetaan kokoon 320x320 pikseliä, ja niiden koko saa olla enintään {maxSize}. Staattiset kuvat muokataan automaattisesti ja pakataan. Animoitujen tarrojen ja SVG-kuvien on oltava valmiiksi määritellyn koon mukaisia."
 
@@ -31862,7 +31913,7 @@ msgid "temporarily unavailable"
 msgstr "väliaikaisesti pois käytöstä"
 
 #. Modal body shown when the user tries to accept a temporary invite while the realtime connection is offline.
-#: src/features/app/components/alerts/TemporaryInviteRequiresPresenceModal.tsx:13
+#: src/features/app/components/alerts/TemporaryInviteRequiresPresenceModal.tsx:12
 msgid "Temporary invites need a live connection. Check yours and try again."
 msgstr "Väliaikaiset kutsut vaativat aktiivisen yhteyden. Tarkista yhteytesi ja yritä uudelleen."
 
@@ -31982,12 +32033,12 @@ msgid "Text-to-speech"
 msgstr "Text-to-speech"
 
 #. Body of the TTS-unsupported modal. Mentions specific browsers; keep Chrome, Firefox, Edge, and Brave as literal proper nouns.
-#: src/features/voice/components/alerts/TtsUnsupportedModal.tsx:13
+#: src/features/voice/components/alerts/TtsUnsupportedModal.tsx:12
 msgid "Text-to-speech is not supported by your browser. Some browsers like Brave block this feature for privacy reasons. Try using Chrome, Firefox, or Edge, or adjust your browser's privacy settings."
 msgstr "Selaimesi ei tue tekstistä puheeksi -toimintoa. Jotkin selaimet, kuten Brave, estävät tämän ominaisuuden yksityisyyssyistä. Kokeile Chromea, Firefoxia tai Edgeä, tai muuta selaimesi yksityisyysasetuksia."
 
 #. Title of the modal shown when the browser does not support text-to-speech.
-#: src/features/voice/components/alerts/TtsUnsupportedModal.tsx:9
+#: src/features/voice/components/alerts/TtsUnsupportedModal.tsx:8
 msgid "Text-to-speech not supported"
 msgstr "Tekstistä puheeksi -toimintoa ei tueta"
 
@@ -32148,7 +32199,7 @@ msgid "The file contains the verification token we will fetch from <0>{dnsUrl}</
 msgstr "Tiedosto sisältää vahvistustunnuksen, jonka noudamme osoitteesta <0>{dnsUrl}</0>."
 
 #. Body of the file-too-large alert when a single file exceeds the per-file size limit.
-#: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:26
+#: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:23
 msgid "The file you're trying to upload exceeds the maximum size limit of {maxSizeFormatted}."
 msgstr "Tiedosto, jota yrität lähettää, ylittää enimmäiskoon {maxSizeFormatted}."
 
@@ -32198,7 +32249,7 @@ msgid "The provided redirect_uri must use HTTP or HTTPS."
 msgstr "redirect_uri-osoitteen on käytettävä HTTP- tai HTTPS-protokollaa."
 
 #. Body of a modal shown when a browser screen share track ends outside the app, for example from the browser sharing controls.
-#: src/features/voice/engine/v2/VoiceEngineV2AppScreenShareExecutionAdapter.tsx:116
+#: src/features/voice/engine/v2/VoiceEngineV2AppScreenShareExecutionAdapter.tsx:115
 msgctxt "screen-share"
 msgid "The screen share source stopped sending video, so your screen share was stopped."
 msgstr "Näytönjakolähde lopetti videon lähettämisen, joten näytönjako on lopetettu."
@@ -32361,6 +32412,11 @@ msgstr "Sovelluksen sisäistä paikallista tilausmenetelmää ei ole saatavilla,
 msgid "There is no recovery once this starts. We will DM you when it finishes."
 msgstr "Tätä toimintoa ei voi peruuttaa, kun se on aloitettu. Ilmoitamme sinulle yksityisviestillä, kun se on valmis."
 
+#. Error message in the guild bots settings tab.
+#: src/features/guild/components/modals/guild_tabs/GuildBotsTab.tsx:31
+msgid "There was an error loading the bots. Try again."
+msgstr "There was an error loading the bots. Try again."
+
 #: src/features/channel/components/modals/channel_tabs/ChannelInvitesTab.tsx:271
 msgid "There was an error loading the invite links for this channel. Try again."
 msgstr "Kutsulinkkien lataamisessa tälle kanavalle tapahtui virhe. Yritä uudelleen."
@@ -32370,7 +32426,7 @@ msgid "There was an error loading the invites. Try again."
 msgstr "Kutsujen lataamisessa tapahtui virhe. Yritä uudelleen."
 
 #. Error message in the guild stickers tab.
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:78
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:75
 msgid "There was an error loading the stickers. Try again."
 msgstr "Tarrojen lataamisessa tapahtui virhe. Yritä uudelleen."
 
@@ -32516,7 +32572,7 @@ msgid "This channel is marked for mature content and may contain material that m
 msgstr "Tämä kanava on merkitty aikuisille tarkoitetuksi sisällöksi, ja se voi sisältää materiaalia, joka voi olla sopimatonta joillekin käyttäjille."
 
 #. Label in the mature content rejected modal.
-#: src/features/moderation/components/alerts/MatureContentRejectedModal.tsx:13
+#: src/features/moderation/components/alerts/MatureContentRejectedModal.tsx:12
 msgid "This channel is not marked for mature content. Mature content can only be sent in channels marked for mature content. Ask a moderator to update this channel if appropriate."
 msgstr "Tätä kanavaa ei ole merkitty aikuisille sopivaksi. Aikuisille sopivaa sisältöä voi lähettää vain kanavilla, jotka on merkitty aikuisille sopiviksi. Pyydä ylläpitäjää päivittämään tämä kanava tarvittaessa."
 
@@ -32579,7 +32635,7 @@ msgid "This community has paused invites. You can try again later."
 msgstr "Yhteisö on keskeyttänyt kutsut. Voit yrittää myöhemmin uudelleen."
 
 #. Description text in the guild at capacity modal.
-#: src/features/guild/components/alerts/GuildAtCapacityModal.tsx:13
+#: src/features/guild/components/alerts/GuildAtCapacityModal.tsx:12
 msgid "This community has reached its maximum member limit and is not accepting new members at this time."
 msgstr "Yhteisö on saavuttanut jäsenrajan, eikä se hyväksy uusia jäseniä tällä hetkellä."
 
@@ -32657,7 +32713,7 @@ msgid "This doesn't look like a valid template response. Make sure you copied th
 msgstr "Tämä ei näytä kelvolliselta mallivastaukselta. Varmista, että kopioit koko JSON-dokumentin."
 
 #. Generic per-file error text shown when preparing an emoji upload fails.
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:87
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:88
 msgid "This emoji could not be prepared. Try another file or try again in a moment."
 msgstr "Emojia ei voitu valmistella. Kokeile toista tiedostoa tai yritä hetken kuluttua uudelleen."
 
@@ -32674,7 +32730,7 @@ msgid "This expression is gone"
 msgstr "Tämä ilmaisu on poistettu"
 
 #. Modal body shown when an instance admin has temporarily disabled a feature. Keep plain.
-#: src/features/app/components/alerts/FeatureTemporarilyDisabledModal.tsx:13
+#: src/features/app/components/alerts/FeatureTemporarilyDisabledModal.tsx:12
 msgid "This feature is paused. Try again later."
 msgstr "Tämä ominaisuus on keskeytetty. Yritä myöhemmin uudelleen."
 
@@ -32684,7 +32740,7 @@ msgid "This field has an error"
 msgstr "Kentässä on virhe"
 
 #. Error text for animated emoji or SVG uploads that exceed the file size limit. {fileSize} and {maxSize} are formatted file sizes.
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:75
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:76
 msgid "This file is {fileSize}, over the {maxSize} limit. Animated emojis and SVGs must already be small enough to upload. Choose a smaller file or shorten the animation."
 msgstr "Tämä tiedosto on {fileSize}, mikä ylittää {maxSize} rajan. Animoidut emojit ja SVG-kuvat on oltava jo valmiiksi tarpeeksi pieniä ladattavaksi. Valitse pienempi tiedosto tai lyhennä animaatiota."
 
@@ -32833,7 +32889,7 @@ msgid "This is not the community you're looking for."
 msgstr "Tämä ei ole etsimäsi yhteisö."
 
 #. Description text in the too many reactions modal. Keep the tone plain and specific.
-#: src/features/messaging/components/alerts/TooManyReactionsModal.tsx:13
+#: src/features/messaging/components/alerts/TooManyReactionsModal.tsx:12
 msgid "This is one heavy message. Some reactions need to be removed before you can add more."
 msgstr "Tämä on todella suosittu viesti. Poista joitakin reaktioita, ennen kuin voit lisätä uusia."
 
@@ -32855,7 +32911,7 @@ msgid "This is the third option description"
 msgstr "Tämä on kolmannen vaihtoehdon kuvaus"
 
 #. Extra file-too-large alert sentence shown when premium upload-limit upgrades are unavailable.
-#: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:42
+#: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:39
 msgid "This limit is configured by your instance administrator."
 msgstr "Tämän rajan määrittää instanssisi ylläpitäjä."
 
@@ -33570,7 +33626,7 @@ msgid "Too many attempts. Wait a bit, then try again."
 msgstr "Liian monta yritystä. Odota hetki ja yritä sitten uudelleen."
 
 #. Error message in the max guilds modal.
-#: src/features/guild/components/alerts/MaxGuildsModal.tsx:10
+#: src/features/guild/components/alerts/MaxGuildsModal.tsx:9
 msgid "Too many communities"
 msgstr "Liian monta yhteisöä"
 
@@ -34199,8 +34255,8 @@ msgstr "Esikatselua ei voi ladata."
 msgid "Unable to load profile banner, badges, and bio."
 msgstr "Profiilibanneria, merkkejä ja biografiaa ei voitu ladata."
 
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:272
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:328
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:271
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:327
 msgid "Unable to prepare any emojis for upload. The following errors occurred:"
 msgstr "Emojien lataaminen epäonnistui. Seuraavat virheet ilmenivät:"
 
@@ -34932,7 +34988,7 @@ msgid "Unsupported icon format"
 msgstr "Kuvakkeen muotoa ei tueta"
 
 #. Title of the error modal shown when an unsupported sticker file type is selected.
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:87
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:84
 msgid "Unsupported sticker file"
 msgstr "Tiedostomuotoa ei tueta"
 
@@ -35135,8 +35191,8 @@ msgstr "Päivitä nyt"
 
 #. Short label in the max bookmarks modal. Preserve {premiumProductName}; it is inserted by code.
 #. Short label in the max favorite memes modal. Preserve {premiumProductName}; it is inserted by code.
-#: src/features/app/components/alerts/MaxBookmarksModal.tsx:35
-#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:29
+#: src/features/app/components/alerts/MaxBookmarksModal.tsx:36
+#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:30
 msgid "Upgrade to {premiumProductName}"
 msgstr "Päivitä {premiumProductName}-tilaukseen"
 
@@ -35208,7 +35264,7 @@ msgstr "Lataa oma ääni kohteelle {label}"
 msgid "Upload directly to {displayName}"
 msgstr "Lähetä suoraan käyttäjälle {displayName}"
 
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:454
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:453
 msgid "Upload emoji"
 msgstr "Lataa emoji"
 
@@ -35252,7 +35308,7 @@ msgstr "Lataa esikatsauskuvia jaettavia näyttöjä varten."
 msgid "Upload sound"
 msgstr "Lataa ääni"
 
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:286
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:281
 msgid "Upload sticker"
 msgstr "Lataa tarra"
 
@@ -36004,7 +36060,7 @@ msgid "Vanity URL"
 msgstr "Mukautettu URL-osoite"
 
 #. Community settings tab for the community vanity/custom invite link.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:71
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:78
 msgctxt "community-settings-tab"
 msgid "Vanity URL"
 msgstr "Mukautettu URL-osoite"
@@ -36996,7 +37052,7 @@ msgid "Volume sliders"
 msgstr "Äänenvoimakkuuden liukusäätimet"
 
 #. Description text in the message delete too quick modal. Keep the tone plain and specific.
-#: src/features/messaging/components/alerts/MessageDeleteTooQuickModal.tsx:13
+#: src/features/messaging/components/alerts/MessageDeleteTooQuickModal.tsx:12
 msgid "Wait a moment before deleting more messages."
 msgstr "Odota hetki ennen kuin poistat lisää viestejä."
 
@@ -37148,7 +37204,7 @@ msgstr "Viestin välittäminen ei onnistunut tällä kertaa."
 msgid "We couldn't import that theme library file."
 msgstr "Teeman kirjastotiedoston tuonti epäonnistui."
 
-#: src/features/messaging/components/alerts/AttachmentUploadConnectivityModal.tsx:24
+#: src/features/messaging/components/alerts/AttachmentUploadConnectivityModal.tsx:23
 msgid "We couldn't reach the attachment upload service. {PRODUCT_NAME} can fall back to the standard upload path for messages up to {fallbackSizeFormatted} total, but these attachments exceed that combined limit and can't be sent until connectivity is restored. Try again later or contact <0>{SUPPORT_EMAIL}</0> if this keeps happening."
 msgstr "Emme tavoittaneet liitteiden lähetyspalvelua. {PRODUCT_NAME} voi käyttää varalähetystapaa enintään {fallbackSizeFormatted} kokoisille viesteille, mutta nämä liitteet ylittävät kyseisen rajan, eikä niitä voi lähettää ennen kuin yhteys on palautettu. Yritä myöhemmin uudelleen tai ota yhteyttä osoitteeseen <0>{SUPPORT_EMAIL}</0>, jos ongelma jatkuu."
 
@@ -37191,7 +37247,7 @@ msgid "We recommend saving these codes now so that you don't get locked out of y
 msgstr "Suosittelemme tallentamaan nämä koodit nyt, jotta et lukkiudu ulos tililtäsi."
 
 #. Error text for static emoji uploads that still exceed the file size limit after resizing. {fileSize} and {maxSize} are formatted file sizes.
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:81
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:82
 msgid "We resized and compressed this emoji to 128x128 pixels, but it is still {fileSize}. The limit is {maxSize}. Try a simpler image, fewer colors, or a smaller source file."
 msgstr "Muutimme emojin koon ja pakkasimme sen 128x128 pikseliin, mutta sen koko on edelleen {fileSize}. Raja on {maxSize}. Kokeile yksinkertaisempaa kuvaa, vähemmän värejä tai pienempää lähdetiedostoa."
 
@@ -37384,7 +37440,7 @@ msgid "Webhooks"
 msgstr "Webhookit"
 
 #. Community settings tab for configuring webhooks.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:66
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:68
 msgctxt "community-settings-tab"
 msgid "Webhooks"
 msgstr "Webhookit"
@@ -37657,8 +37713,8 @@ msgstr "Huh, täällä kirjoitetaan urakalla"
 
 #. Label in the too many attachments modal.
 #. Label in the too many reactions modal.
-#: src/features/messaging/components/alerts/TooManyAttachmentsModal.tsx:10
-#: src/features/messaging/components/alerts/TooManyReactionsModal.tsx:9
+#: src/features/messaging/components/alerts/TooManyAttachmentsModal.tsx:9
+#: src/features/messaging/components/alerts/TooManyReactionsModal.tsx:8
 msgid "Whoa, this is heavy"
 msgstr "Huh, onpa paljon"
 
@@ -37741,7 +37797,7 @@ msgid "With {PREMIUM_PRODUCT_NAME}, you can use animated avatars ({ANIMATED_AVAT
 msgstr "{PREMIUM_PRODUCT_NAME}:n avulla voit käyttää animoituja avatareita ({ANIMATED_AVATAR_FORMATS}), profiilibannereita, mukauttaa tunnustasi ja avata monia muita {PREMIUM_PRODUCT_NAME} -etuuksia."
 
 #. Premium upsell sentence in the file-too-large alert. premiumProductName is the paid product name; fileSizeLimit is a localized file size.
-#: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:46
+#: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:43
 msgid "With {premiumProductName}, your per-file upload limit increases to {fileSizeLimit}, plus animated avatars, longer messages, and many other {premiumProductName} perks."
 msgstr "{premiumProductName}:n avulla tiedostokokoa koskeva raja nousee arvoon {fileSizeLimit}, minkä lisäksi saat animoituja avatareita, pidempiä viestejä ja monia muita {premiumProductName} -etuuksia."
 
@@ -37871,7 +37927,7 @@ msgid "You are about to transfer ownership of this community to <0>{0}</0>. This
 msgstr "Olet siirtämässä tämän yhteisön omistajuuden käyttäjälle <0>{0}</0>. Tätä toimintoa ei voi <1>peruuttaa</1>, ja menetät kaikki omistajan oikeudet."
 
 #. Error message in the user banned from guild modal. Keep the tone plain and specific.
-#: src/features/moderation/components/alerts/UserBannedFromGuildModal.tsx:13
+#: src/features/moderation/components/alerts/UserBannedFromGuildModal.tsx:12
 msgid "You are banned from this community and cannot join."
 msgstr "Sinut on estetty tästä yhteisöstä, etkä voi liittyä siihen."
 
@@ -37994,7 +38050,7 @@ msgid "You can't add new reactions while you're on timeout."
 msgstr "Et voi lisätä uusia reaktioita aikakatkaisun aikana."
 
 #. Description text in the attachment permission denied modal. Keep the tone plain and specific.
-#: src/features/messaging/components/alerts/AttachmentPermissionDeniedModal.tsx:20
+#: src/features/messaging/components/alerts/AttachmentPermissionDeniedModal.tsx:17
 msgid "You can't attach files in this channel."
 msgstr "Et voi liittää tiedostoja tälle kanavalle."
 
@@ -38356,6 +38412,10 @@ msgstr "Tarvitset luvan \"{embedLinksPermissionLabel}\" upottaaksesi linkkejä t
 msgid "You need the \"{manageChannelsPermissionLabel}\" permission to edit these permissions."
 msgstr "Tarvitset luvan \"{manageChannelsPermissionLabel}\" muokataksesi näitä käyttöoikeuksia."
 
+#: src/features/guild/components/modals/guild_tabs/GuildBotsTab.tsx:198
+msgid "You need the \"{manageGuildPermissionLabel}\" permission to view and edit bots for this community."
+msgstr "You need the \"{manageGuildPermissionLabel}\" permission to view and edit bots for this community."
+
 #. Tooltip on the disabled permission list in the role editor. {manageRolesPermissionLabel} is the localized name of the Manage Roles permission and should match its label exactly.
 #: src/features/guild/components/modals/guild_tabs/GuildRolesTab.tsx:59
 msgid "You need the \"{manageRolesPermissionLabel}\" permission to edit these permissions"
@@ -38502,17 +38562,17 @@ msgid "You're already Visionary"
 msgstr "Olet jo Visionary-tilaaja"
 
 #. Modal body shown when the bookmarks limit is reached on a self-hosted instance with no upgrade path. Limit count is interpolated.
-#: src/features/app/components/alerts/MaxBookmarksModal.tsx:19
+#: src/features/app/components/alerts/MaxBookmarksModal.tsx:20
 msgid "You're at {bookmarksText} — your instance admin sets this cap. Remove one to add another."
 msgstr "Olet saavuttanut {bookmarksText} — palvelimen ylläpitäjä on asettanut tämän rajan. Poista yksi lisätäksesi uuden."
 
 #. Modal body shown when the bookmarks limit is reached and Plutonium is unavailable on this instance. Limit count is interpolated.
-#: src/features/app/components/alerts/MaxBookmarksModal.tsx:24
+#: src/features/app/components/alerts/MaxBookmarksModal.tsx:25
 msgid "You're at {bookmarksText}. Remove one to add another."
 msgstr "Olet saavuttanut {bookmarksText}. Poista yksi lisätäksesi uuden."
 
 #. Modal body shown when the favorite-memes limit is reached on a self-hosted instance with no Plutonium upgrade path. Limit text is interpolated.
-#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:19
+#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:20
 msgid "You're at the cap of {freeItemsText} — your instance admin sets this limit."
 msgstr "Olet saavuttanut rajan {freeItemsText} – instanssisi järjestelmänvalvoja asettaa tämän rajoituksen."
 
@@ -38524,12 +38584,12 @@ msgid "You're at the creation limit. Delete one to create another."
 msgstr "Olet saavuttanut luontirajan. Poista yksi luodaksesi uuden."
 
 #. Modal body shown when the free bookmarks limit is reached and Plutonium would increase it. Free and Plutonium limits are interpolated.
-#: src/features/app/components/alerts/MaxBookmarksModal.tsx:29
+#: src/features/app/components/alerts/MaxBookmarksModal.tsx:30
 msgid "You're at the free cap of {bookmarksText}. {premiumProductName} bumps you up to {premiumBookmarksText} — or remove one to add another."
 msgstr "Olet saavuttanut ilmaisen {bookmarksText}-rajan. {premiumProductName} nostaa rajan tasolle {premiumBookmarksText} – tai poista yksi lisätäksesi toisen."
 
 #. Modal body shown when the free favorite-memes limit is reached and Plutonium would increase it. Free and Plutonium limits are interpolated.
-#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:24
+#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:25
 msgid "You're at the free cap of {freeItemsText}. {premiumProductName} bumps you up to {premiumItemsText}."
 msgstr "Olet saavuttanut ilmaisen rajan {freeItemsText}. {premiumProductName} nostaa rajan tasolle {premiumItemsText}."
 
@@ -38541,7 +38601,7 @@ msgid "You're at the install limit. Remove one to add another."
 msgstr "Olet saavuttanut asennusrajan. Poista yksi lisätäksesi toisen."
 
 #. Short label in the user banned from guild modal. Keep it concise. Keep the tone plain and specific.
-#: src/features/moderation/components/alerts/UserBannedFromGuildModal.tsx:9
+#: src/features/moderation/components/alerts/UserBannedFromGuildModal.tsx:8
 msgid "You're banned"
 msgstr "Sinut on estetty"
 
@@ -38566,7 +38626,7 @@ msgid "You're deafened"
 msgstr "Olet mykistetty."
 
 #. Label in the message delete too quick modal. Keep the tone plain and specific.
-#: src/features/messaging/components/alerts/MessageDeleteTooQuickModal.tsx:9
+#: src/features/messaging/components/alerts/MessageDeleteTooQuickModal.tsx:8
 msgid "You're deleting messages too quickly"
 msgstr "Poistat viestejä liian nopeasti"
 
@@ -38725,12 +38785,12 @@ msgid "You've reached the group DM limit"
 msgstr "Olet saavuttanut ryhmäkeskustelujen enimmäismäärän"
 
 #. Emoji upload limit message in community emoji settings. Do not suggest that communities can be upgraded.
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:50
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:51
 msgid "You've reached the maximum number of emojis. Delete some existing emojis to make room."
 msgstr "Olet saavuttanut emojien enimmäismäärän. Poista joitakin olemassa olevia emojeita tehdäksesi tilaa."
 
 #. Sticker upload limit message in community sticker settings. Do not suggest that communities can be upgraded.
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:65
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:62
 msgid "You've reached the maximum number of stickers. Delete some existing stickers to make room."
 msgstr "Olet saavuttanut tarrojen enimmäismäärän. Poista joitakin olemassa olevia tarroja tehdäksesi tilaa."
 
@@ -38803,7 +38863,7 @@ msgid "Your account requires multi-factor authentication, but no supported metho
 msgstr "Tilisi edellyttää monivaiheista todennusta, mutta tällä laitteella ei ole tuettuja menetelmiä käytössä. Kirjaudu sisään laitteella, jossa on todennussovelluksesi tai suojausavaimesi, tai ota yhteyttä tukeen."
 
 #. Modal body shown when the safety system blocks the requested action. Keep plain and calm; offer support path.
-#: src/features/auth/components/ContentBlockedHandler.tsx:15
+#: src/features/auth/components/ContentBlockedHandler.tsx:14
 msgid "Your action could not be completed because it was flagged by our safety systems. If you believe this is a mistake, please contact support."
 msgstr "Toimintoasi ei voitu suorittaa, koska turvajärjestelmämme liputtivat sen. Jos uskot tämän olevan virhe, ota yhteyttä tukeen."
 
@@ -38928,12 +38988,12 @@ msgid "Your IP address has been successfully authorized."
 msgstr "IP-osoitteesi on nyt valtuutettu."
 
 #. Error message in the user ip banned from guild modal. Keep the tone plain and specific.
-#: src/features/moderation/components/alerts/UserIpBannedFromGuildModal.tsx:13
+#: src/features/moderation/components/alerts/UserIpBannedFromGuildModal.tsx:12
 msgid "Your IP address is banned from this community and you cannot join."
 msgstr "IP-osoitteesi on estetty tässä yhteisössä, etkä voi liittyä."
 
 #. Label in the user ip banned from guild modal. Keep the tone plain and specific.
-#: src/features/moderation/components/alerts/UserIpBannedFromGuildModal.tsx:9
+#: src/features/moderation/components/alerts/UserIpBannedFromGuildModal.tsx:8
 msgid "Your IP is banned"
 msgstr "IP-osoitteesi on estetty"
 

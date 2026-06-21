@@ -96,6 +96,8 @@ export const Endpoints = {
 		`/guilds/${guildId}/members/${userId}/roles/${roleId}`,
 	GUILD_BAN: (guildId: string, userId: string) => `/guilds/${guildId}/bans/${userId}`,
 	GUILD_BANS: (guildId: string) => `/guilds/${guildId}/bans`,
+	GUILD_BOTS: (guildId: string) => `/guilds/${guildId}/bots`,
+	GUILD_BOT_CHANNELS: (guildId: string, botUserId: string) => `/guilds/${guildId}/bots/${botUserId}/channels`,
 	GUILD_ROLE: (guildId: string, roleId: string) => `/guilds/${guildId}/roles/${roleId}`,
 	GUILD_ROLES: (guildId: string) => `/guilds/${guildId}/roles`,
 	GUILD_ROLE_HOIST_POSITIONS: (guildId: string) => `/guilds/${guildId}/roles/hoist-positions`,

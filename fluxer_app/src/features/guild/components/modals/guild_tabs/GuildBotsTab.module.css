@@ -1,0 +1,158 @@
+/* SPDX-License-Identifier: AGPL-3.0-or-later */
+
+.container {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.header {
+	display: flex;
+	flex-direction: column;
+}
+
+.title {
+	margin-bottom: 0.5rem;
+	font-weight: 600;
+	font-size: 1.25rem;
+	line-height: 1.75rem;
+}
+
+.subtitle {
+	font-size: 0.875rem;
+	line-height: 1.25rem;
+	color: var(--text-primary-muted);
+}
+
+.notice {
+	border-radius: 0.375rem;
+	border: 0.0625rem solid var(--background-header-secondary);
+	padding: 1.5rem;
+	text-align: center;
+	color: var(--text-primary-muted);
+}
+
+.spinnerContainer {
+	display: flex;
+	justify-content: center;
+	padding: 2rem 0;
+}
+
+.botList {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+
+.botPanel {
+	border-radius: 0.375rem;
+	border: 0.0625rem solid var(--background-header-secondary);
+	background: var(--background-secondary);
+	padding: 1rem;
+}
+
+.botHeader {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 1rem;
+	margin-bottom: 1rem;
+}
+
+.botIdentity {
+	display: grid;
+	grid-template-columns: 2rem minmax(0, 1fr);
+	align-items: center;
+	gap: 0.75rem;
+	min-width: 0;
+}
+
+.botIcon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 2rem;
+	height: 2rem;
+	border-radius: 0.375rem;
+	background: var(--background-modifier-accent);
+	color: var(--text-primary);
+}
+
+.botText {
+	min-width: 0;
+}
+
+.botName {
+	margin: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-weight: 600;
+	font-size: 0.9375rem;
+	line-height: 1.25rem;
+}
+
+.botMeta {
+	margin: 0.125rem 0 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	color: var(--text-primary-muted);
+	font-size: 0.75rem;
+	line-height: 1rem;
+}
+
+.botCount {
+	flex: 0 0 auto;
+	border-radius: 0.375rem;
+	background: var(--background-modifier-accent);
+	padding: 0.25rem 0.625rem;
+	color: var(--text-primary-muted);
+	font-size: 0.75rem;
+	line-height: 1rem;
+	white-space: nowrap;
+}
+
+.channelGrid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+	gap: 0.625rem 0.75rem;
+}
+
+.channelCheckbox {
+	min-width: 0;
+}
+
+.channelLabel {
+	display: inline-flex;
+	align-items: baseline;
+	min-width: 0;
+	gap: 0.125rem;
+	font-size: 0.875rem;
+	line-height: 1.25rem;
+}
+
+.channelHash {
+	color: var(--text-tertiary);
+}
+
+.channelName {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+@media (max-width: 40rem) {
+	.botHeader {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.botCount {
+		align-self: flex-start;
+	}
+
+	.channelGrid {
+		grid-template-columns: 1fr;
+	}
+}

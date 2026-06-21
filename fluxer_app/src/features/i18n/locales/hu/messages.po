@@ -345,8 +345,8 @@ msgstr "{count, plural, one {# csatolmány} other {# csatolmány}}"
 msgid "{count, plural, one {# blocked message} other {# blocked messages}}"
 msgstr "{count, plural, one {# letiltott üzenet} other {# letiltott üzenet}}"
 
-#: src/features/app/components/alerts/MaxBookmarksModal.tsx:50
-#: src/features/app/components/alerts/MaxBookmarksModal.tsx:83
+#: src/features/app/components/alerts/MaxBookmarksModal.tsx:51
+#: src/features/app/components/alerts/MaxBookmarksModal.tsx:76
 msgid "{count, plural, one {# bookmark} other {# bookmarks}}"
 msgstr "{count, plural, one {# könyvjelző} other {# könyvjelző}}"
 
@@ -420,8 +420,8 @@ msgstr "{count, plural, one {# reakció} other {# reakció}}"
 msgid "{count, plural, one {# reactor} other {# reactors}}"
 msgstr "{count, plural, one {# reakció} other {# reakció}}"
 
-#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:44
-#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:82
+#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:45
+#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:79
 msgid "{count, plural, one {# saved media item} other {# saved media items}}"
 msgstr "{count, plural, one {# mentett médiaelem} other {# mentett médiaelem}}"
 
@@ -500,7 +500,7 @@ msgstr "{count, plural, one {Kijelentkezés # eszközről} other {Kijelentkezés
 msgid "{count, plural, one {Used # time.} other {Used # times.}}"
 msgstr "{count, plural, one {Felhasználva # alkalommal.} other {Felhasználva # alkalommal.}}"
 
-#: src/features/messaging/components/alerts/TooManyAttachmentsModal.tsx:21
+#: src/features/messaging/components/alerts/TooManyAttachmentsModal.tsx:20
 msgid "{count, plural, one {You can only upload # file at a time. Try again with fewer files.} other {You can only upload # files at a time. Try again with fewer files.}}"
 msgstr "{count, plural, one {Egyszerre csak # fájlt tölthetsz fel. Próbáld újra kevesebb fájllal.} other {Egyszerre csak # fájlt tölthetsz fel. Próbáld újra kevesebb fájllal.}}"
 
@@ -525,7 +525,7 @@ msgstr "{count, plural, one {Már csatlakoztál ehhez a hangcsatornához egy má
 msgid "{count, plural, one {You're already using the one allowed connection for this voice channel. Switch to this device or cancel.} other {You're already using all # allowed connections for this voice channel. Switch to this device or cancel.}}"
 msgstr "{count, plural, one {Már használod az egyetlen engedélyezett kapcsolatot ehhez a hangcsatornához. Válts erre az eszközre, vagy szakítsd meg.} other {Már használod az összes engedélyezett kapcsolatot ehhez a hangcsatornához. Válts erre az eszközre, vagy szakítsd meg.}}"
 
-#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:65
+#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:62
 msgid "{count, plural, one {You're at the cap of # saved media item. Remove one to add another.} other {You're at the cap of # saved media items. Remove one to add another.}}"
 msgstr "{count, plural, one {Elérte a mentett médiaelemek maximális számát. Távolítson el egyet, hogy hozzáadhasson egy másikat.} other {Elérte a mentett médiaelemek maximális számát. Távolítson el egyet, hogy hozzáadhasson egy másikat.}}"
 
@@ -545,7 +545,7 @@ msgstr "{count, plural, one {Elérted a telepített matricacsomagok maximális s
 msgid "{count, plural, one {You're at the limit of # sticker pack. Delete one to create another.} other {You're at the limit of # sticker packs. Delete one to create another.}}"
 msgstr "{count, plural, one {Elérted az 1 matricacsomag-korlátot. Törölj egyet, hogy újat hozhass létre.} other {Elérted a(z) # matricacsomag-korlátot. Törölj egyet, hogy újat hozhass létre.}}"
 
-#: src/features/guild/components/alerts/MaxGuildsModal.tsx:25
+#: src/features/guild/components/alerts/MaxGuildsModal.tsx:24
 msgid "{count, plural, one {You've reached the maximum number of communities you can join (# community). Leave a community before joining another one.} other {You've reached the maximum number of communities you can join (# communities). Leave a community before joining another one.}}"
 msgstr "{count, plural, one {Elérted a maximális számú közösséget, amihez csatlakozhatsz (# közösség). Lépj ki egy közösségből, mielőtt csatlakoznál egy másikhoz.} other {Elérted a maximális számú közösséget, amihez csatlakozhatsz (# közösség). Lépj ki egy közösségből, mielőtt csatlakoznál egy másikhoz.}}"
 
@@ -1124,22 +1124,22 @@ msgid "{productName} member since"
 msgstr "{productName} tagja ettől"
 
 #. Body of the camera-permission-denied modal on web. {productName} is Fluxer.
-#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:40
+#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:39
 msgid "{productName} needs access to your camera to enable video chat. Grant camera permission in your browser settings and try again."
 msgstr "A videóchat engedélyezéséhez a(z) {productName} hozzáférést igényel a kamerájához. Adjon kameraengedélyt a böngészője beállításaiban, majd próbálja újra."
 
 #. Body of the camera-permission-denied modal on Windows and Linux. {productName} is Fluxer.
-#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:35
+#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:34
 msgid "{productName} needs access to your camera. Allow camera access in your operating system privacy settings and restart the app."
 msgstr "A(z) {productName} hozzáférést kér a kamerájához. Engedélyezze a kamera hozzáférését az operációs rendszer adatvédelmi beállításaiban, majd indítsa újra az alkalmazást."
 
 #. Body of the microphone-permission-denied modal on web. {productName} is Fluxer.
-#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:30
+#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:29
 msgid "{productName} needs access to your microphone to enable voice chat. Grant microphone permission in your browser settings and try again."
 msgstr "A(z) {productName} mikrofon-hozzáférést igényel a hangcsevegés engedélyezéséhez. Engedélyezze a mikrofon használatát a böngésző beállításaiban, majd próbálja újra."
 
 #. Body of the microphone-permission-denied modal on Windows and Linux. {productName} is Fluxer.
-#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:25
+#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:24
 msgid "{productName} needs access to your microphone. Allow microphone access in your operating system privacy settings and restart the app."
 msgstr "A {productName} hozzáférést kér a mikrofonodhoz. Engedélyezd a mikrofonhoz való hozzáférést az operációs rendszered adatvédelmi beállításaiban, majd indítsd újra az alkalmazást."
 
@@ -1154,7 +1154,7 @@ msgid "{productName} needs microphone access to list your devices."
 msgstr "A(z) {productName} mikrofon-hozzáférést igényel az eszközök listázásához."
 
 #. Body of the screen-permission-denied modal on non-mac desktop platforms. {productName} is Fluxer.
-#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:45
+#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:44
 msgid "{productName} needs screen recording access. Allow screen recording in your operating system privacy settings and restart the app."
 msgstr "A(z) {productName} képernyőrögzítési hozzáférést igényel. Engedélyezd a képernyőrögzítést az operációs rendszer adatvédelmi beállításaiban, majd indítsd újra az alkalmazást."
 
@@ -1179,7 +1179,7 @@ msgid "{productName} spellcheck settings…"
 msgstr "{productName} helyesírás-ellenőrzési beállítások…"
 
 #. Label in the invites disabled modal.
-#: src/features/invite/components/alerts/InvitesDisabledModal.tsx:14
+#: src/features/invite/components/alerts/InvitesDisabledModal.tsx:13
 msgid "{productName} spotted a possible raid here. Invites are paused — try again later."
 msgstr "A(z) {productName} lehetséges rajtaütést észlelt itt. A meghívók szünetelnek – próbálja meg később."
 
@@ -1273,6 +1273,10 @@ msgstr "{seconds, plural, one {Ez a meghívó # másodperc múlva jár le.} othe
 #: src/features/guild/components/modals/guild_tabs/guild_overview_tab/sections/IdleSettingsSection.tsx:36
 msgid "{seconds} seconds"
 msgstr "{seconds} másodperc"
+
+#: src/features/guild/components/modals/guild_tabs/GuildBotsTab.tsx:273
+msgid "{selectedCount} channels"
+msgstr "{selectedCount} channels"
 
 #. Generic multi-select summary label. selectedCount is the number of selected options.
 #: src/features/ui/components/form/FormCombobox.tsx:79
@@ -1580,6 +1584,7 @@ msgstr "<0>Csak URL-alapú kedvencek (alapértelmezett)</0>: szinkronizálva az 
 
 #. Summary chip text in the mobile channel search sheet when exactly one channel is selected as a filter.
 #: src/features/channel/components/bottomsheets/ChannelSearchBottomSheet.tsx:160
+#: src/features/guild/components/modals/guild_tabs/GuildBotsTab.tsx:271
 msgid "1 channel"
 msgstr "1 csatorna"
 
@@ -2349,7 +2354,7 @@ msgid "Activity log"
 msgstr "Aktivitásnapló"
 
 #. Community settings tab showing activity log entries and moderation history.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:61
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:63
 msgctxt "community-settings-tab"
 msgid "Activity log"
 msgstr "Aktivitásnapló"
@@ -2844,7 +2849,7 @@ msgid "Administrator"
 msgstr "Rendszergazda"
 
 #. Error message in the invites disabled modal.
-#: src/features/invite/components/alerts/InvitesDisabledModal.tsx:18
+#: src/features/invite/components/alerts/InvitesDisabledModal.tsx:17
 msgid "Admins paused invites — you can't join right now."
 msgstr "Az adminok szüneteltetik a meghívásokat – most nem tudsz csatlakozni."
 
@@ -3423,12 +3428,12 @@ msgstr "és 1 másik hívás"
 msgid "Animate on interaction"
 msgstr "Animálás interakciókor"
 
-#: src/features/expressions/utils/AnimatedAvifModalUtils.tsx:27
+#: src/features/expressions/utils/AnimatedAvifModalUtils.tsx:26
 msgid "Animated {AVIF_FORMAT_LABEL} files aren't supported. Upload a static {AVIF_FORMAT_LABEL} file instead."
 msgstr "Az animált {AVIF_FORMAT_LABEL} fájlok nem támogatottak. Helyette tölts fel egy statikus {AVIF_FORMAT_LABEL} fájlt."
 
 #. Modal title shown when an animated AVIF upload is rejected by the client.
-#: src/features/expressions/utils/AnimatedAvifModalUtils.tsx:12
+#: src/features/expressions/utils/AnimatedAvifModalUtils.tsx:11
 msgid "Animated {avifFormatLabel} not supported"
 msgstr "Az animált {avifFormatLabel} nem támogatott"
 
@@ -3476,7 +3481,7 @@ msgid "Animated emoji"
 msgstr "Animált hangulatjelek"
 
 #. Section heading for animated emoji in community emoji settings.
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:104
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:105
 msgid "Animated emoji ({emojiCount})"
 msgstr "Animált hangulatjelek ({emojiCount})"
 
@@ -4119,7 +4124,7 @@ msgid "Attachment upload"
 msgstr "Fájlmelléklet feltöltése"
 
 #. Short label in the attachment upload connectivity modal. Keep it concise.
-#: src/features/messaging/components/alerts/AttachmentUploadConnectivityModal.tsx:13
+#: src/features/messaging/components/alerts/AttachmentUploadConnectivityModal.tsx:12
 msgid "Attachment upload unavailable"
 msgstr "A csatolmány feltöltése nem elérhető"
 
@@ -4685,8 +4690,8 @@ msgstr "Elérhető az asztali alkalmazásban."
 #. Form label for a webhook avatar image.
 #. Settings search entry label. Also used as a search synonym in the settings search bar.
 #: src/features/ui/components/BaseAvatar.tsx:17
-#: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:374
-#: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:422
+#: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:372
+#: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:420
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:13
 #: src/features/webhook/components/WebhookListItem.tsx:251
 msgid "Avatar"
@@ -5015,7 +5020,7 @@ msgid "Banner preview"
 msgstr "Banner előnézete"
 
 #. Community settings tab for banned users.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:91
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:98
 msgctxt "community-settings-tab"
 msgid "Bans"
 msgstr "Kitiltások"
@@ -5273,7 +5278,7 @@ msgid "Bookmark"
 msgstr "Könyvjelző"
 
 #. Short label in the max bookmarks modal.
-#: src/features/app/components/alerts/MaxBookmarksModal.tsx:15
+#: src/features/app/components/alerts/MaxBookmarksModal.tsx:16
 msgid "Bookmark limit reached"
 msgstr "Elérte a könyvjelzők maximális számát"
 
@@ -5360,6 +5365,11 @@ msgstr "Bot leírása"
 msgid "Bot biography"
 msgstr "Bot leírása"
 
+#. Success toast after saving bot channel bindings.
+#: src/features/guild/components/modals/guild_tabs/GuildBotsTab.tsx:35
+msgid "Bot channel access updated"
+msgstr "Bot channel access updated"
+
 #. Short label in the guild privacy settings modal. Keep it concise. Keep the tone plain and specific.
 #: src/features/guild/components/modals/GuildPrivacySettingsModal.tsx:21
 msgid "Bot direct messages"
@@ -5432,9 +5442,16 @@ msgid "Both sides"
 msgstr "Mindkét fél"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
+#: src/features/guild/components/modals/guild_tabs/GuildBotsTab.tsx:190
 #: src/features/user/components/settings_utils/search_index/ApplicationsIndex.ts:16
 msgid "Bots"
 msgstr "Botok"
+
+#. Community settings tab for configuring installed bots.
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:73
+msgctxt "community-settings-tab"
+msgid "Bots"
+msgstr "Bots"
 
 #: src/features/user/components/modals/tabs/component_gallery_tab/OverlaysTab.tsx:98
 msgid "Bottom"
@@ -5761,7 +5778,7 @@ msgid "Camera on"
 msgstr "Kamera bekapcsolva"
 
 #. Title of the modal shown when camera permission is denied. Keep tone plain.
-#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:17
+#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:16
 msgid "Camera permission required"
 msgstr "Kameraengedély szükséges"
 
@@ -5805,12 +5822,12 @@ msgid "Can't access that email?"
 msgstr "Nem fér hozzá az e-mail címhez?"
 
 #. Error message in the attachment permission denied modal. Keep the tone plain and specific.
-#: src/features/messaging/components/alerts/AttachmentPermissionDeniedModal.tsx:12
+#: src/features/messaging/components/alerts/AttachmentPermissionDeniedModal.tsx:9
 msgid "Can't paste image here"
 msgstr "Ide nem illeszthető be kép"
 
 #. Error message in the attachment permission denied modal. Keep the tone plain and specific.
-#: src/features/messaging/components/alerts/AttachmentPermissionDeniedModal.tsx:16
+#: src/features/messaging/components/alerts/AttachmentPermissionDeniedModal.tsx:13
 msgid "Can't upload files here"
 msgstr "Ide nem tölthetsz fel fájlokat"
 
@@ -6142,8 +6159,8 @@ msgstr "Középre igazítva"
 
 #. Title of the modal where the user picks an avatar source (file upload or GIF provider). Keep it concise.
 #: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:110
-#: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:396
-#: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:432
+#: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:394
+#: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:430
 msgid "Change avatar"
 msgstr "Profilkép módosítása"
 
@@ -6982,6 +6999,10 @@ msgstr "Válaszd ki, melyik fordított képkereső szolgáltatást használja az
 #: src/features/user/components/modals/tabs/chat_settings_tab/SearchEnginesTab.tsx:47
 msgid "Choose which search engine is used by default when searching selected text."
 msgstr "Válaszd ki, melyik keresőmotort használja az alkalmazás alapértelmezés szerint a kijelölt szöveg keresésekor."
+
+#: src/features/guild/components/modals/guild_tabs/GuildBotsTab.tsx:193
+msgid "Choose which text channels each installed bot can read and send messages in."
+msgstr "Choose which text channels each installed bot can read and send messages in."
 
 #. Button or menu action label in the search engines tab. Keep it concise.
 #: src/features/user/components/modals/tabs/chat_settings_tab/SearchEnginesTab.tsx:80
@@ -7823,13 +7844,13 @@ msgstr "közösség"
 #: src/features/app/config/AuditLogConstants.ts:152
 #: src/features/auth/components/pages/oauth_authorize_page/OAuthCommunityStep.tsx:48
 #: src/features/moderation/components/report_modal/IARModalPreview.tsx:16
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:253
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:269
 #: src/features/user/components/settings_utils/section_registry/PrivacySafetySections.ts:140
 msgid "Community"
 msgstr "Közösség"
 
 #. Short label in the guild at capacity modal. Keep it concise.
-#: src/features/guild/components/alerts/GuildAtCapacityModal.tsx:9
+#: src/features/guild/components/alerts/GuildAtCapacityModal.tsx:8
 msgid "Community at capacity"
 msgstr "Közösség betelt"
 
@@ -8009,7 +8030,7 @@ msgid "Community record"
 msgstr "Közösségi rekord"
 
 #. Root label for community settings modal and settings search paths.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:244
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:260
 msgid "Community settings"
 msgstr "Közösségi beállítások"
 
@@ -8042,7 +8063,7 @@ msgid "Community-wide"
 msgstr "Community-wide"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:276
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:271
 #: src/features/user/components/settings_utils/section_registry/AppearanceSections.ts:242
 msgid "Compact"
 msgstr "Kompakt"
@@ -8449,7 +8470,7 @@ msgid "Contact support"
 msgstr "Kapcsolatfelvétel az ügyfélszolgálattal"
 
 #. Short label in the authentication content blocked handler. Keep the tone plain and specific.
-#: src/features/auth/components/ContentBlockedHandler.tsx:11
+#: src/features/auth/components/ContentBlockedHandler.tsx:10
 msgid "Content blocked"
 msgstr "Tartalom blokkolva"
 
@@ -9000,7 +9021,7 @@ msgid "Could not load this page"
 msgstr "Nem sikerült betölteni az oldalt"
 
 #. Body of the modal shown when a screen share attempt fails. Advises the user to try sharing the full screen.
-#: src/features/voice/components/alerts/ScreenShareFailedModal.tsx:13
+#: src/features/voice/components/alerts/ScreenShareFailedModal.tsx:12
 msgid "Could not start the screen share. The selected source may no longer be available or may have blocked capture. Try sharing your entire screen or monitor instead of a specific window."
 msgstr "Nem sikerült elindítani a képernyőmegosztást. Lehet, hogy a kiválasztott forrás már nem elérhető, vagy blokkolta a rögzítést. Próbálja meg inkább a teljes képernyőt vagy monitort megosztani egy adott ablak helyett."
 
@@ -9465,6 +9486,11 @@ msgstr "Nem lehetett feloldani a beszélgetés rögzítését"
 msgid "Couldn't update alt text"
 msgstr "Nem sikerült frissíteni az alternatív szöveget"
 
+#. Error toast after saving bot channel bindings fails.
+#: src/features/guild/components/modals/guild_tabs/GuildBotsTab.tsx:39
+msgid "Couldn't update bot channel access"
+msgstr "Couldn't update bot channel access"
+
 #. Error modal title shown when saving channel permission changes fails.
 #: src/features/channel/components/alerts/ChannelPermissionsUpdateFailedModal.tsx:9
 msgid "Couldn't update channel permissions"
@@ -9558,7 +9584,7 @@ msgid "Cover"
 msgstr "Borító"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:267
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:262
 #: src/features/user/components/settings_utils/section_registry/AppearanceSections.ts:246
 msgid "Cozy"
 msgstr "Hangulatos"
@@ -9595,6 +9621,10 @@ msgstr "Új közösség létrehozása vagy csatlakozás egy meglévőhöz."
 #: src/features/channel/components/bottomsheets/channel_details_bottom_sheet/DMMembersList.tsx:19
 msgid "Create a new group with {userName}"
 msgstr "Új csoport létrehozása {userName} felhasználóval"
+
+#: src/features/guild/components/modals/guild_tabs/GuildBotsTab.tsx:228
+msgid "Create a text channel before attaching bots to this community."
+msgstr "Create a text channel before attaching bots to this community."
 
 #. Generic authentication action label for starting or submitting account creation.
 #: src/features/auth/components/pages/RegisterPage.tsx:42
@@ -11686,7 +11716,7 @@ msgid "Discovery"
 msgstr "Felfedezés"
 
 #. Community settings tab for public community discovery/listing.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:76
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:83
 msgctxt "community-settings-tab"
 msgid "Discovery"
 msgstr "Felfedezés"
@@ -12197,7 +12227,7 @@ msgstr "Piszkozat"
 msgid "Drag and drop"
 msgstr "Fogd és vidd"
 
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:295
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:290
 msgid "Drag and drop a sticker file here (one at a time)"
 msgstr "Húzz ide egy matricafájlt (egyet egyszerre)"
 
@@ -12206,7 +12236,7 @@ msgstr "Húzz ide egy matricafájlt (egyet egyszerre)"
 msgid "Drag and drop area for file upload"
 msgstr "Húzza ide a feltölteni kívánt fájlokat"
 
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:471
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:470
 msgid "Drag and drop emoji files here"
 msgstr "Húzd ide az emojifájlokat"
 
@@ -12792,7 +12822,7 @@ msgid "Emoji"
 msgstr "Emoji"
 
 #. Community settings tab for managing custom emoji uploaded to the community.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:36
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:38
 msgctxt "community-settings-tab"
 msgid "Emoji"
 msgstr "Emotikonok"
@@ -12848,7 +12878,7 @@ msgid "Emoji name must be at most 32 characters long"
 msgstr "Az emoji neve legfeljebb 32 karakter hosszú lehet"
 
 #. Description in the community emoji upload section. {maxSize} is the formatted size limit.
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:95
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:96
 msgid "Emoji names need at least 2 characters and can use letters, numbers, and underscores. Emojis must be under {maxSize}. Static images are resized to 128x128 pixels and compressed automatically. Animated emojis and SVGs must already fit the limit."
 msgstr "Az emojiknak legalább 2 karakterből kell állniuk, és betűket, számokat és alulvonásokat tartalmazhatnak. Az emojik mérete legfeljebb {maxSize} lehet. A statikus képek automatikusan átméretezésre kerülnek 128x128 pixeles méretre és tömörítésre kerülnek. Az animált emojiknak és SVG-knek már meg kell felelniük a korlátozásnak."
 
@@ -12896,7 +12926,7 @@ msgstr "Hangulatjel-csomagok"
 msgid "Emoji picker"
 msgstr "Emoji választó"
 
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:451
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:450
 msgid "Emoji slots"
 msgstr "Emojihelyek"
 
@@ -14054,7 +14084,7 @@ msgstr "Kifejezés törlése"
 #. Community settings sidebar category grouping the emoji and stickers tabs.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:249
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:265
 #: src/features/user/components/settings_utils/search_index/ExpressionPacksIndex.ts:19
 #: src/features/user/components/settings_utils/section_registry/ChatSettingsSections.ts:134
 msgid "Expressions"
@@ -14219,7 +14249,12 @@ msgstr "Sikertelen betöltés"
 msgid "Failed to load authorized applications"
 msgstr "Nem sikerült betölteni az engedélyezett alkalmazásokat"
 
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:444
+#. Error message in the guild bots settings tab.
+#: src/features/guild/components/modals/guild_tabs/GuildBotsTab.tsx:27
+msgid "Failed to load bots"
+msgstr "Failed to load bots"
+
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:443
 msgid "Failed to load emojis. Try again later."
 msgstr "Nem sikerült betölteni az emojikat. Próbálja meg később."
 
@@ -14243,7 +14278,7 @@ msgid "Failed to load shareable sources."
 msgstr "Nem sikerült betölteni a megosztható forrásokat."
 
 #. Error message in the guild stickers tab.
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:74
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:71
 msgid "Failed to load stickers"
 msgstr "A matricák betöltése sikertelen"
 
@@ -14293,7 +14328,7 @@ msgid "Failed to pin message"
 msgstr "Az üzenet rögzítése sikertelen"
 
 #. Error message in the guild emoji tab.
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:54
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:55
 msgid "Failed to prepare emojis"
 msgstr "Nem sikerült előkészíteni az emojikat"
 
@@ -14439,12 +14474,12 @@ msgid "Failed to upload custom sound"
 msgstr "Nem sikerült feltölteni az egyéni hangot"
 
 #. Error message in the emoji upload failure modal. startLabel is a chunk label like "#1"; errorMsg is the server error.
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:62
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:63
 msgid "Failed to upload emojis starting at {startLabel}: {errorMsg}"
 msgstr "Nem sikerült feltölteni az emojikat, a(z) {startLabel} elemtől kezdve: {errorMsg}"
 
 #. Error message in the guild emoji tab.
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:58
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:59
 msgid "Failed to upload emojis. Try again."
 msgstr "Nem sikerült feltölteni az emojikat. Próbáld újra."
 
@@ -14538,7 +14573,7 @@ msgid "Feature"
 msgstr "Funkció"
 
 #. Short label in the feature temporarily disabled modal.
-#: src/features/app/components/alerts/FeatureTemporarilyDisabledModal.tsx:9
+#: src/features/app/components/alerts/FeatureTemporarilyDisabledModal.tsx:8
 msgid "Feature temporarily disabled"
 msgstr "Funkció átmenetileg letiltva"
 
@@ -14581,12 +14616,12 @@ msgid "File options"
 msgstr "Fájlbeállítások"
 
 #. Title of the file-too-large alert variant that offers a Plutonium upsell.
-#: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:38
+#: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:35
 msgid "File size limit exceeded"
 msgstr "Túllépte a fájlméret-korlátot"
 
 #. Title of the file-too-large alert.
-#: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:34
+#: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:31
 msgid "File size too large"
 msgstr "Túl nagy fájlméret"
 
@@ -15436,7 +15471,7 @@ msgid "Gap"
 msgstr "Szóköz"
 
 #. Short label in the temporary invite requires presence modal.
-#: src/features/app/components/alerts/TemporaryInviteRequiresPresenceModal.tsx:9
+#: src/features/app/components/alerts/TemporaryInviteRequiresPresenceModal.tsx:8
 msgid "Gateway connection required"
 msgstr "Átjárókapcsolat szükséges"
 
@@ -15753,7 +15788,7 @@ msgid "Give everyone on this instance the highest premium limits."
 msgstr "Mindenkinek ezen az instancián a legmagasabb prémium korlátokat biztosítja."
 
 #. Modal body shown when the role-edit form is submitted with an empty role name.
-#: src/features/app/components/alerts/RoleNameBlankModal.tsx:13
+#: src/features/app/components/alerts/RoleNameBlankModal.tsx:12
 msgid "Give the role a name before saving."
 msgstr "Adj nevet a szerepkörnek mentés előtt."
 
@@ -17088,7 +17123,7 @@ msgstr "Képfeltöltés"
 msgid "Images"
 msgstr "Képek"
 
-#: src/features/messaging/components/alerts/AttachmentPermissionDeniedModal.tsx:38
+#: src/features/messaging/components/alerts/AttachmentPermissionDeniedModal.tsx:35
 msgid "Images pasted from your clipboard are sent as attachments, and you don't have permission to attach files in this channel."
 msgstr "A vágólapról beillesztett képek mellékletként kerülnek elküldésre, de nincs jogosultságod fájlok csatolására ezen a csatornán."
 
@@ -17588,6 +17623,10 @@ msgstr "Telepítve"
 msgid "Installed {installedCount} / {installedLimit}"
 msgstr "Telepítve: {installedCount} / {installedLimit}"
 
+#: src/features/guild/components/modals/guild_tabs/GuildBotsTab.tsx:237
+msgid "Installed bots will appear here after they are added to this community."
+msgstr "Installed bots will appear here after they are added to this community."
+
 #: src/features/user/components/modals/tabs/ExpressionPacksTab.tsx:113
 msgid "Installed on {installedAt}"
 msgstr "Telepítve: {installedAt}"
@@ -17624,9 +17663,9 @@ msgstr "Példány URL-je"
 msgid "Instant invites"
 msgstr "Azonnali meghívók"
 
-#. Community settings sidebar category grouping webhooks.
+#. Community settings sidebar category grouping webhooks and bots.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:257
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:273
 #: src/features/user/components/settings_utils/search_index/AuthorizedAppsIndex.ts:26
 msgid "Integrations"
 msgstr "Integrációk"
@@ -17969,7 +18008,7 @@ msgid "Invites"
 msgstr "Meghívások"
 
 #. Community settings tab for invite link management.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:86
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:93
 msgctxt "community-settings-tab"
 msgid "Invites"
 msgstr "Meghívások"
@@ -18014,7 +18053,7 @@ msgstr "Meghívók letiltva (értesítősáv)"
 
 #. Button or menu action label in the invite accept modal. Keep it concise.
 #. Button or menu action label in the invites disabled modal. Keep it concise.
-#: src/features/invite/components/alerts/InvitesDisabledModal.tsx:10
+#: src/features/invite/components/alerts/InvitesDisabledModal.tsx:9
 #: src/features/invite/components/modals/InviteAcceptModal.tsx:49
 msgid "Invites paused"
 msgstr "Meghívók szüneteltetve"
@@ -19741,7 +19780,7 @@ msgid "Mature content media gate"
 msgstr "Érett tartalom médiafal"
 
 #. Error message in the mature content rejected modal.
-#: src/features/moderation/components/alerts/MatureContentRejectedModal.tsx:9
+#: src/features/moderation/components/alerts/MatureContentRejectedModal.tsx:8
 msgid "Mature content not allowed"
 msgstr "Érett tartalom nem engedélyezett"
 
@@ -19837,7 +19876,7 @@ msgid "Maximum screen share bitrate"
 msgstr "Képernyőmegosztás maximális bitrátája"
 
 #. Short label in the max favorite memes modal.
-#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:33
+#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:34
 #: src/features/expressions/components/modals/GiftAcceptModal.tsx:220
 #: src/features/expressions/components/modals/GiftAcceptModal.tsx:277
 msgid "Maybe later"
@@ -20045,7 +20084,7 @@ msgid "Members"
 msgstr "Tagok"
 
 #. Community settings tab for managing community members.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:81
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:88
 msgctxt "community-settings-tab"
 msgid "Members"
 msgstr "Tagok"
@@ -20533,7 +20572,7 @@ msgid "Microphone gain"
 msgstr "Mikrofon erősítés"
 
 #. Title of the modal shown when microphone permission is denied. Keep tone plain.
-#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:13
+#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:12
 msgid "Microphone permission required"
 msgstr "Mikrofonengedély szükséges"
 
@@ -20744,7 +20783,7 @@ msgid "Moderation"
 msgstr "Moderálás"
 
 #. Community settings tab for moderation and safety controls.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:56
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:58
 msgctxt "community-settings-tab"
 msgid "Moderation"
 msgstr "Moderáció"
@@ -21539,7 +21578,7 @@ msgid "NEW"
 msgstr "NEW"
 
 #. Description text in the new account guild limit modal.
-#: src/features/guild/components/alerts/NewAccountGuildLimitModal.tsx:13
+#: src/features/guild/components/alerts/NewAccountGuildLimitModal.tsx:12
 msgid "New accounts can join up to 10 communities in the first 24 hours. Try again later."
 msgstr "Az új fiókok az első 24 órában legfeljebb 10 közösséghez csatlakozhatnak. Próbálja meg később."
 
@@ -21810,6 +21849,10 @@ msgstr "Nincsenek könyvjelzők"
 msgid "No bot banner"
 msgstr "Nincs botbanner"
 
+#: src/features/guild/components/modals/guild_tabs/GuildBotsTab.tsx:236
+msgid "No bots installed"
+msgstr "No bots installed"
+
 #: src/features/user/components/modals/tabs/UserVideoTab.tsx:211
 msgid "No camera found"
 msgstr "Nem található kamera"
@@ -21846,6 +21889,10 @@ msgstr "Nincsenek elérhető csatornák"
 #: src/features/search/components/search/ChannelFilterSheet.tsx:119
 msgid "No channels found"
 msgstr "Nem található csatorna"
+
+#: src/features/guild/components/modals/guild_tabs/GuildBotsTab.tsx:269
+msgid "No channels selected"
+msgstr "No channels selected"
 
 #. Empty-state text in the discovery page.
 #: src/features/discovery/discovery/DiscoveryPage.tsx:70
@@ -21902,11 +21949,11 @@ msgid "No embeds returned"
 msgstr "Nincs beágyazott tartalom"
 
 #. Empty-state text in the guild emoji tab.
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:46
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:47
 msgid "No emoji slots available"
 msgstr "Nincs elérhető hangulatjel-hely"
 
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:479
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:478
 msgid "No emojis found matching your search."
 msgstr "Nincs a keresésnek megfelelő hangulatjel."
 
@@ -22157,7 +22204,7 @@ msgid "No scheduled messages"
 msgstr "Nincsenek ütemezett üzenetek"
 
 #. Body of the screen-share-unsupported modal shown when xdg-desktop-portal returns no capturable sources.
-#: src/features/voice/components/alerts/ScreenShareUnsupportedModal.tsx:19
+#: src/features/voice/components/alerts/ScreenShareUnsupportedModal.tsx:18
 msgid "No screens or windows were returned by the Linux screen sharing portal. Try again after checking that your desktop environment allows screen capture."
 msgstr "A Linux képernyőmegosztási portál nem adott vissza képernyőt vagy ablakot. Próbáld újra, miután ellenőrizted, hogy a grafikus környezeted engedélyezi-e a képernyőképet."
 
@@ -22185,17 +22232,17 @@ msgid "No specific scopes requested."
 msgstr "Nincsenek kért specifikus hatókörök."
 
 #. Empty-state text in the guild stickers tab.
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:61
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:58
 msgid "No sticker slots available"
 msgstr "Nincsenek elérhető matricafiókok"
 
 #. Empty-state text in the guild stickers tab.
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:57
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:54
 msgid "No stickers found"
 msgstr "Nincsenek matricák"
 
 #. Empty-state text in the guild stickers tab.
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:70
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:67
 msgid "No stickers found matching your search."
 msgstr "Nincsenek a keresésnek megfelelő matricák."
 
@@ -22220,6 +22267,10 @@ msgstr "Még nincsenek matricák"
 #: src/features/guild/components/modals/guild_tabs/guild_overview_tab/sections/SystemWelcomeSection.tsx:16
 msgid "No system channel"
 msgstr "Nincs rendszerüzenet-csatorna"
+
+#: src/features/guild/components/modals/guild_tabs/GuildBotsTab.tsx:227
+msgid "No text channels"
+msgstr "No text channels"
 
 #. Screen-reader fragment indicating the message has no text body. Lowercase because it appears inside a longer sentence.
 #: src/features/channel/components/ChannelMessage.tsx:71
@@ -22322,7 +22373,7 @@ msgid "Noise suppression: {noiseSuppressionLabel}"
 msgstr "Zajszűrés: {noiseSuppressionLabel}"
 
 #. Section heading for static emoji in community emoji settings.
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:100
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:101
 msgid "Non-animated emoji ({emojiCount})"
 msgstr "Nem animált hangulatjelek ({emojiCount})"
 
@@ -22640,7 +22691,7 @@ msgid "One or more attachments couldn't be read or uploaded. The file may have b
 msgstr "Egy vagy több mellékletet nem sikerült beolvasni vagy feltölteni. Lehet, hogy a fájlt áthelyezték vagy törölték. Add hozzá újra, és próbáld meg ismét."
 
 #. Body of the file-too-large alert for ambiguous count (single or multiple) over the per-file size limit.
-#: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:30
+#: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:27
 msgid "One or more files you're trying to upload exceed the maximum size limit of {maxSizeFormatted} per file."
 msgstr "Egy vagy több feltölteni kívánt fájl meghaladja a(z) {maxSizeFormatted} maximális fájlméretet."
 
@@ -23503,7 +23554,7 @@ msgid "Overview"
 msgstr "Áttekintés"
 
 #. Community settings tab for basic server/community details.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:46
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:48
 msgctxt "community-settings-tab"
 msgid "Overview"
 msgstr "Áttekintés"
@@ -23822,7 +23873,7 @@ msgstr "A függőben lévő barátkérelmek itt jelennek meg."
 #: src/features/expressions/utils/UnicodeEmojis.ts:21
 #: src/features/search/state/QuickSwitcherResultConverters.ts:22
 #: src/features/search/utils/QuickSwitcherModalUtils.tsx:51
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:261
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:277
 msgid "People"
 msgstr "Személyek"
 
@@ -25918,8 +25969,8 @@ msgstr "Melléklet eltávolítása"
 msgid "Remove authenticator app"
 msgstr "Hitelesítő alkalmazás eltávolítása"
 
-#: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:406
-#: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:442
+#: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:404
+#: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:440
 msgid "Remove avatar"
 msgstr "Profilkép eltávolítása"
 
@@ -27020,7 +27071,7 @@ msgid "Review the permissions {productName} uses for voice, video, screen sharin
 msgstr "Tekintsd át a(z) {productName} által használt engedélyeket a hang-, videó-, képernyőmegosztás és parancsikonok használatához."
 
 #. Intro text in the error modal shown after some emoji uploads fail.
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:71
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:72
 msgid "Review these files and try again with smaller or simpler images."
 msgstr "Nézd át ezeket a fájlokat, és próbáld újra kisebb vagy egyszerűbb képekkel."
 
@@ -27191,7 +27242,7 @@ msgid "Role name"
 msgstr "Szerepkör neve"
 
 #. Validation modal title when the role-edit form is submitted with an empty role name.
-#: src/features/app/components/alerts/RoleNameBlankModal.tsx:9
+#: src/features/app/components/alerts/RoleNameBlankModal.tsx:8
 msgid "Role name is required"
 msgstr "Szerepkör neve kötelező"
 
@@ -27211,7 +27262,7 @@ msgid "Roles"
 msgstr "Szerepkörök"
 
 #. Community settings tab for role hierarchy and permission rules.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:51
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:53
 msgctxt "community-settings-tab"
 msgid "Roles"
 msgstr "Szerepkörök"
@@ -27421,7 +27472,7 @@ msgid "Saved media autocomplete"
 msgstr "Mentett média automatikus kiegészítése"
 
 #. Short label in the max favorite memes modal.
-#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:15
+#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:16
 msgid "Saved media limit reached"
 msgstr "Elérte a mentett médiafájlok korlátját"
 
@@ -27528,7 +27579,7 @@ msgstr "Képernyőolvasó-bejelentések"
 
 #. Heading in the screen-share picker when macOS screen recording permission is missing.
 #. Title of the modal shown when screen recording permission is denied. Keep tone plain.
-#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:21
+#: src/features/permissions/system/components/MediaPermissionBlockedModal.tsx:20
 #: src/features/voice/components/modals/screen_share_picker_modal/ScreenSharePickerDisplayPermissionPrompt.tsx:18
 msgid "Screen recording permission required"
 msgstr "Képernyőfelvételi engedély szükséges"
@@ -27561,7 +27612,7 @@ msgid "Screen share encoder controls"
 msgstr "Képernyőmegosztás-kódoló beállításai"
 
 #. Title of a modal shown when an active screen share stops unexpectedly.
-#: src/features/voice/engine/v2/VoiceEngineV2AppScreenShareExecutionAdapter.tsx:111
+#: src/features/voice/engine/v2/VoiceEngineV2AppScreenShareExecutionAdapter.tsx:110
 msgctxt "screen-share"
 msgid "Screen share ended"
 msgstr "A képernyőmegosztás befejeződött"
@@ -27648,17 +27699,17 @@ msgid "Screen sharing codec"
 msgstr "Képernyőmegosztás kodek"
 
 #. Title of the modal shown when a screen share attempt fails due to a video source error.
-#: src/features/voice/components/alerts/ScreenShareFailedModal.tsx:9
+#: src/features/voice/components/alerts/ScreenShareFailedModal.tsx:8
 msgid "Screen sharing failed"
 msgstr "A képernyőmegosztás sikertelen"
 
 #. Body of the screen-share-unsupported modal. Mentions specific browsers and OSes; keep all proper nouns intact.
-#: src/features/voice/components/alerts/ScreenShareUnsupportedModal.tsx:13
+#: src/features/voice/components/alerts/ScreenShareUnsupportedModal.tsx:12
 msgid "Screen sharing is not supported on this device or browser. This feature requires a desktop browser that supports screen sharing, such as Chrome, Firefox, or Edge on Windows, macOS, or Linux."
 msgstr "A képernyőmegosztás nem támogatott ezen az eszközön vagy böngészőn. Ehhez a funkcióhoz olyan asztali böngésző szükséges, amely támogatja a képernyőmegosztást, mint például a Chrome, Firefox vagy Edge Windows, macOS vagy Linux operációs rendszeren."
 
 #. Title of the modal shown when screen sharing is not supported on the current device / browser.
-#: src/features/voice/components/alerts/ScreenShareUnsupportedModal.tsx:9
+#: src/features/voice/components/alerts/ScreenShareUnsupportedModal.tsx:8
 msgid "Screen sharing not supported"
 msgstr "A képernyőmegosztás nem támogatott"
 
@@ -27795,7 +27846,7 @@ msgid "Search countries…"
 msgstr "Országok keresése…"
 
 #. Button or menu action label in the guild emoji tab. Keep it concise.
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:91
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:92
 msgid "Search emojis"
 msgstr "Hangulatjelek keresése"
 
@@ -27960,7 +28011,7 @@ msgid "Search shortcuts…"
 msgstr "Gyorsbillentyűk keresése…"
 
 #. Button or menu action label in the guild stickers tab. Keep it concise.
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:49
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:46
 msgid "Search stickers"
 msgstr "Matricák keresése"
 
@@ -29954,7 +30005,7 @@ msgid "Slow attachment upload"
 msgstr "Lassú mellékletfeltöltés"
 
 #. Short label in the new account guild limit modal. Keep it concise.
-#: src/features/guild/components/alerts/NewAccountGuildLimitModal.tsx:9
+#: src/features/guild/components/alerts/NewAccountGuildLimitModal.tsx:8
 msgid "Slow down"
 msgstr "Lassíts"
 
@@ -30004,7 +30055,7 @@ msgstr "Lassú mód · várj {remaining}"
 #. Developer tools debug menu label. Internal-only surface for developers; translators may keep this terse.
 #. Short label in the slowmode rate limited modal. Keep it concise.
 #: src/features/channel/components/channel_header_components/developer_tools/DeveloperOptionLabels.ts:249
-#: src/features/slowmode/components/alerts/SlowmodeRateLimitedModal.tsx:14
+#: src/features/slowmode/components/alerts/SlowmodeRateLimitedModal.tsx:13
 msgid "Slowmode active"
 msgstr "Lassú mód aktív"
 
@@ -30019,7 +30070,7 @@ msgid "Slowmode is enabled, but you are immune."
 msgstr "A lassú mód be van kapcsolva, de te immunis vagy."
 
 #. Modal body shown when slowmode blocks sending a message. {duration} is a localized short duration such as "2 minutes".
-#: src/features/slowmode/components/alerts/SlowmodeRateLimitedModal.tsx:18
+#: src/features/slowmode/components/alerts/SlowmodeRateLimitedModal.tsx:17
 msgid "Slowmode is on — wait {duration} before sending another."
 msgstr "A lassú mód be van kapcsolva – várj {duration} mielőtt újat küldenél."
 
@@ -30150,12 +30201,12 @@ msgid "Sold out"
 msgstr "Elfogyott"
 
 #. Title of the error modal shown after some emoji uploads fail.
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:67
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:68
 msgid "Some emojis couldn't be added"
 msgstr "Néhány hangulatjel nem adható hozzá"
 
 #. Body of the file-too-large alert when multiple files exceed the per-file size limit. maxSizeFormatted is the limit formatted with units.
-#: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:21
+#: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:18
 msgid "Some files you're trying to upload exceed the maximum size limit of {maxSizeFormatted} per file."
 msgstr "Néhány fájl, amit fel szeretnél tölteni, meghaladja a fájlonkénti {maxSizeFormatted} maximális méretkorlátot."
 
@@ -30948,7 +30999,7 @@ msgid "Sticker deleted"
 msgstr "Matrica törölve"
 
 #. Short label in the guild stickers tab. Keep it concise.
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:53
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:50
 msgid "Sticker density"
 msgstr "Matricasűrűség"
 
@@ -30996,7 +31047,7 @@ msgstr "Matricacsomag-korlát elérve"
 msgid "Sticker packs"
 msgstr "Matricacsomagok"
 
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:283
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:278
 msgid "Sticker slots"
 msgstr "Matricahelyek"
 
@@ -31026,13 +31077,13 @@ msgid "Stickers"
 msgstr "Matricák"
 
 #. Community settings tab for managing custom stickers uploaded to the community.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:41
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:43
 msgctxt "community-settings-tab"
 msgid "Stickers"
 msgstr "Matricák"
 
 #. Description in the community sticker upload section. {maxSize} is the formatted size limit.
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:82
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:79
 msgid "Stickers are saved at 320x320 pixels and must be under {maxSize}. Static images are resized and compressed automatically. Animated stickers and SVGs must already fit the limit."
 msgstr "A matricákat 320x320 pixeles méretben mentjük, és legfeljebb {maxSize} méretűek lehetnek. A statikus képek automatikusan átméretezésre kerülnek és tömörítésre kerülnek. Az animált matricáknak és SVG-knek már meg kell felelniük a korlátozásnak."
 
@@ -31862,7 +31913,7 @@ msgid "temporarily unavailable"
 msgstr "átmenetileg nem elérhető"
 
 #. Modal body shown when the user tries to accept a temporary invite while the realtime connection is offline.
-#: src/features/app/components/alerts/TemporaryInviteRequiresPresenceModal.tsx:13
+#: src/features/app/components/alerts/TemporaryInviteRequiresPresenceModal.tsx:12
 msgid "Temporary invites need a live connection. Check yours and try again."
 msgstr "Az ideiglenes meghívókhoz élő kapcsolatra van szükség. Ellenőrizd a kapcsolatodat, és próbáld újra."
 
@@ -31982,12 +32033,12 @@ msgid "Text-to-speech"
 msgstr "Text-to-speech"
 
 #. Body of the TTS-unsupported modal. Mentions specific browsers; keep Chrome, Firefox, Edge, and Brave as literal proper nouns.
-#: src/features/voice/components/alerts/TtsUnsupportedModal.tsx:13
+#: src/features/voice/components/alerts/TtsUnsupportedModal.tsx:12
 msgid "Text-to-speech is not supported by your browser. Some browsers like Brave block this feature for privacy reasons. Try using Chrome, Firefox, or Edge, or adjust your browser's privacy settings."
 msgstr "A böngésződ nem támogatja a szövegfelolvasást. Egyes böngészők, mint például a Brave, adatvédelmi okokból blokkolják ezt a funkciót. Próbáld meg a Chrome, Firefox vagy Edge böngészőt használni, vagy módosítsd a böngésződ adatvédelmi beállításait."
 
 #. Title of the modal shown when the browser does not support text-to-speech.
-#: src/features/voice/components/alerts/TtsUnsupportedModal.tsx:9
+#: src/features/voice/components/alerts/TtsUnsupportedModal.tsx:8
 msgid "Text-to-speech not supported"
 msgstr "A szövegfelolvasás nem támogatott"
 
@@ -32148,7 +32199,7 @@ msgid "The file contains the verification token we will fetch from <0>{dnsUrl}</
 msgstr "A fájl tartalmazza az ellenőrző tokent, amelyet a következő helyről fogunk lekérni: <0>{dnsUrl}</0>."
 
 #. Body of the file-too-large alert when a single file exceeds the per-file size limit.
-#: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:26
+#: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:23
 msgid "The file you're trying to upload exceeds the maximum size limit of {maxSizeFormatted}."
 msgstr "A feltölteni kívánt fájl mérete meghaladja a(z) {maxSizeFormatted} maximális méretkorlátot."
 
@@ -32198,7 +32249,7 @@ msgid "The provided redirect_uri must use HTTP or HTTPS."
 msgstr "A megadott redirect_uri-nak HTTP vagy HTTPS protokollt kell használnia."
 
 #. Body of a modal shown when a browser screen share track ends outside the app, for example from the browser sharing controls.
-#: src/features/voice/engine/v2/VoiceEngineV2AppScreenShareExecutionAdapter.tsx:116
+#: src/features/voice/engine/v2/VoiceEngineV2AppScreenShareExecutionAdapter.tsx:115
 msgctxt "screen-share"
 msgid "The screen share source stopped sending video, so your screen share was stopped."
 msgstr "A képernyőmegosztás forrása leállította a videó küldését, ezért a képernyőmegosztása is befejeződött."
@@ -32361,6 +32412,11 @@ msgstr "Jelenleg nem érhető el alkalmazáson belüli helyi előfizetési mód,
 msgid "There is no recovery once this starts. We will DM you when it finishes."
 msgstr "Ha elindult, már nincs visszaút. DM-ben értesítünk, ha elkészült."
 
+#. Error message in the guild bots settings tab.
+#: src/features/guild/components/modals/guild_tabs/GuildBotsTab.tsx:31
+msgid "There was an error loading the bots. Try again."
+msgstr "There was an error loading the bots. Try again."
+
 #: src/features/channel/components/modals/channel_tabs/ChannelInvitesTab.tsx:271
 msgid "There was an error loading the invite links for this channel. Try again."
 msgstr "Hiba történt a csatorna meghívólinkjeinek betöltésekor. Próbálja újra."
@@ -32370,7 +32426,7 @@ msgid "There was an error loading the invites. Try again."
 msgstr "Hiba történt a meghívók betöltésekor. Próbálja újra."
 
 #. Error message in the guild stickers tab.
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:78
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:75
 msgid "There was an error loading the stickers. Try again."
 msgstr "Hiba történt a matricák betöltésekor. Próbálja újra."
 
@@ -32516,7 +32572,7 @@ msgid "This channel is marked for mature content and may contain material that m
 msgstr "Ez a csatorna felnőtt tartalommal van megjelölve, és olyan anyagokat tartalmazhat, amelyek egyes felhasználók számára nem megfelelőek."
 
 #. Label in the mature content rejected modal.
-#: src/features/moderation/components/alerts/MatureContentRejectedModal.tsx:13
+#: src/features/moderation/components/alerts/MatureContentRejectedModal.tsx:12
 msgid "This channel is not marked for mature content. Mature content can only be sent in channels marked for mature content. Ask a moderator to update this channel if appropriate."
 msgstr "Ez a csatorna nincs felnőtt tartalomként megjelölve. Felnőtt tartalom csak a felnőtt tartalomként megjelölt csatornákon küldhető. Kérj meg egy moderátort, hogy frissítse ezt a csatornát, ha szükséges."
 
@@ -32579,7 +32635,7 @@ msgid "This community has paused invites. You can try again later."
 msgstr "Ez a közösség szünetelteti a meghívásokat. Később újra próbálkozhatsz."
 
 #. Description text in the guild at capacity modal.
-#: src/features/guild/components/alerts/GuildAtCapacityModal.tsx:13
+#: src/features/guild/components/alerts/GuildAtCapacityModal.tsx:12
 msgid "This community has reached its maximum member limit and is not accepting new members at this time."
 msgstr "Ez a közösség elérte a maximális taglétszámot, és jelenleg nem fogad új tagokat."
 
@@ -32657,7 +32713,7 @@ msgid "This doesn't look like a valid template response. Make sure you copied th
 msgstr "Ez nem tűnik érvényes sablonválasznak. Győződj meg róla, hogy a teljes JSON dokumentumot kimásoltad."
 
 #. Generic per-file error text shown when preparing an emoji upload fails.
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:87
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:88
 msgid "This emoji could not be prepared. Try another file or try again in a moment."
 msgstr "Az emojit nem sikerült előkészíteni. Próbálj meg egy másik fájlt, vagy próbáld újra később."
 
@@ -32674,7 +32730,7 @@ msgid "This expression is gone"
 msgstr "Ez a kifejezés már nem létezik"
 
 #. Modal body shown when an instance admin has temporarily disabled a feature. Keep plain.
-#: src/features/app/components/alerts/FeatureTemporarilyDisabledModal.tsx:13
+#: src/features/app/components/alerts/FeatureTemporarilyDisabledModal.tsx:12
 msgid "This feature is paused. Try again later."
 msgstr "Ez a funkció szünetel. Próbálja meg később."
 
@@ -32684,7 +32740,7 @@ msgid "This field has an error"
 msgstr "Hiba van ebben a mezőben"
 
 #. Error text for animated emoji or SVG uploads that exceed the file size limit. {fileSize} and {maxSize} are formatted file sizes.
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:75
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:76
 msgid "This file is {fileSize}, over the {maxSize} limit. Animated emojis and SVGs must already be small enough to upload. Choose a smaller file or shorten the animation."
 msgstr "Ez a fájl {fileSize} méretű, ami meghaladja a(z) {maxSize} korlátot. Az animált hangulatjeleknek és SVG-knek már eleve elég kicsiknek kell lenniük a feltöltéshez. Válassz kisebb fájlt, vagy rövidítsd le az animációt."
 
@@ -32833,7 +32889,7 @@ msgid "This is not the community you're looking for."
 msgstr "Ez nem az a közösség, amit keresel."
 
 #. Description text in the too many reactions modal. Keep the tone plain and specific.
-#: src/features/messaging/components/alerts/TooManyReactionsModal.tsx:13
+#: src/features/messaging/components/alerts/TooManyReactionsModal.tsx:12
 msgid "This is one heavy message. Some reactions need to be removed before you can add more."
 msgstr "Ez egy elég \"nehéz\" üzenet. Előbb el kell távolítanod néhány reakciót, mielőtt újakat adhatnál hozzá."
 
@@ -32855,7 +32911,7 @@ msgid "This is the third option description"
 msgstr "Ez a harmadik opció leírása"
 
 #. Extra file-too-large alert sentence shown when premium upload-limit upgrades are unavailable.
-#: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:42
+#: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:39
 msgid "This limit is configured by your instance administrator."
 msgstr "Ezt a korlátot a példány adminisztrátora konfigurálta."
 
@@ -33570,7 +33626,7 @@ msgid "Too many attempts. Wait a bit, then try again."
 msgstr "Túl sok próbálkozás. Várj egy kicsit, majd próbáld újra."
 
 #. Error message in the max guilds modal.
-#: src/features/guild/components/alerts/MaxGuildsModal.tsx:10
+#: src/features/guild/components/alerts/MaxGuildsModal.tsx:9
 msgid "Too many communities"
 msgstr "Túl sok közösség"
 
@@ -34199,8 +34255,8 @@ msgstr "Nem sikerült betölteni az előnézetet."
 msgid "Unable to load profile banner, badges, and bio."
 msgstr "Nem sikerült betölteni a profil bannert, jelvényeket és az életrajzot."
 
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:272
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:328
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:271
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:327
 msgid "Unable to prepare any emojis for upload. The following errors occurred:"
 msgstr "Nem sikerült előkészíteni egyetlen emojit sem a feltöltéshez. A következő hibák történtek:"
 
@@ -34932,7 +34988,7 @@ msgid "Unsupported icon format"
 msgstr "Nem támogatott ikonformátum"
 
 #. Title of the error modal shown when an unsupported sticker file type is selected.
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:87
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:84
 msgid "Unsupported sticker file"
 msgstr "Nem támogatott matrica fájl"
 
@@ -35135,8 +35191,8 @@ msgstr "Frissítés most"
 
 #. Short label in the max bookmarks modal. Preserve {premiumProductName}; it is inserted by code.
 #. Short label in the max favorite memes modal. Preserve {premiumProductName}; it is inserted by code.
-#: src/features/app/components/alerts/MaxBookmarksModal.tsx:35
-#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:29
+#: src/features/app/components/alerts/MaxBookmarksModal.tsx:36
+#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:30
 msgid "Upgrade to {premiumProductName}"
 msgstr "Frissítés {premiumProductName} verzióra"
 
@@ -35208,7 +35264,7 @@ msgstr "Egyéni hang feltöltése ehhez: {label}"
 msgid "Upload directly to {displayName}"
 msgstr "Közvetlen feltöltés ide: {displayName}"
 
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:454
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:453
 msgid "Upload emoji"
 msgstr "Emoji feltöltése"
 
@@ -35252,7 +35308,7 @@ msgstr "Töltsön fel előnézeti képeket a képernyőmegosztáshoz."
 msgid "Upload sound"
 msgstr "Hang feltöltése"
 
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:286
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:281
 msgid "Upload sticker"
 msgstr "Matrica feltöltése"
 
@@ -36004,7 +36060,7 @@ msgid "Vanity URL"
 msgstr "Egyedi URL"
 
 #. Community settings tab for the community vanity/custom invite link.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:71
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:78
 msgctxt "community-settings-tab"
 msgid "Vanity URL"
 msgstr "Egyéni URL"
@@ -36996,7 +37052,7 @@ msgid "Volume sliders"
 msgstr "Hangerőcsúszkák"
 
 #. Description text in the message delete too quick modal. Keep the tone plain and specific.
-#: src/features/messaging/components/alerts/MessageDeleteTooQuickModal.tsx:13
+#: src/features/messaging/components/alerts/MessageDeleteTooQuickModal.tsx:12
 msgid "Wait a moment before deleting more messages."
 msgstr "Várj egy pillanatot, mielőtt további üzeneteket törölsz."
 
@@ -37148,7 +37204,7 @@ msgstr "Jelenleg nem tudtuk továbbítani az üzenetet."
 msgid "We couldn't import that theme library file."
 msgstr "Nem tudtuk importálni a téma könyvtárfájlt."
 
-#: src/features/messaging/components/alerts/AttachmentUploadConnectivityModal.tsx:24
+#: src/features/messaging/components/alerts/AttachmentUploadConnectivityModal.tsx:23
 msgid "We couldn't reach the attachment upload service. {PRODUCT_NAME} can fall back to the standard upload path for messages up to {fallbackSizeFormatted} total, but these attachments exceed that combined limit and can't be sent until connectivity is restored. Try again later or contact <0>{SUPPORT_EMAIL}</0> if this keeps happening."
 msgstr "Nem sikerült elérni a csatolmányfeltöltési szolgáltatást. A {PRODUCT_NAME} vissza tud váltani a normál feltöltési útvonalra legfeljebb {fallbackSizeFormatted} méretű üzenetek esetén, de ezek a csatolmányok meghaladják ezt az együttes korlátot, és nem küldhetők el, amíg a kapcsolat helyre nem áll. Próbálja meg később, vagy vegye fel a kapcsolatot a <0>{SUPPORT_EMAIL}</0> címen, ha ez továbbra is fennáll."
 
@@ -37191,7 +37247,7 @@ msgid "We recommend saving these codes now so that you don't get locked out of y
 msgstr "Javasoljuk, hogy mentse el ezeket a kódokat most, hogy ne záródjon ki fiókjából."
 
 #. Error text for static emoji uploads that still exceed the file size limit after resizing. {fileSize} and {maxSize} are formatted file sizes.
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:81
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:82
 msgid "We resized and compressed this emoji to 128x128 pixels, but it is still {fileSize}. The limit is {maxSize}. Try a simpler image, fewer colors, or a smaller source file."
 msgstr "Átméreteztük és tömörítettük ezt az emojit 128x128 képpontra, de még mindig {fileSize}. A korlát {maxSize}. Próbálj meg egy egyszerűbb képet, kevesebb színt vagy egy kisebb forrásfájlt használni."
 
@@ -37384,7 +37440,7 @@ msgid "Webhooks"
 msgstr "Webhookok"
 
 #. Community settings tab for configuring webhooks.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:66
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:68
 msgctxt "community-settings-tab"
 msgid "Webhooks"
 msgstr "Webhookok"
@@ -37657,8 +37713,8 @@ msgstr "Hú, ez egy gépelési apokalipszis"
 
 #. Label in the too many attachments modal.
 #. Label in the too many reactions modal.
-#: src/features/messaging/components/alerts/TooManyAttachmentsModal.tsx:10
-#: src/features/messaging/components/alerts/TooManyReactionsModal.tsx:9
+#: src/features/messaging/components/alerts/TooManyAttachmentsModal.tsx:9
+#: src/features/messaging/components/alerts/TooManyReactionsModal.tsx:8
 msgid "Whoa, this is heavy"
 msgstr "Hú, ez durva"
 
@@ -37741,7 +37797,7 @@ msgid "With {PREMIUM_PRODUCT_NAME}, you can use animated avatars ({ANIMATED_AVAT
 msgstr "A {PREMIUM_PRODUCT_NAME} segítségével animált avatárokat ({ANIMATED_AVATAR_FORMATS}), profilháttérképeket használhat, testre szabhatja a tag-jét, és számos egyéb {PREMIUM_PRODUCT_NAME} előnyhöz juthat."
 
 #. Premium upsell sentence in the file-too-large alert. premiumProductName is the paid product name; fileSizeLimit is a localized file size.
-#: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:46
+#: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:43
 msgid "With {premiumProductName}, your per-file upload limit increases to {fileSizeLimit}, plus animated avatars, longer messages, and many other {premiumProductName} perks."
 msgstr "A {premiumProductName} segítségével az egy fájlra eső feltöltési korlátja {fileSizeLimit}-re növekszik, emellett animált avatárokat, hosszabb üzeneteket és számos egyéb {premiumProductName} előnyhöz is hozzáférhet."
 
@@ -37871,7 +37927,7 @@ msgid "You are about to transfer ownership of this community to <0>{0}</0>. This
 msgstr "Át fogod ruházni ennek a közösségnek a tulajdonjogát a következőre: <0>{0}</0>. Ez a művelet <1>visszavonhatatlan</1>, és elveszíted az összes tulajdonosi jogosultságodat."
 
 #. Error message in the user banned from guild modal. Keep the tone plain and specific.
-#: src/features/moderation/components/alerts/UserBannedFromGuildModal.tsx:13
+#: src/features/moderation/components/alerts/UserBannedFromGuildModal.tsx:12
 msgid "You are banned from this community and cannot join."
 msgstr "Ki lettél tiltva ebből a közösségből, és nem csatlakozhatsz."
 
@@ -37994,7 +38050,7 @@ msgid "You can't add new reactions while you're on timeout."
 msgstr "Nem adhatsz hozzá új reakciókat, amíg időtúllépésen vagy."
 
 #. Description text in the attachment permission denied modal. Keep the tone plain and specific.
-#: src/features/messaging/components/alerts/AttachmentPermissionDeniedModal.tsx:20
+#: src/features/messaging/components/alerts/AttachmentPermissionDeniedModal.tsx:17
 msgid "You can't attach files in this channel."
 msgstr "Nem csatolhatsz fájlokat ehhez a csatornához."
 
@@ -38356,6 +38412,10 @@ msgstr "Nincs \"{embedLinksPermissionLabel}\" jogosultságod linkek beágyazás�
 msgid "You need the \"{manageChannelsPermissionLabel}\" permission to edit these permissions."
 msgstr "A(z) \"{manageChannelsPermissionLabel}\" engedély szükséges ezen engedélyek szerkesztéséhez."
 
+#: src/features/guild/components/modals/guild_tabs/GuildBotsTab.tsx:198
+msgid "You need the \"{manageGuildPermissionLabel}\" permission to view and edit bots for this community."
+msgstr "You need the \"{manageGuildPermissionLabel}\" permission to view and edit bots for this community."
+
 #. Tooltip on the disabled permission list in the role editor. {manageRolesPermissionLabel} is the localized name of the Manage Roles permission and should match its label exactly.
 #: src/features/guild/components/modals/guild_tabs/GuildRolesTab.tsx:59
 msgid "You need the \"{manageRolesPermissionLabel}\" permission to edit these permissions"
@@ -38502,17 +38562,17 @@ msgid "You're already Visionary"
 msgstr "Már Visionary vagy"
 
 #. Modal body shown when the bookmarks limit is reached on a self-hosted instance with no upgrade path. Limit count is interpolated.
-#: src/features/app/components/alerts/MaxBookmarksModal.tsx:19
+#: src/features/app/components/alerts/MaxBookmarksModal.tsx:20
 msgid "You're at {bookmarksText} — your instance admin sets this cap. Remove one to add another."
 msgstr "Elérted a(z) {bookmarksText} korlátot – ezt a példány adminisztrátora állította be. Távolíts el egyet, hogy hozzáadhass másikat."
 
 #. Modal body shown when the bookmarks limit is reached and Plutonium is unavailable on this instance. Limit count is interpolated.
-#: src/features/app/components/alerts/MaxBookmarksModal.tsx:24
+#: src/features/app/components/alerts/MaxBookmarksModal.tsx:25
 msgid "You're at {bookmarksText}. Remove one to add another."
 msgstr "Elérted a(z) {bookmarksText} korlátot. Törölj egyet, hogy hozzáadhass másikat."
 
 #. Modal body shown when the favorite-memes limit is reached on a self-hosted instance with no Plutonium upgrade path. Limit text is interpolated.
-#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:19
+#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:20
 msgid "You're at the cap of {freeItemsText} — your instance admin sets this limit."
 msgstr "Elérted a(z) {freeItemsText} korlátot – ezt a példány adminisztrátora állítja be."
 
@@ -38524,12 +38584,12 @@ msgid "You're at the creation limit. Delete one to create another."
 msgstr "Elérted a létrehozási korlátot. Törölj egyet, hogy újat hozhass létre."
 
 #. Modal body shown when the free bookmarks limit is reached and Plutonium would increase it. Free and Plutonium limits are interpolated.
-#: src/features/app/components/alerts/MaxBookmarksModal.tsx:29
+#: src/features/app/components/alerts/MaxBookmarksModal.tsx:30
 msgid "You're at the free cap of {bookmarksText}. {premiumProductName} bumps you up to {premiumBookmarksText} — or remove one to add another."
 msgstr "Elérted az ingyenes {bookmarksText} korlátot. A {premiumProductName} {premiumBookmarksText} értékre növeli ezt – vagy törölj egyet, hogy hozzáadhass egy másikat."
 
 #. Modal body shown when the free favorite-memes limit is reached and Plutonium would increase it. Free and Plutonium limits are interpolated.
-#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:24
+#: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:25
 msgid "You're at the free cap of {freeItemsText}. {premiumProductName} bumps you up to {premiumItemsText}."
 msgstr "Elérted az ingyenes {freeItemsText} korlátot. A {premiumProductName} {premiumItemsText} értékre növeli ezt."
 
@@ -38541,7 +38601,7 @@ msgid "You're at the install limit. Remove one to add another."
 msgstr "Elérte a telepítési korlátot. Távolítson el egyet, hogy hozzáadhasson másikat."
 
 #. Short label in the user banned from guild modal. Keep it concise. Keep the tone plain and specific.
-#: src/features/moderation/components/alerts/UserBannedFromGuildModal.tsx:9
+#: src/features/moderation/components/alerts/UserBannedFromGuildModal.tsx:8
 msgid "You're banned"
 msgstr "Tiltva vagy"
 
@@ -38566,7 +38626,7 @@ msgid "You're deafened"
 msgstr "Némaságban vagy."
 
 #. Label in the message delete too quick modal. Keep the tone plain and specific.
-#: src/features/messaging/components/alerts/MessageDeleteTooQuickModal.tsx:9
+#: src/features/messaging/components/alerts/MessageDeleteTooQuickModal.tsx:8
 msgid "You're deleting messages too quickly"
 msgstr "Túl gyorsan törlöd az üzeneteket"
 
@@ -38725,12 +38785,12 @@ msgid "You've reached the group DM limit"
 msgstr "Elérte a csoportos DM-ekre vonatkozó korlátot"
 
 #. Emoji upload limit message in community emoji settings. Do not suggest that communities can be upgraded.
-#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:50
+#: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:51
 msgid "You've reached the maximum number of emojis. Delete some existing emojis to make room."
 msgstr "Elérted a maximális hangulatjel-számot. Törölj néhány meglévő hangulatjelet, hogy helyet csinálj."
 
 #. Sticker upload limit message in community sticker settings. Do not suggest that communities can be upgraded.
-#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:65
+#: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:62
 msgid "You've reached the maximum number of stickers. Delete some existing stickers to make room."
 msgstr "Elérte a matricák maximális számát. Töröljön néhány meglévő matricát, hogy helyet szabadítson fel."
 
@@ -38803,7 +38863,7 @@ msgid "Your account requires multi-factor authentication, but no supported metho
 msgstr "Fiókja többfaktoros hitelesítést igényel, de ezen az eszközön nincsenek beállítva támogatott módszerek. Jelentkezzen be egy olyan eszközön, amelyen telepítve van a hitelesítő alkalmazás, vagy használjon biztonsági kulcsot, vagy lépjen kapcsolatba az ügyfélszolgálattal."
 
 #. Modal body shown when the safety system blocks the requested action. Keep plain and calm; offer support path.
-#: src/features/auth/components/ContentBlockedHandler.tsx:15
+#: src/features/auth/components/ContentBlockedHandler.tsx:14
 msgid "Your action could not be completed because it was flagged by our safety systems. If you believe this is a mistake, please contact support."
 msgstr "A műveletet biztonsági rendszereink blokkolták, ezért nem sikerült végrehajtani. Ha úgy gondolja, hogy ez tévedés, kérjük, vegye fel a kapcsolatot az ügyfélszolgálattal."
 
@@ -38928,12 +38988,12 @@ msgid "Your IP address has been successfully authorized."
 msgstr "IP-címe sikeresen engedélyezve."
 
 #. Error message in the user ip banned from guild modal. Keep the tone plain and specific.
-#: src/features/moderation/components/alerts/UserIpBannedFromGuildModal.tsx:13
+#: src/features/moderation/components/alerts/UserIpBannedFromGuildModal.tsx:12
 msgid "Your IP address is banned from this community and you cannot join."
 msgstr "Az IP-címed ki van tiltva ebből a közösségből, ezért nem csatlakozhatsz."
 
 #. Label in the user ip banned from guild modal. Keep the tone plain and specific.
-#: src/features/moderation/components/alerts/UserIpBannedFromGuildModal.tsx:9
+#: src/features/moderation/components/alerts/UserIpBannedFromGuildModal.tsx:8
 msgid "Your IP is banned"
 msgstr "IP-címed le van tiltva"
 
