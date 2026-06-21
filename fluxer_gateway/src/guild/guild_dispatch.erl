@@ -52,14 +52,16 @@ should_skip_dispatch(_Event, State) ->
 process_dispatch(Event, EventData, State) ->
     GuildId = maps:get(id, State),
     {SessionIdOpt, CleanData} = extract_session_id_if_needed(Event, EventData),
-    DecoratedData = CleanData#{<<"guild_id">> => integer_to_binary(GuildId)},
+    {ExcludedUserIds, DispatchData} = extract_excluded_user_ids(CleanData),
+    DecoratedData = DispatchData#{<<"guild_id">> => integer_to_binary(GuildId)},
     FinalData = guild_dispatch_decorate:decorate_member_data(Event, DecoratedData, State),
     UpdatedState = guild_state:update_state(Event, FinalData, State),
     FilterState = filter_state_for_event(Event, State, UpdatedState),
     Sessions = maps:get(sessions, UpdatedState, #{}),
-    FilteredSessions = guild_dispatch_filter:filter_sessions_for_event(
+    FilteredSessions0 = guild_dispatch_filter:filter_sessions_for_event(
         Event, FinalData, SessionIdOpt, Sessions, FilterState
     ),
+    FilteredSessions = filter_excluded_user_ids(FilteredSessions0, ExcludedUserIds),
     logger:debug(
         "process_dispatch: event=~p guild_id=~p total_sessions=~p filtered_sessions=~p",
         [Event, GuildId, map_size(Sessions), length(FilteredSessions)]
@@ -70,6 +72,29 @@ process_dispatch(Event, EventData, State) ->
         Event, FinalData, State, UpdatedState
     ),
     {noreply, FinalState}.
+
+-spec extract_excluded_user_ids(event_data()) -> {[integer()], event_data()}.
+extract_excluded_user_ids(EventData) ->
+    case maps:get(excluded_user_ids, EventData, []) of
+        UserIds when is_list(UserIds) ->
+            {UserIds, maps:remove(excluded_user_ids, EventData)};
+        _ ->
+            {[], maps:remove(excluded_user_ids, EventData)}
+    end.
+
+-spec filter_excluded_user_ids([guild_dispatch_filter:session_pair()], [integer()]) ->
+    [guild_dispatch_filter:session_pair()].
+filter_excluded_user_ids(Sessions, []) ->
+    Sessions;
+filter_excluded_user_ids(Sessions, ExcludedUserIds) ->
+    Excluded = maps:from_keys(ExcludedUserIds, true),
+    lists:filter(
+        fun({_Sid, SessionData}) ->
+            UserId = maps:get(user_id, SessionData, undefined),
+            not maps:is_key(UserId, Excluded)
+        end,
+        Sessions
+    ).
 
 -spec filter_state_for_event(event(), guild_state(), guild_state()) -> guild_state().
 filter_state_for_event(channel_delete, PreviousState, _UpdatedState) ->

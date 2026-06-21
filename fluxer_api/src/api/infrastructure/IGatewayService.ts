@@ -131,7 +131,12 @@ export interface GatewayMentionSourcesPage {
 }
 
 export abstract class IGatewayService {
-	abstract dispatchGuild(params: {guildId: GuildID; event: GatewayDispatchEvent; data: unknown}): Promise<void>;
+	abstract dispatchGuild(params: {
+		guildId: GuildID;
+		event: GatewayDispatchEvent;
+		data: unknown;
+		excludedUserIds?: Array<UserID>;
+	}): Promise<void>;
 
 	abstract getGuildCounts(guildId: GuildID): Promise<{
 		memberCount: number;

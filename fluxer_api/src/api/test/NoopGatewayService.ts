@@ -115,7 +115,12 @@ export class NoopGatewayService extends IGatewayService {
 		this.voiceStatesByChannel.set(this.getVoiceStateKey(params), [...params.voiceStates]);
 	}
 
-	async dispatchGuild(_params: {guildId: GuildID; event: GatewayDispatchEvent; data: unknown}): Promise<void> {}
+	async dispatchGuild(_params: {
+		guildId: GuildID;
+		event: GatewayDispatchEvent;
+		data: unknown;
+		excludedUserIds?: Array<UserID>;
+	}): Promise<void> {}
 
 	async getGuildCounts(guildId: GuildID): Promise<{
 		memberCount: number;

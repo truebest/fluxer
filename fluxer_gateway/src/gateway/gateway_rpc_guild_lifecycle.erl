@@ -22,8 +22,9 @@ handle(<<"guild.reload_all">>, P) -> handle_reload_all(P);
 handle(<<"guild.shutdown">>, P) -> handle_shutdown(P).
 
 -spec handle_dispatch(map()) -> term().
-handle_dispatch(#{<<"guild_id">> := GuildIdBin, <<"event">> := Event, <<"data">> := Data}) ->
+handle_dispatch(#{<<"guild_id">> := GuildIdBin, <<"event">> := Event, <<"data">> := Data} = P) ->
     GuildId = validation:snowflake_or_throw(<<"guild_id">>, GuildIdBin),
+    ExcludedUserIds = parse_excluded_user_ids(P),
     gateway_rpc_guild_infra:with_guild(GuildId, fun(Pid) ->
         EventAtom = constants:dispatch_event_atom(Event),
         IsAlive = gateway_rpc_guild_infra:is_cached_guild_pid_alive(Pid),
@@ -31,9 +32,15 @@ handle_dispatch(#{<<"guild_id">> := GuildIdBin, <<"event">> := Event, <<"data">>
             "rpc guild.dispatch: guild_id=~p event=~p pid=~p alive=~p",
             [GuildId, EventAtom, Pid, IsAlive]
         ),
-        gen_server:cast(Pid, {dispatch, #{event => EventAtom, data => Data}}),
+        gen_server:cast(Pid, {dispatch, #{event => EventAtom, data => Data#{excluded_user_ids => ExcludedUserIds}}}),
         true
     end).
+
+-spec parse_excluded_user_ids(map()) -> [integer()].
+parse_excluded_user_ids(#{<<"excluded_user_ids">> := UserIds}) ->
+    validation:snowflake_list_or_throw(<<"excluded_user_ids">>, UserIds);
+parse_excluded_user_ids(_) ->
+    [].
 
 -spec handle_get_data(map()) -> term().
 handle_get_data(#{<<"guild_id">> := GuildIdBin, <<"user_id">> := UserIdBin}) ->

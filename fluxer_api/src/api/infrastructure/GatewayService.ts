@@ -49,6 +49,7 @@ interface DispatchGuildParams {
 	guildId: GuildID;
 	event: GatewayDispatchEvent;
 	data: unknown;
+	excludedUserIds?: Array<UserID>;
 }
 
 interface DispatchPresenceParams {
@@ -553,11 +554,14 @@ export class GatewayService {
 		}
 	}
 
-	async dispatchGuild({guildId, event, data}: DispatchGuildParams): Promise<void> {
+	async dispatchGuild({guildId, event, data, excludedUserIds}: DispatchGuildParams): Promise<void> {
 		await this.call('guild.dispatch', {
 			guild_id: guildId.toString(),
 			event,
 			data,
+			...(excludedUserIds && excludedUserIds.length > 0
+				? {excluded_user_ids: excludedUserIds.map((userId) => userId.toString())}
+				: {}),
 		});
 	}
 

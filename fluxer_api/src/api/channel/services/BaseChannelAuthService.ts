@@ -19,6 +19,7 @@ import type {GuildMember} from '../../models/GuildMember';
 import type {User} from '../../models/User';
 import type {IUserRepository} from '../../user/IUserRepository';
 import {canUserAccessNsfwContent} from '../../utils/AgeUtils';
+import {BotChannelScopeService} from '../../oauth/BotChannelScopeService';
 import type {IChannelRepositoryAggregate} from '../repositories/IChannelRepositoryAggregate';
 import {
 	type ContentWarningChannelLike,
@@ -173,6 +174,11 @@ export abstract class BaseChannelAuthService {
 			userId,
 			memberData: guildMemberResult.memberData!,
 		});
+		await this.enforceBotChannelScope({
+			channel,
+			userId,
+			isBot: guildMemberResult.memberData!.user?.bot === true,
+		});
 		const hasPermission = async (permission: bigint): Promise<boolean> => {
 			return await this.gatewayService.checkPermission({guildId, userId, permission, channelId: channel.id});
 		};
@@ -211,6 +217,28 @@ export abstract class BaseChannelAuthService {
 			hasPermission,
 			checkPermission,
 		};
+	}
+
+	private async enforceBotChannelScope({
+		channel,
+		userId,
+		isBot,
+	}: {
+		channel: Channel;
+		userId: UserID;
+		isBot: boolean;
+	}): Promise<void> {
+		if (!isBot || !channel.guildId || channel.type !== ChannelTypes.GUILD_TEXT) {
+			return;
+		}
+		const allowed = await new BotChannelScopeService().isBotAllowedInChannel({
+			guildId: channel.guildId,
+			botUserId: userId,
+			channelId: channel.id,
+		});
+		if (!allowed) {
+			throw new UnknownChannelError();
+		}
 	}
 
 	private async getParentCategoryContentWarningView({
