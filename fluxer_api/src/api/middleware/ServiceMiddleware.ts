@@ -637,6 +637,7 @@ export const ServiceMiddleware = createMiddleware<HonoEnv>(async (ctx, next) => 
 	ctx.set('favoriteMemeRequestService', new FavoriteMemeRequestService(favoriteMemeService));
 	ctx.set('gatewayService', gatewayService);
 	ctx.set('gatewayRequestService', new GatewayRequestService(botAuthService));
+	ctx.set('guildRepository', guildRepository);
 	ctx.set('guildService', guildService);
 	ctx.set('singleCommunityService', singleCommunityService);
 	ctx.set(
@@ -673,6 +674,7 @@ export const ServiceMiddleware = createMiddleware<HonoEnv>(async (ctx, next) => 
 			applicationService,
 			guildService,
 			channelService,
+			channelRepository,
 		),
 	);
 	ctx.set(

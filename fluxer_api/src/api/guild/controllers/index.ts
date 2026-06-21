@@ -3,6 +3,7 @@
 import type {HonoApp} from '../../types/HonoEnv';
 import {GuildAuditLogController} from './GuildAuditLogController';
 import {GuildBaseController} from './GuildBaseController';
+import {GuildBotChannelScopeController} from './GuildBotChannelScopeController';
 import {GuildChannelController} from './GuildChannelController';
 import {GuildDiscoveryController} from './GuildDiscoveryController';
 import {GuildEmojiController} from './GuildEmojiController';
@@ -18,6 +19,7 @@ export function registerGuildControllers(app: HonoApp) {
 	GuildMemberController(app);
 	GuildMemberSearchController(app);
 	GuildRoleController(app);
+	GuildBotChannelScopeController(app);
 	GuildChannelController(app);
 	GuildEmojiController(app);
 	GuildStickerController(app);

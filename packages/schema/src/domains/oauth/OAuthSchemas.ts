@@ -63,6 +63,20 @@ const DisableGuildSelectType = withOpenApiType(
 	),
 	'DisableGuildSelectType',
 );
+
+const GuildChannelIdsType = z
+	.preprocess((value) => {
+		if (typeof value === 'string') {
+			return value
+				.split(',')
+				.map((item) => item.trim())
+				.filter(Boolean);
+		}
+		return value;
+	}, z.array(SnowflakeType).max(100))
+	.optional()
+	.describe('Guild text channel IDs to attach the bot to during guild authorization');
+
 export const AuthorizeRequest = z.object({
 	response_type: z.literal('code').optional().describe('The OAuth2 response type, must be "code"'),
 	client_id: SnowflakeType.describe('The application client ID'),
@@ -72,6 +86,7 @@ export const AuthorizeRequest = z.object({
 	prompt: PromptType.optional(),
 	guild_id: SnowflakeType.optional().describe('The guild ID to pre-select for bot authorization'),
 	channel_id: SnowflakeType.optional().describe('The group DM channel ID to pre-select for bot authorization'),
+	guild_channel_ids: GuildChannelIdsType,
 	permissions: z.string().optional().describe('The bot permissions to request'),
 	disable_guild_select: DisableGuildSelectType.optional(),
 	code_challenge: createStringType(1).optional().describe('The PKCE code challenge'),
@@ -95,6 +110,7 @@ export const AuthorizeConsentRequest = z.object({
 	permissions: z.string().optional().describe('The bot permissions to request'),
 	guild_id: SnowflakeType.optional().describe('The guild ID to add the bot to'),
 	channel_id: SnowflakeType.optional().describe('The group DM channel ID to add the bot to'),
+	guild_channel_ids: GuildChannelIdsType,
 	code_challenge: createStringType(1).optional().describe('The PKCE code challenge'),
 	code_challenge_method: createNamedStringLiteralUnion(
 		[

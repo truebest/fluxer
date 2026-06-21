@@ -37,7 +37,15 @@ import type {z} from 'zod';
 import type {ApiContext} from '../ApiContext';
 import type {SudoVerificationBody} from '../auth/services/SudoVerificationService';
 import {requireSudoMode} from '../auth/services/SudoVerificationService';
-import {createApplicationID, createChannelID, createGuildID, createRoleID, type UserID} from '../BrandedTypes';
+import {
+	createApplicationID,
+	createChannelID,
+	createGuildID,
+	createRoleID,
+	type GuildID,
+	type UserID,
+} from '../BrandedTypes';
+import type {IChannelRepository} from '../channel/IChannelRepository';
 import type {ChannelService} from '../channel/services/ChannelService';
 import type {GuildService} from '../guild/services/GuildService';
 import {Logger} from '../Logger';
@@ -47,6 +55,7 @@ import {verifyPassword} from '../utils/PasswordUtils';
 import type {ApplicationService} from './ApplicationService';
 import {ApplicationNotOwnedError} from './ApplicationService';
 import type {BotAuthService} from './BotAuthService';
+import {BotChannelScopeService} from './BotChannelScopeService';
 import {mapApplicationToResponse, mapBotTokenResetResponse, mapBotUserToResponse} from './OAuth2Mappers';
 import {filterOAuth2Scopes} from './OAuth2ScopeUtils';
 import {ACCESS_TOKEN_TTL_SECONDS, type OAuth2Service} from './OAuth2Service';
@@ -66,6 +75,7 @@ export class OAuth2RequestService {
 		private readonly applicationService: ApplicationService,
 		private readonly guildService: GuildService,
 		private readonly channelService: ChannelService,
+		private readonly channelRepository: IChannelRepository,
 	) {}
 
 	async tokenExchange(params: {
@@ -199,8 +209,15 @@ export class OAuth2RequestService {
 		const responseType = params.body.response_type ?? (isBotOnly ? undefined : 'code');
 		const guildId = params.body.guild_id ? createGuildID(params.body.guild_id) : null;
 		const channelId = params.body.channel_id ? createChannelID(params.body.channel_id) : null;
+		const guildChannelIds = params.body.guild_channel_ids?.map(createChannelID) ?? null;
 		if (guildId && channelId) {
 			throw InputValidationError.create('channel_id', 'channel_id cannot be used with guild_id');
+		}
+		if (channelId && guildChannelIds) {
+			throw InputValidationError.create('guild_channel_ids', 'guild_channel_ids cannot be used with channel_id');
+		}
+		if (!guildId && guildChannelIds) {
+			throw InputValidationError.create('guild_channel_ids', 'guild_channel_ids requires guild_id');
 		}
 		let requestedPermissions: bigint | null = null;
 		if (params.body.permissions !== undefined) {
@@ -247,6 +264,7 @@ export class OAuth2RequestService {
 				}
 				const botUserId = application.botUserId;
 				if (guildId) {
+					const botChannelScopeService = new BotChannelScopeService();
 					const userPermissions = await this.apiContext.services.gateway.getUserPermissions({
 						guildId,
 						userId: params.userId,
@@ -300,6 +318,25 @@ export class OAuth2RequestService {
 							requestCache: params.requestCache,
 						});
 					}
+					if (guildChannelIds === null) {
+						await botChannelScopeService.setDefaultScope({
+							guildId,
+							botUserId,
+							applicationId,
+							updatedBy: params.userId,
+							channelRepository: this.channelRepository,
+						});
+					} else {
+						await botChannelScopeService.setScope({
+							guildId,
+							botUserId,
+							applicationId,
+							channelIds: guildChannelIds,
+							updatedBy: params.userId,
+							channelRepository: this.channelRepository,
+						});
+					}
+					await this.reloadGuildAfterBotScopeChange(guildId, botUserId);
 				} else if (channelId) {
 					await this.channelService.groupDms.addBotRecipientToChannel({
 						userId: params.userId,
@@ -317,6 +354,17 @@ export class OAuth2RequestService {
 		}
 		Logger.info({redirectTo}, 'OAuth2 consent: returning redirect URL');
 		return {redirect_to: redirectTo};
+	}
+
+	private async reloadGuildAfterBotScopeChange(guildId: GuildID, botUserId: UserID): Promise<void> {
+		try {
+			await this.apiContext.services.gateway.reloadGuild(guildId);
+		} catch (error) {
+			Logger.warn(
+				{guildId: guildId.toString(), botUserId: botUserId.toString(), error},
+				'Failed to reload guild after bot channel scope update',
+			);
+		}
 	}
 
 	async getMe(authorizationHeader: string | undefined): Promise<OAuth2MeResponse> {

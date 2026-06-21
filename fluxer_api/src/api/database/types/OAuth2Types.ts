@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-import type {ApplicationID, UserID} from '../../BrandedTypes';
+import type {ApplicationID, ChannelID, GuildID, UserID} from '../../BrandedTypes';
 
 export interface ApplicationRow {
 	application_id: ApplicationID;
@@ -61,6 +61,18 @@ export interface OAuth2RefreshTokenByUserRow {
 	token_: string;
 }
 
+export interface BotChannelScopeRow {
+	guild_id: GuildID;
+	bot_user_id: UserID;
+	application_id: ApplicationID;
+	channel_ids: Set<ChannelID> | null;
+	created_by: UserID;
+	updated_by: UserID;
+	created_at: Date;
+	updated_at: Date;
+	version?: number | null;
+}
+
 export const APPLICATION_COLUMNS = [
 	'application_id',
 	'owner_user_id',
@@ -101,3 +113,14 @@ export const OAUTH2_REFRESH_TOKEN_COLUMNS = [
 	'scope',
 	'created_at',
 ] as const satisfies ReadonlyArray<keyof OAuth2RefreshTokenRow>;
+export const BOT_CHANNEL_SCOPE_COLUMNS = [
+	'guild_id',
+	'bot_user_id',
+	'application_id',
+	'channel_ids',
+	'created_by',
+	'updated_by',
+	'created_at',
+	'updated_at',
+	'version',
+] as const satisfies ReadonlyArray<keyof BotChannelScopeRow>;

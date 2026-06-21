@@ -95,6 +95,11 @@ export function OAuth2Controller(app: HonoApp) {
 			if (q.prompt) consentUrl.searchParams.set('prompt', q.prompt);
 			if (q.guild_id) consentUrl.searchParams.set('guild_id', q.guild_id.toString());
 			if (q.channel_id) consentUrl.searchParams.set('channel_id', q.channel_id.toString());
+			if (q.guild_channel_ids) {
+				for (const channelId of q.guild_channel_ids) {
+					consentUrl.searchParams.append('guild_channel_ids', channelId.toString());
+				}
+			}
 			if (q.permissions) consentUrl.searchParams.set('permissions', q.permissions);
 			if (q.disable_guild_select) consentUrl.searchParams.set('disable_guild_select', q.disable_guild_select);
 			if (q.code_challenge) consentUrl.searchParams.set('code_challenge', q.code_challenge);

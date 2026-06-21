@@ -30,6 +30,7 @@ import type {FavoriteMemeRequestService} from '../favorite_meme/FavoriteMemeRequ
 import type {FavoriteMemeService} from '../favorite_meme/FavoriteMemeService';
 import type {GatewayRequestService} from '../gateway/GatewayRequestService';
 import type {GifService} from '../gif/GifService';
+import type {IGuildRepositoryAggregate} from '../guild/repositories/IGuildRepositoryAggregate';
 import type {IGuildDiscoveryService} from '../guild/services/GuildDiscoveryService';
 import type {GuildService} from '../guild/services/GuildService';
 import type {EmbedService} from '../infrastructure/EmbedService';
@@ -140,6 +141,7 @@ export interface HonoEnv {
 		gatewayService: IGatewayService;
 		gatewayRequestService: GatewayRequestService;
 		discoveryService: IGuildDiscoveryService;
+		guildRepository: IGuildRepositoryAggregate;
 		guildService: GuildService;
 		packService: PackService;
 		packRepository: PackRepository;

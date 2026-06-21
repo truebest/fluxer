@@ -216,6 +216,8 @@ import {
 	APPLICATION_COLUMNS,
 	type ApplicationByOwnerRow,
 	type ApplicationRow,
+	BOT_CHANNEL_SCOPE_COLUMNS,
+	type BotChannelScopeRow,
 	OAUTH2_ACCESS_TOKEN_COLUMNS,
 	OAUTH2_AUTHORIZATION_CODE_COLUMNS,
 	OAUTH2_REFRESH_TOKEN_COLUMNS,
@@ -1107,6 +1109,12 @@ export const OAuth2RefreshTokensByUser = defineTable<OAuth2RefreshTokenByUserRow
 	name: 'oauth2_refresh_tokens_by_user',
 	columns: OAUTH2_REFRESH_TOKENS_BY_USER_COLUMNS,
 	primaryKey: ['user_id', 'token_'],
+});
+export const BotChannelScopes = defineTable<BotChannelScopeRow, 'guild_id' | 'bot_user_id', 'guild_id'>({
+	name: 'bot_channel_scopes',
+	columns: BOT_CHANNEL_SCOPE_COLUMNS,
+	primaryKey: ['guild_id', 'bot_user_id'],
+	partitionKey: ['guild_id'],
 });
 
 interface WebhooksByChannelRow {
