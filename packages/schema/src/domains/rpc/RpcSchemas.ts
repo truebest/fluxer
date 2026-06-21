@@ -34,6 +34,7 @@ export const RpcGuildCollectionType = z.enum([
 	'stickers',
 	'members',
 	'voice_states',
+	'bot_channel_scopes',
 ]);
 
 export type RpcGuildCollectionType = z.infer<typeof RpcGuildCollectionType>;
@@ -44,6 +45,11 @@ const ReadStateResponse = z.object({
 	last_message_id: SnowflakeStringType.nullish().describe('ID of the last read message'),
 	last_pin_timestamp: z.string().nullish().describe('Timestamp of the last pinned message'),
 	version: UnsignedInt64StringType.optional().describe('Read-state version for ordering updates as a decimal uint64'),
+});
+
+const RpcBotChannelScopeResponse = z.object({
+	bot_user_id: SnowflakeStringType.describe('ID of the scoped bot user'),
+	channel_ids: z.array(SnowflakeStringType).describe('Text channel IDs this bot is attached to'),
 });
 
 export const RpcRequest = z.discriminatedUnion('type', [
@@ -309,6 +315,10 @@ export const RpcResponseGuildCollectionData = z.object({
 	stickers: z.array(GuildStickerResponse).nullish().describe('List of custom stickers in the guild'),
 	members: z.array(GuildMemberResponse).nullish().describe('List of guild members in this chunk'),
 	voice_states: z.array(VoiceStateResponse).nullish().describe('List of guild voice states in this chunk'),
+	bot_channel_scopes: z
+		.array(RpcBotChannelScopeResponse)
+		.nullish()
+		.describe('Installed bot text channel access scopes in the guild'),
 	has_more: z.boolean().describe('Whether more data is available for this collection'),
 	next_after_user_id: SnowflakeStringType.nullish().describe('Cursor for the next member chunk'),
 });

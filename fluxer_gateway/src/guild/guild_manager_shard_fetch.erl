@@ -19,7 +19,8 @@
     <<"emojis">>,
     <<"stickers">>,
     <<"members">>,
-    <<"voice_states">>
+    <<"voice_states">>,
+    <<"bot_channel_scopes">>
 ]).
 
 -spec fetch_guild_data(guild_id()) -> fetch_result().

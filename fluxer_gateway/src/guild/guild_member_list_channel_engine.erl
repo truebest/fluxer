@@ -244,10 +244,18 @@ build_inputs(ChannelId, State) ->
     MemberMap = guild_data_index:member_map(Data),
     ConnectedUserIds = guild_member_list_common:connected_session_user_ids(State),
     PresenceTab = maps:get(member_presence, State),
+    BotChannelScopeIndex = bot_channel_scope_index(Data),
     Tuples = maps:fold(
         fun(UserId, Member, Acc) ->
             maybe_prepare_visible_member_tuple(
-                UserId, Member, ChannelId, State, PresenceTab, ConnectedUserIds, Acc
+                UserId,
+                Member,
+                ChannelId,
+                State,
+                PresenceTab,
+                ConnectedUserIds,
+                BotChannelScopeIndex,
+                Acc
             )
         end,
         [],
@@ -264,14 +272,19 @@ build_inputs(ChannelId, State) ->
     {Tuples, HoistedRoleIds}.
 
 -spec maybe_prepare_visible_member_tuple(
-    integer(), map(), pos_integer(), guild_state(), ets:tid() | map(), sets:set(integer()), [
-        guild_member_list_store:member_tuple()
-    ]
+    integer(),
+    map(),
+    pos_integer(),
+    guild_state(),
+    ets:tid() | map(),
+    sets:set(integer()),
+    map(),
+    [guild_member_list_store:member_tuple()]
 ) -> [guild_member_list_store:member_tuple()].
 maybe_prepare_visible_member_tuple(
-    UserId, Member, ChannelId, State, PresenceTab, ConnectedUserIds, Acc
+    UserId, Member, ChannelId, State, PresenceTab, ConnectedUserIds, BotChannelScopeIndex, Acc
 ) ->
-    case can_view(UserId, ChannelId, Member, State) of
+    case can_view(UserId, ChannelId, Member, State, BotChannelScopeIndex) of
         true -> prepare_member_tuple(UserId, Member, PresenceTab, ConnectedUserIds, Acc);
         false -> Acc
     end.
@@ -291,13 +304,75 @@ prepare_member_tuple(UserId, Member, PresenceTab, ConnectedUserIds, Acc) ->
 
 -spec can_view(integer(), pos_integer(), map(), guild_state()) -> boolean().
 can_view(UserId, ChannelId, Member, State) when is_integer(UserId), UserId > 0 ->
+    Data = maps:get(data, State, #{}),
+    can_view(UserId, ChannelId, Member, State, bot_channel_scope_index(Data));
+can_view(_UserId, _ChannelId, _Member, _State) ->
+    false.
+
+-spec can_view(integer(), pos_integer(), map(), guild_state(), map()) -> boolean().
+can_view(UserId, ChannelId, Member, State, BotChannelScopeIndex) when
+    is_integer(UserId), UserId > 0
+->
     try
-        guild_permissions:can_view_channel(UserId, ChannelId, Member, State)
+        guild_permissions:can_view_channel(UserId, ChannelId, Member, State) andalso
+            bot_channel_scope_allows(UserId, ChannelId, Member, BotChannelScopeIndex)
     catch
         _:_ -> false
     end;
-can_view(_UserId, _ChannelId, _Member, _State) ->
+can_view(_UserId, _ChannelId, _Member, _State, _BotChannelScopeIndex) ->
     false.
+
+-spec bot_channel_scope_allows(integer(), pos_integer(), map(), map()) -> boolean().
+bot_channel_scope_allows(UserId, ChannelId, Member, BotChannelScopeIndex) ->
+    case member_is_bot(Member) of
+        false ->
+            true;
+        true ->
+            case maps:get(UserId, BotChannelScopeIndex, undefined) of
+                undefined -> true;
+                ChannelIds when is_map(ChannelIds) -> maps:is_key(ChannelId, ChannelIds);
+                _ -> false
+            end
+    end.
+
+-spec member_is_bot(map()) -> boolean().
+member_is_bot(Member) ->
+    User = maps:get(<<"user">>, Member, #{}),
+    maps:get(<<"bot">>, User, false) =:= true.
+
+-spec bot_channel_scope_index(map()) -> map().
+bot_channel_scope_index(Data) when is_map(Data) ->
+    Scopes = map_utils:ensure_list(maps:get(<<"bot_channel_scopes">>, Data, [])),
+    lists:foldl(fun add_bot_channel_scope/2, #{}, Scopes);
+bot_channel_scope_index(_Data) ->
+    #{}.
+
+-spec add_bot_channel_scope(term(), map()) -> map().
+add_bot_channel_scope(Scope, Acc) when is_map(Scope) ->
+    BotUserId = snowflake_id:parse_maybe(maps:get(<<"bot_user_id">>, Scope, undefined)),
+    case BotUserId of
+        undefined ->
+            Acc;
+        _ ->
+            Acc#{BotUserId => channel_id_map(maps:get(<<"channel_ids">>, Scope, []))}
+    end;
+add_bot_channel_scope(_Scope, Acc) ->
+    Acc.
+
+-spec channel_id_map(term()) -> map().
+channel_id_map(ChannelIds) ->
+    lists:foldl(
+        fun add_channel_id/2,
+        #{},
+        map_utils:ensure_list(ChannelIds)
+    ).
+
+-spec add_channel_id(term(), map()) -> map().
+add_channel_id(ChannelIdValue, Acc) ->
+    case snowflake_id:parse_maybe(ChannelIdValue) of
+        ChannelId when is_integer(ChannelId), ChannelId > 0 -> Acc#{ChannelId => true};
+        _ -> Acc
+    end.
 
 -spec engines(guild_state()) -> #{list_id() => engine_ref()}.
 engines(State) ->
@@ -345,5 +420,69 @@ sync_online_noop_without_engines_test() ->
     ?assertEqual(
         ok, sync_online(1, true, #{data => #{<<"guild">> => #{<<"features">> => []}}})
     ).
+
+scoped_bot_visible_only_in_attached_channel_test() ->
+    State = bot_scope_test_state([500]),
+    BotMember = bot_scope_test_member(200, true),
+    HumanMember = bot_scope_test_member(201, false),
+    ?assert(can_view(200, 500, BotMember, State)),
+    ?assertNot(can_view(200, 600, BotMember, State)),
+    ?assert(can_view(201, 600, HumanMember, State)).
+
+legacy_bot_without_scope_stays_visible_test() ->
+    State0 = bot_scope_test_state([]),
+    State = State0#{data => maps:remove(<<"bot_channel_scopes">>, maps:get(data, State0))},
+    BotMember = bot_scope_test_member(200, true),
+    ?assert(can_view(200, 500, BotMember, State)),
+    ?assert(can_view(200, 600, BotMember, State)).
+
+bot_scope_test_state(AllowedChannelIds) ->
+    GuildId = 100,
+    Data = guild_data_index:normalize_data(#{
+        <<"guild">> => #{
+            <<"id">> => integer_to_binary(GuildId),
+            <<"owner_id">> => <<"999">>,
+            <<"features">> => []
+        },
+        <<"roles">> => [
+            #{
+                <<"id">> => integer_to_binary(GuildId),
+                <<"permissions">> => integer_to_binary(constants:view_channel_permission())
+            }
+        ],
+        <<"channels">> => [
+            #{<<"id">> => <<"500">>, <<"type">> => 0, <<"permission_overwrites">> => []},
+            #{<<"id">> => <<"600">>, <<"type">> => 0, <<"permission_overwrites">> => []}
+        ],
+        <<"members">> => [
+            bot_scope_test_member(200, true),
+            bot_scope_test_member(201, false)
+        ],
+        <<"bot_channel_scopes">> => [
+            #{
+                <<"bot_user_id">> => <<"200">>,
+                <<"channel_ids">> => [integer_to_binary(ChannelId) || ChannelId <- AllowedChannelIds]
+            }
+        ]
+    }),
+    #{
+        id => GuildId,
+        data => Data,
+        sessions => #{},
+        member_presence => #{}
+    }.
+
+bot_scope_test_member(UserId, IsBot) ->
+    User0 = #{
+        <<"id">> => integer_to_binary(UserId),
+        <<"username">> => <<"test">>,
+        <<"discriminator">> => <<"0">>
+    },
+    User =
+        case IsBot of
+            true -> User0#{<<"bot">> => true};
+            false -> User0
+        end,
+    #{<<"user">> => User, <<"roles">> => []}.
 
 -endif.

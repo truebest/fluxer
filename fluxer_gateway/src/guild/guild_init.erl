@@ -137,7 +137,18 @@ handle_reload(NewData, State) ->
         OldData, NormalizedNewData, NewState2
     ),
     ok = guild_maintenance:maybe_put_permission_cache(NewState),
-    {reply, ok, NewState}.
+    FinalState = refresh_member_lists_after_reload(NewState),
+    {reply, ok, FinalState}.
+
+-spec refresh_member_lists_after_reload(guild_state()) -> guild_state().
+refresh_member_lists_after_reload(State) ->
+    case guild_dispatch_config:is_member_list_updates_enabled(State) of
+        true ->
+            {ok, NewState} = guild_member_list:broadcast_all_member_list_updates(State),
+            NewState;
+        false ->
+            guild_member_list_channel_engine:rebuild_all(State)
+    end.
 
 -spec collect_active_pid(term(), map(), [pid()]) -> [pid()].
 collect_active_pid(_Sid, S, Acc) ->

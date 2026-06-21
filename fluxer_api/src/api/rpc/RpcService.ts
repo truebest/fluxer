@@ -80,6 +80,7 @@ import type {UserGuildSettings} from '../models/UserGuildSettings';
 import {UserSettings} from '../models/UserSettings';
 import type {WebAuthnCredential} from '../models/WebAuthnCredential';
 import type {BotAuthService} from '../oauth/BotAuthService';
+import {BotChannelScopeService} from '../oauth/BotChannelScopeService';
 import {sendApnsPush} from '../push/ApnsPushService';
 import {encodeReadStatesResponseProto, mapReadStateResponse} from '../read_state/ReadStateResponseMapper';
 import type {ReadStateService} from '../read_state/ReadStateService';
@@ -1230,6 +1231,8 @@ export class RpcService {
 				return await this.handleGuildCollectionMembersRequest({guildId, requestCache, afterUserId, limit});
 			case 'voice_states':
 				return await this.handleGuildCollectionVoiceStatesRequest({guildId});
+			case 'bot_channel_scopes':
+				return await this.handleGuildCollectionBotChannelScopesRequest({guildId});
 			default: {
 				const exhaustiveCheck: never = collection;
 				throw new Error(`Unknown guild collection: ${String(exhaustiveCheck)}`);
@@ -1247,6 +1250,7 @@ export class RpcService {
 			stickers: undefined,
 			members: undefined,
 			voice_states: undefined,
+			bot_channel_scopes: undefined,
 			has_more: false,
 			next_after_user_id: null,
 		};
@@ -1398,6 +1402,19 @@ export class RpcService {
 		return {
 			...this.createGuildCollectionResponse('voice_states'),
 			voice_states: voiceStates,
+		};
+	}
+
+	private async handleGuildCollectionBotChannelScopesRequest({
+		guildId,
+	}: {
+		guildId: GuildID;
+	}): Promise<RpcResponseGuildCollectionData> {
+		await this.getGuildOrThrow(guildId);
+		const botChannelScopes = await new BotChannelScopeService().listGatewayScopes(guildId);
+		return {
+			...this.createGuildCollectionResponse('bot_channel_scopes'),
+			bot_channel_scopes: botChannelScopes,
 		};
 	}
 
