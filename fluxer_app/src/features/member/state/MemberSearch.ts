@@ -88,6 +88,11 @@ const DEFAULT_LIMIT = 10;
 const BACKGROUND_FETCH_DEDUP_WINDOW_MS = 750;
 
 let worker: Worker | null = null;
+let nextSearchContextId = 1;
+
+function createSearchContextId(): string {
+	return `member_search_${nextSearchContextId++}`;
+}
 
 function updateMembers(members: Array<TransformedMember>): void {
 	if (!worker) {
@@ -152,7 +157,7 @@ export class SearchContext {
 	private readonly _handleMessages: (event: MessageEvent<WorkerMessage>) => void;
 
 	constructor(callback: (results: Array<TransformedMember>) => void, limit: number = DEFAULT_LIMIT) {
-		this._uuid = crypto.randomUUID();
+		this._uuid = createSearchContextId();
 		this._callback = callback;
 		this._limit = limit;
 		this._currentQuery = null;

@@ -5,6 +5,11 @@ import type {ToastProps} from '@app/features/ui/toast';
 import {makeAutoObservable, observable} from 'mobx';
 
 const logger = new Logger('Toast');
+let nextToastId = 1;
+
+function createToastId(): string {
+	return `toast_${nextToastId++}`;
+}
 
 interface ToastEntry {
 	id: string;
@@ -25,7 +30,7 @@ class Toast {
 	}
 
 	createToast(data: ToastProps): string {
-		const id = crypto.randomUUID();
+		const id = createToastId();
 		logger.debug(`Creating toast: ${id}, type: ${data.type}`);
 		this.currentToast = {id, data};
 		return id;
