@@ -355,7 +355,7 @@ export function useAuthorizeFlow(options: UseAuthorizeFlowOptions = {}): Authori
 				setSubmitting(null);
 				return;
 			}
-			const body: Record<string, string | undefined> = {
+			const body: Record<string, string | Array<string> | undefined> = {
 				response_type: params.responseType || 'code',
 				client_id: params.clientId,
 				scope: scopeToSend,
@@ -368,6 +368,9 @@ export function useAuthorizeFlow(options: UseAuthorizeFlowOptions = {}): Authori
 				const bits = permissionSelection.toBitfield();
 				if (bits) body.permissions = bits;
 				body.guild_id = selectedDestination.id;
+				if (params.guildId === selectedDestination.id && params.guildChannelIds.length > 0) {
+					body.guild_channel_ids = params.guildChannelIds;
+				}
 			} else if (sendsBotScope && selectedDestination?.kind === 'group_dm') {
 				body.channel_id = selectedDestination.id;
 			}

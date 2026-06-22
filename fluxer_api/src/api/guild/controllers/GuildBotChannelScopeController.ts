@@ -31,7 +31,7 @@ const BotChannelScopeResponse = z.object({
 	bot_user_id: z.string(),
 	application_id: z.string(),
 	channel_ids: z.array(z.string()),
-	updated_at: z.string(),
+	updated_at: z.string().nullable(),
 });
 
 const GuildInstalledBotResponse = z.object({
@@ -78,6 +78,7 @@ export function GuildBotChannelScopeController(app: HonoApp) {
 					guildRepository: ctx.get('guildRepository'),
 					userRepository: ctx.get('userRepository'),
 					applicationRepository: ctx.get('applicationRepository'),
+					channelRepository: ctx.get('channelRepository'),
 				}),
 			);
 		},
@@ -112,19 +113,14 @@ export function GuildBotChannelScopeController(app: HonoApp) {
 				botUserId,
 			});
 			const applicationId = await service.requireBotApplication(ctx.get('applicationRepository'), botUserId);
-			const existing = await service.getScope(guildId, botUserId);
-			if (existing) {
-				return ctx.json(existing);
-			}
-			const response = await service.setDefaultScope({
-				guildId,
-				botUserId,
-				applicationId,
-				updatedBy: userId,
-				channelRepository: ctx.get('channelRepository'),
-			});
-			await reloadGuildAfterBotScopeChange(ctx.get('gatewayService'), guildId, botUserId);
-			return ctx.json(response);
+			return ctx.json(
+				await service.getEffectiveScope({
+					guildId,
+					botUserId,
+					applicationId,
+					channelRepository: ctx.get('channelRepository'),
+				}),
+			);
 		},
 	);
 

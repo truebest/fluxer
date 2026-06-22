@@ -286,7 +286,7 @@ check_member_channel_access(UserId, ChannelId, State) ->
     Member = guild_permissions:find_member_by_user_id(UserId, State),
     case Member of
         undefined -> false;
-        _ -> guild_permissions:can_view_channel(UserId, ChannelId, Member, State)
+        _ -> guild_visibility_channels:channel_is_visible(UserId, ChannelId, Member, State)
     end.
 
 -spec build_viewable_channel_map([channel_id()]) -> #{channel_id() => true}.

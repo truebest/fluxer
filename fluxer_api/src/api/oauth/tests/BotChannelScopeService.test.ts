@@ -1,15 +1,15 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-import {describe, expect, it} from 'vitest';
 import {ChannelTypes} from '@fluxer/constants/src/ChannelConstants';
 import {InputValidationError} from '@fluxer/errors/src/domains/core/InputValidationError';
 import {UnknownGuildMemberError} from '@fluxer/errors/src/domains/guild/UnknownGuildMemberError';
+import {describe, expect, it} from 'vitest';
 import type {ApplicationID} from '../../BrandedTypes';
 import {createApplicationID, createChannelID, createGuildID, createUserID} from '../../BrandedTypes';
 import type {BotChannelScopeRow} from '../../database/types/OAuth2Types';
 import type {GuildMember} from '../../models/GuildMember';
 import type {User} from '../../models/User';
-import {BotChannelScopeRepository, BotChannelScopeService} from '../BotChannelScopeService';
+import {type BotChannelScopeRepository, BotChannelScopeService} from '../BotChannelScopeService';
 
 function snowflake(value: string): bigint {
 	return BigInt(value);
@@ -112,13 +112,15 @@ describe('BotChannelScopeService', () => {
 		});
 	});
 
-	it('returns an empty channel list when an installed bot has no saved scope', async () => {
+	it('returns all text channels when an installed bot has no saved scope', async () => {
 		const guildId = createGuildID(snowflake('100'));
 		const service = new BotChannelScopeService({
 			getScope: async () => null,
 			listGuildScopes: async () => [],
 			upsertScope: async () => undefined,
 		} as BotChannelScopeRepository);
+		const textChannelId = createChannelID(snowflake('10'));
+		const otherTextChannelId = createChannelID(snowflake('11'));
 
 		const result = await service.listInstalledBots({
 			guildId,
@@ -135,11 +137,67 @@ describe('BotChannelScopeService', () => {
 					name: 'Alpha App',
 				}),
 			} as never,
+			channelRepository: {
+				channelData: {
+					listGuildChannels: async () => [
+						{id: otherTextChannelId, guildId, type: ChannelTypes.GUILD_TEXT, name: 'other', position: 1},
+						{id: textChannelId, guildId, type: ChannelTypes.GUILD_TEXT, name: 'general', position: 0},
+						{
+							id: createChannelID(snowflake('12')),
+							guildId,
+							type: ChannelTypes.GUILD_VOICE,
+							name: 'voice',
+							position: 2,
+						},
+					],
+				},
+			} as never,
 		});
 
 		expect(result.bots).toHaveLength(1);
-		expect(result.bots[0]?.channel_ids).toEqual([]);
+		expect(result.bots[0]?.channel_ids).toEqual(['10', '11']);
 		expect(result.bots[0]?.updated_at).toBeNull();
+	});
+
+	it('reads an effective allow-all scope without creating a default row', async () => {
+		const guildId = createGuildID(snowflake('100'));
+		const botUserId = createUserID(snowflake('200'));
+		let upserted = false;
+		const service = new BotChannelScopeService({
+			getScope: async () => null,
+			listGuildScopes: async () => [],
+			upsertScope: async () => {
+				upserted = true;
+			},
+		} as BotChannelScopeRepository);
+
+		await expect(
+			service.getEffectiveScope({
+				guildId,
+				botUserId,
+				applicationId: createApplicationID(snowflake('200')),
+				channelRepository: {
+					channelData: {
+						listGuildChannels: async () => [
+							{
+								id: createChannelID(snowflake('10')),
+								guildId,
+								type: ChannelTypes.GUILD_TEXT,
+								name: 'general',
+								position: 0,
+							},
+						],
+					},
+				} as never,
+			}),
+		).resolves.toEqual({
+			guild_id: '100',
+			bot_user_id: '200',
+			application_id: '200',
+			channel_ids: ['10'],
+			updated_at: null,
+		});
+		expect(upserted).toBe(false);
 	});
 
 	it('lists compact guild bot channel scopes for gateway snapshots', async () => {

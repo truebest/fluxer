@@ -140,7 +140,9 @@ maybe_dispatch_sync(SessionUserId, SessionPid, ChannelId, GuildId, ListId, Range
 can_send_member_list(UserId, ChannelId, State) ->
     case snowflake_id(ChannelId) of
         ResolvedChannelId when is_integer(UserId), is_integer(ResolvedChannelId) ->
-            guild_permissions:can_view_channel(UserId, ResolvedChannelId, undefined, State);
+            guild_visibility_channels:channel_is_visible(
+                UserId, ResolvedChannelId, undefined, State
+            );
         undefined ->
             false
     end.

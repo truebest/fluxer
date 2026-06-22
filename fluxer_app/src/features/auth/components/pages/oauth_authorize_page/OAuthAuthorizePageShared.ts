@@ -13,6 +13,7 @@ export interface AuthorizeParams {
 	permissions: string | null;
 	guildId: string | null;
 	channelId: string | null;
+	guildChannelIds: Array<string>;
 	prompt: string | null;
 	responseType: string;
 	codeChallenge: string | null;
@@ -80,11 +81,25 @@ export function parseAuthorizeQuery(search: string): AuthorizeParams | null {
 		permissions: qp.get('permissions'),
 		guildId: qp.get('guild_id'),
 		channelId: qp.get('channel_id'),
+		guildChannelIds: parseGuildChannelIds(qp),
 		prompt: qp.get('prompt'),
 		responseType: qp.get('response_type') ?? 'code',
 		codeChallenge: qp.get('code_challenge'),
 		codeChallengeMethod: qp.get('code_challenge_method'),
 	};
+}
+
+function parseGuildChannelIds(params: URLSearchParams): Array<string> {
+	const seen = new Set<string>();
+	for (const rawValue of params.getAll('guild_channel_ids')) {
+		for (const value of rawValue.split(',')) {
+			const channelId = value.trim();
+			if (channelId) {
+				seen.add(channelId);
+			}
+		}
+	}
+	return Array.from(seen);
 }
 
 export function splitScopes(scope: string): Array<string> {

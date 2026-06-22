@@ -271,7 +271,7 @@ is_push_eligible(UserId, Members, ChannelId, State) ->
     user_id(), integer(), map(), guild_state()
 ) -> {true, user_id()} | false.
 view_to_filtermap(UserId, ChannelId, Member, State) ->
-    case guild_permissions:can_view_channel(UserId, ChannelId, Member, State) of
+    case guild_visibility_channels:channel_is_visible(UserId, ChannelId, Member, State) of
         true -> {true, UserId};
         false -> false
     end.

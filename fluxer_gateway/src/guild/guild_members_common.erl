@@ -68,7 +68,7 @@ is_member_bot(Member) ->
 
 -spec member_can_view_channel(user_id(), channel_id(), member(), guild_state()) -> boolean().
 member_can_view_channel(UserId, ChannelId, Member, State) when is_integer(ChannelId) ->
-    guild_permissions:can_view_channel(UserId, ChannelId, Member, State);
+    guild_visibility_channels:channel_is_visible(UserId, ChannelId, Member, State);
 member_can_view_channel(_, _, _, _) ->
     false.
 

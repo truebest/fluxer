@@ -28,7 +28,7 @@ export interface GuildBotChannelScope {
 	bot_user_id: string;
 	application_id: string;
 	channel_ids: Array<string>;
-	updated_at: string;
+	updated_at: string | null;
 }
 
 export async function fetchGuildBots(guildId: string): Promise<GuildInstalledBotsResponse> {

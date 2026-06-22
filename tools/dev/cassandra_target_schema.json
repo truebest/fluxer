@@ -6908,6 +6908,49 @@
 			"options": "CLUSTERING ORDER BY (token_ DESC) AND default_time_to_live = 2592000 AND gc_grace_seconds = 864000 AND compaction = {'class': 'TimeWindowCompactionStrategy', 'compaction_window_unit': 'DAYS', 'compaction_window_size': '1'}"
 		},
 		{
+			"name": "bot_channel_scopes",
+			"columns": [
+				{
+					"name": "guild_id",
+					"type": "bigint"
+				},
+				{
+					"name": "bot_user_id",
+					"type": "bigint"
+				},
+				{
+					"name": "application_id",
+					"type": "bigint"
+				},
+				{
+					"name": "channel_ids",
+					"type": "set<bigint>"
+				},
+				{
+					"name": "created_by",
+					"type": "bigint"
+				},
+				{
+					"name": "updated_by",
+					"type": "bigint"
+				},
+				{
+					"name": "created_at",
+					"type": "timestamp"
+				},
+				{
+					"name": "updated_at",
+					"type": "timestamp"
+				},
+				{
+					"name": "version",
+					"type": "int"
+				}
+			],
+			"primary_key": "((guild_id), bot_user_id)",
+			"options": ""
+		},
+		{
 			"name": "pack_installations",
 			"columns": [
 				{

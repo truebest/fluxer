@@ -112,7 +112,7 @@ filter_viewable_channels(UserId, Member, State, Channels) ->
         fun(Channel) ->
             ChannelId = channel_id(Channel),
             ChannelId =/= undefined andalso
-                guild_permissions:can_view_channel(UserId, ChannelId, Member, State)
+                guild_visibility_channels:channel_is_visible(UserId, ChannelId, Member, State)
         end,
         Channels
     ).

@@ -97,7 +97,7 @@ channel_id(Channel) ->
 -spec viewable_channel_id(integer(), integer(), map(), guild_state()) ->
     false | {true, integer()}.
 viewable_channel_id(UserId, ChannelId, Member, State) ->
-    case guild_permissions:can_view_channel(UserId, ChannelId, Member, State) of
+    case guild_visibility_channels:channel_is_visible(UserId, ChannelId, Member, State) of
         true -> {true, ChannelId};
         false -> false
     end.

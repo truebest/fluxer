@@ -97,7 +97,7 @@ filter_indexed_for_session(SessionData, IndexedChannels, UpdatedState) ->
                 Ch
              || {ChId, Ch} <- IndexedChannels,
                 is_integer(ChId),
-                guild_permissions:can_view_channel(UserId, ChId, Member, UpdatedState)
+                guild_visibility_channels:channel_is_visible(UserId, ChId, Member, UpdatedState)
             ]
     end.
 
@@ -116,8 +116,10 @@ is_channel_visible(_Channel, _UserId, undefined, _State) ->
 is_channel_visible(Channel, UserId, Member, State) ->
     ChannelIdBin = maps:get(<<"id">>, Channel, undefined),
     case guild_dispatch_decorate:parse_snowflake(<<"id">>, ChannelIdBin) of
-        undefined -> false;
-        ChannelId -> guild_permissions:can_view_channel(UserId, ChannelId, Member, State)
+        undefined ->
+            false;
+        ChannelId ->
+            guild_visibility_channels:channel_is_visible(UserId, ChannelId, Member, State)
     end.
 
 -spec dispatch_bulk_to_pid(

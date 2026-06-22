@@ -174,7 +174,7 @@ process_lazy_subscribe_for_guild(
 ) ->
     CanView =
         is_integer(SessionUserId) andalso
-            guild_permissions:can_view_channel(
+            guild_visibility_channels:channel_is_visible(
                 SessionUserId, ChannelId, undefined, State
             ) andalso
             guild_permissions:can_view_channel_members(

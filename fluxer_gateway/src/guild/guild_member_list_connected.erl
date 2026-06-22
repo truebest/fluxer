@@ -182,7 +182,7 @@ filter_members_for_channel(ChannelId, Members, State) ->
 member_can_view_channel(Member, ChannelId, State) ->
     case guild_member_list_common:get_member_user_id(Member) of
         UserId when is_integer(UserId) ->
-            guild_permissions:can_view_channel(UserId, ChannelId, Member, State);
+            guild_visibility_channels:channel_is_visible(UserId, ChannelId, Member, State);
         undefined ->
             false
     end.
@@ -212,12 +212,17 @@ session_can_view_channel(SessionData, ChannelId, State) ->
             is_integer(UserId), UserId > 0, is_map(ViewableChannels)
         ->
             maps:is_key(ChannelId, ViewableChannels) orelse
-                guild_permissions:can_view_channel(UserId, ChannelId, undefined, State);
+                session_channel_is_visible(UserId, ChannelId, State);
         {UserId, _} when is_integer(UserId), UserId > 0 ->
-            guild_permissions:can_view_channel(UserId, ChannelId, undefined, State);
+            session_channel_is_visible(UserId, ChannelId, State);
         _ ->
             false
     end.
+
+-spec session_channel_is_visible(user_id(), channel_id(), guild_state()) -> boolean().
+session_channel_is_visible(UserId, ChannelId, State) ->
+    Member = guild_permissions:find_member_by_user_id(UserId, State),
+    guild_visibility_channels:channel_is_visible(UserId, ChannelId, Member, State).
 
 -spec session_can_view_channel_members(map(), channel_id(), guild_state()) -> boolean().
 session_can_view_channel_members(_SessionData, ChannelId, _State) when

@@ -9,11 +9,11 @@ import {createApplicationID} from '../BrandedTypes';
 import type {IChannelRepositoryAggregate} from '../channel/repositories/IChannelRepositoryAggregate';
 import {fetchMany, fetchOne, upsertOne} from '../database/CassandraQueryExecution';
 import type {BotChannelScopeRow} from '../database/types/OAuth2Types';
+import type {IGuildRepositoryAggregate} from '../guild/repositories/IGuildRepositoryAggregate';
 import type {IGatewayService} from '../infrastructure/IGatewayService';
 import type {Channel} from '../models/Channel';
 import type {User} from '../models/User';
 import {BotChannelScopes} from '../Tables';
-import type {IGuildRepositoryAggregate} from '../guild/repositories/IGuildRepositoryAggregate';
 import type {IUserRepository} from '../user/IUserRepository';
 import type {IApplicationRepository} from './repositories/IApplicationRepository';
 
@@ -30,7 +30,7 @@ export interface BotChannelScopeResponse {
 	bot_user_id: string;
 	application_id: string;
 	channel_ids: Array<string>;
-	updated_at: string;
+	updated_at: string | null;
 }
 
 export interface GuildInstalledBotResponse {
@@ -135,11 +135,33 @@ export class BotChannelScopeService {
 		return row ? this.mapScope(row) : null;
 	}
 
+	async getEffectiveScope(params: {
+		guildId: GuildID;
+		botUserId: UserID;
+		applicationId: ApplicationID;
+		channelRepository: IChannelRepositoryAggregate;
+	}): Promise<BotChannelScopeResponse> {
+		const row = await this.repository.getScope(params.guildId, params.botUserId);
+		if (row) {
+			return this.mapScope(row);
+		}
+		return {
+			guild_id: params.guildId.toString(),
+			bot_user_id: params.botUserId.toString(),
+			application_id: params.applicationId.toString(),
+			channel_ids: channelIdsToSortedStrings(
+				new Set(await this.listTextChannelIds(params.guildId, params.channelRepository)),
+			),
+			updated_at: null,
+		};
+	}
+
 	async listInstalledBots(params: {
 		guildId: GuildID;
 		guildRepository: IGuildRepositoryAggregate;
 		userRepository: IUserRepository;
 		applicationRepository: IApplicationRepository;
+		channelRepository?: IChannelRepositoryAggregate;
 	}): Promise<GuildInstalledBotsResponse> {
 		const members = await params.guildRepository.listMembers(params.guildId);
 		if (members.length === 0) {
@@ -153,6 +175,9 @@ export class BotChannelScopeService {
 		}
 		const scopeRows = await this.repository.listGuildScopes(params.guildId);
 		const scopesByBotUserId = new Map(scopeRows.map((row) => [row.bot_user_id.toString(), row]));
+		const defaultChannelIds = params.channelRepository
+			? new Set(await this.listTextChannelIds(params.guildId, params.channelRepository))
+			: new Set<ChannelID>();
 		const entries = await Promise.all(
 			botUsers.map(async (user) => {
 				const applicationId = this.applicationIdFromBotUserId(user.id);
@@ -171,6 +196,7 @@ export class BotChannelScopeService {
 					applicationId,
 					joinedAt: member.joinedAt,
 					scope,
+					defaultChannelIds,
 				});
 			}),
 		);
@@ -240,21 +266,28 @@ export class BotChannelScopeService {
 		guildId: GuildID,
 		channelRepository: IChannelRepositoryAggregate,
 	): Promise<Array<ChannelID>> {
+		const textChannelIds = await this.listTextChannelIds(guildId, channelRepository);
+		if (textChannelIds.length === 0) {
+			throw InputValidationError.create('guild_id', 'Guild has no text channels');
+		}
+		return textChannelIds.slice(0, 1);
+	}
+
+	async listTextChannelIds(
+		guildId: GuildID,
+		channelRepository: IChannelRepositoryAggregate,
+	): Promise<Array<ChannelID>> {
 		const textChannels = (await channelRepository.channelData.listGuildChannels(guildId))
 			.filter((channel) => channel.type === ChannelTypes.GUILD_TEXT)
 			.sort(compareChannelsForDefault);
-		if (textChannels.length === 0) {
-			throw InputValidationError.create('guild_id', 'Guild has no text channels');
-		}
 		const general = textChannels.find((channel) => channel.name?.toLowerCase() === 'general');
-		return [general?.id ?? textChannels[0]!.id];
+		if (!general) {
+			return textChannels.map((channel) => channel.id);
+		}
+		return [general.id, ...textChannels.filter((channel) => channel.id !== general.id).map((channel) => channel.id)];
 	}
 
-	async isBotAllowedInChannel(params: {
-		guildId: GuildID;
-		botUserId: UserID;
-		channelId: ChannelID;
-	}): Promise<boolean> {
+	async isBotAllowedInChannel(params: {guildId: GuildID; botUserId: UserID; channelId: ChannelID}): Promise<boolean> {
 		const row = await this.repository.getScope(params.guildId, params.botUserId);
 		if (!row) {
 			return true;
@@ -264,9 +297,7 @@ export class BotChannelScopeService {
 
 	async listExcludedBotUserIds(params: {guildId: GuildID; channelId: ChannelID}): Promise<Array<UserID>> {
 		const rows = await this.repository.listGuildScopes(params.guildId);
-		return rows
-			.filter((row) => !this.channelSet(row.channel_ids).has(params.channelId))
-			.map((row) => row.bot_user_id);
+		return rows.filter((row) => !this.channelSet(row.channel_ids).has(params.channelId)).map((row) => row.bot_user_id);
 	}
 
 	async listGatewayScopes(guildId: GuildID): Promise<Array<BotChannelScopeGatewayResponse>> {
@@ -309,6 +340,7 @@ export class BotChannelScopeService {
 		applicationId: ApplicationID;
 		joinedAt: Date;
 		scope?: BotChannelScopeRow;
+		defaultChannelIds: Set<ChannelID>;
 	}): GuildInstalledBotResponse {
 		return {
 			bot_user_id: params.user.id.toString(),
@@ -318,7 +350,9 @@ export class BotChannelScopeService {
 			global_name: params.user.globalName,
 			avatar: params.user.avatarHash,
 			joined_at: params.joinedAt.toISOString(),
-			channel_ids: params.scope ? channelIdsToSortedStrings(this.channelSet(params.scope.channel_ids)) : [],
+			channel_ids: params.scope
+				? channelIdsToSortedStrings(this.channelSet(params.scope.channel_ids))
+				: channelIdsToSortedStrings(params.defaultChannelIds),
 			updated_at: params.scope?.updated_at.toISOString() ?? null,
 		};
 	}
@@ -366,7 +400,9 @@ function compareInstalledBots(left: GuildInstalledBotResponse, right: GuildInsta
 }
 
 function channelIdsToSortedStrings(channelIds: Set<ChannelID>): Array<string> {
-	return Array.from(channelIds).sort(compareChannelIds).map((id) => id.toString());
+	return Array.from(channelIds)
+		.sort(compareChannelIds)
+		.map((id) => id.toString());
 }
 
 function compareChannelIds(left: ChannelID, right: ChannelID): number {

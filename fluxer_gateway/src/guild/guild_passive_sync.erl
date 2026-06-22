@@ -303,7 +303,7 @@ maybe_add_last_message_for_channel(IdBin, MsgIdBin, RawId, UserId, Member, State
     binary(), term(), integer(), integer(), map(), guild_state(), map()
 ) -> map().
 maybe_add_visible_last_message(IdBin, MsgId, UserId, ChId, Member, State, Acc) ->
-    case guild_permissions:can_view_channel(UserId, ChId, Member, State) of
+    case guild_visibility_channels:channel_is_visible(UserId, ChId, Member, State) of
         true -> Acc#{IdBin => MsgId};
         false -> Acc
     end.

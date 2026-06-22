@@ -523,7 +523,8 @@ apply_count_change(UserId, NewCount, Counts, Connected) ->
 get_viewable_channels_cached(UserId, UserRoles, State) ->
     RoleKey = list_to_tuple(lists:sort(UserRoles)),
     CacheTab = viewable_channels_cache_table(State),
-    lookup_or_compute_viewable(UserId, RoleKey, CacheTab, State).
+    CacheKey = guild_bot_channel_scope:cache_key(UserId, RoleKey, State),
+    lookup_or_compute_viewable(UserId, CacheKey, CacheTab, State).
 
 -spec lookup_or_compute_viewable(
     user_id(), tuple(), ets:tid() | undefined, guild_state()
