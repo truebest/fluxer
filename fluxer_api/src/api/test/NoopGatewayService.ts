@@ -145,6 +145,8 @@ export class NoopGatewayService extends IGatewayService {
 
 	async reloadGuild(_guildId: GuildID): Promise<void> {}
 
+	async reloadGuildAndSync(_guildId: GuildID): Promise<void> {}
+
 	async reloadAllGuilds(_guildIds: Array<GuildID>): Promise<{
 		count: number;
 	}> {

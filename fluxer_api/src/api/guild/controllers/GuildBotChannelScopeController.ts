@@ -178,7 +178,7 @@ async function reloadGuildAfterBotScopeChange(
 	botUserId: UserID,
 ): Promise<void> {
 	try {
-		await gatewayService.reloadGuild(guildId);
+		await gatewayService.reloadGuildAndSync(guildId);
 	} catch (error) {
 		Logger.warn(
 			{guildId: guildId.toString(), botUserId: botUserId.toString(), error},

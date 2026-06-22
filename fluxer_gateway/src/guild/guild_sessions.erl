@@ -24,6 +24,7 @@
     refresh_all_viewable_channels/1,
     handle_set_typing_override/3,
     handle_send_guild_sync/2,
+    force_guild_sync_all/1,
     handle_send_members_chunk/3,
     build_viewable_channel_map/1
 ]).
@@ -104,6 +105,10 @@ handle_set_typing_override(SessionId, TypingFlag, State) ->
 -spec handle_send_guild_sync(session_id(), guild_state()) -> guild_state().
 handle_send_guild_sync(SessionId, State) ->
     guild_sessions_passive:handle_send_guild_sync(SessionId, State).
+
+-spec force_guild_sync_all(guild_state()) -> {non_neg_integer(), guild_state()}.
+force_guild_sync_all(State) ->
+    guild_sessions_passive:force_guild_sync_all(State).
 
 -spec handle_send_members_chunk(session_id(), map(), guild_state()) -> ok.
 handle_send_members_chunk(SessionId, ChunkData, State) ->

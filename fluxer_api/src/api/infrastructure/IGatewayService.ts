@@ -151,6 +151,8 @@ export abstract class IGatewayService {
 
 	abstract reloadGuild(guildId: GuildID): Promise<void>;
 
+	abstract reloadGuildAndSync(guildId: GuildID): Promise<void>;
+
 	abstract reloadAllGuilds(guildIds: Array<GuildID>): Promise<{
 		count: number;
 	}>;

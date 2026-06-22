@@ -18,6 +18,7 @@ handle(<<"guild.get_data">>, P) -> handle_get_data(P);
 handle(<<"guild.start">>, P) -> handle_start(P);
 handle(<<"guild.stop">>, P) -> handle_stop(P);
 handle(<<"guild.reload">>, P) -> handle_reload(P);
+handle(<<"guild.reload_and_sync">>, P) -> handle_reload_and_sync(P);
 handle(<<"guild.reload_all">>, P) -> handle_reload_all(P);
 handle(<<"guild.shutdown">>, P) -> handle_shutdown(P).
 
@@ -117,6 +118,15 @@ reload_via_start(GuildId) ->
         {ok, _Pid} -> true;
         _ -> gateway_rpc_error:raise(<<"guild_reload_error">>)
     end.
+
+-spec handle_reload_and_sync(map()) -> true.
+handle_reload_and_sync(#{<<"guild_id">> := GuildIdBin} = P) ->
+    GuildId = validation:snowflake_or_throw(<<"guild_id">>, GuildIdBin),
+    _ = handle_reload(P),
+    gateway_rpc_guild_infra:with_guild(GuildId, fun(Pid) ->
+        _ = gen_server:call(Pid, force_guild_sync_all, ?GUILD_CALL_TIMEOUT),
+        true
+    end).
 
 -spec handle_reload_all(map()) -> #{binary() => non_neg_integer()}.
 handle_reload_all(#{<<"guild_ids">> := GuildIdsBin}) ->

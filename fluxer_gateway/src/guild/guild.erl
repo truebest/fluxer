@@ -50,6 +50,8 @@ handle_call({dispatch, Request}, _From, State) ->
     handle_dispatch_call(Request, State);
 handle_call({reload, NewData}, _From, State) ->
     handle_reload_call(NewData, State);
+handle_call(force_guild_sync_all, _From, State) ->
+    handle_force_guild_sync_all_call(State);
 handle_call(get_voice_server_pid, _From, State) ->
     guild_voice_lifecycle:reply_voice_server_pid(State);
 handle_call({terminate}, _From, State) ->
@@ -238,6 +240,11 @@ handle_cached_voice_state_call(ConnectionId, State) when is_binary(ConnectionId)
 -spec handle_reload_call(term(), guild_state()) -> call_reply().
 handle_reload_call(NewData, State) when is_map(NewData) ->
     guild_init:handle_reload(NewData, State).
+
+-spec handle_force_guild_sync_all_call(guild_state()) -> call_reply().
+handle_force_guild_sync_all_call(State) ->
+    {Count, NewState} = guild_sessions:force_guild_sync_all(State),
+    {reply, #{count => Count}, NewState}.
 
 -spec handle_dispatch_cast(term(), guild_state()) -> cast_reply().
 handle_dispatch_cast(#{event := Event, data := EventData}, State) ->

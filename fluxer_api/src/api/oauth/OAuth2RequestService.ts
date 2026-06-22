@@ -295,6 +295,14 @@ export class OAuth2RequestService {
 							throw err;
 						}
 					}
+					await botChannelScopeService.setScope({
+						guildId,
+						botUserId,
+						applicationId,
+						channelIds: scopeChannelIds,
+						updatedBy: params.userId,
+						channelRepository: this.channelRepository,
+					});
 					await this.guildService.members.addUserToGuild({
 						userId: botUserId,
 						guildId,
@@ -323,14 +331,6 @@ export class OAuth2RequestService {
 							requestCache: params.requestCache,
 						});
 					}
-					await botChannelScopeService.setScope({
-						guildId,
-						botUserId,
-						applicationId,
-						channelIds: scopeChannelIds,
-						updatedBy: params.userId,
-						channelRepository: this.channelRepository,
-					});
 					await this.reloadGuildAfterBotScopeChange(guildId, botUserId);
 				} else if (channelId) {
 					await this.channelService.groupDms.addBotRecipientToChannel({
@@ -353,7 +353,7 @@ export class OAuth2RequestService {
 
 	private async reloadGuildAfterBotScopeChange(guildId: GuildID, botUserId: UserID): Promise<void> {
 		try {
-			await this.apiContext.services.gateway.reloadGuild(guildId);
+			await this.apiContext.services.gateway.reloadGuildAndSync(guildId);
 		} catch (error) {
 			Logger.warn(
 				{guildId: guildId.toString(), botUserId: botUserId.toString(), error},
