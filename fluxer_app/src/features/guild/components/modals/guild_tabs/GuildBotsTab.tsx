@@ -2,11 +2,12 @@
 
 import {StatusSlate} from '@app/features/app/components/dialogs/shared/StatusSlate';
 import Channels from '@app/features/channel/state/Channels';
-import * as ChannelUtils from '@app/features/channel/utils/ChannelUtils';
 import {UNKNOWN_CHANNEL_DESCRIPTOR} from '@app/features/channel/utils/ChannelMessageDescriptors';
-import * as GuildBotCommands from '@app/features/guild/commands/GuildBotCommands';
+import * as ChannelUtils from '@app/features/channel/utils/ChannelUtils';
 import type {GuildInstalledBot} from '@app/features/guild/commands/GuildBotCommands';
+import * as GuildBotCommands from '@app/features/guild/commands/GuildBotCommands';
 import styles from '@app/features/guild/components/modals/guild_tabs/GuildBotsTab.module.css';
+import GuildBotChannelScopes from '@app/features/guild/state/GuildBotChannelScopes';
 import {TRY_AGAIN_DESCRIPTOR} from '@app/features/i18n/utils/CommonMessageDescriptors';
 import Permission from '@app/features/permissions/state/Permission';
 import {formatPermissionLabel} from '@app/features/permissions/utils/PermissionUtils';
@@ -142,6 +143,9 @@ const GuildBotsTab: React.FC<{guildId: string}> = observer(({guildId}) => {
 				),
 			);
 			const updatesByBotId = new Map(updates.map((update) => [update.bot_user_id, update]));
+			for (const update of updates) {
+				GuildBotChannelScopes.updateScope(guildId, update);
+			}
 			const nextBots = bots.map((bot) => {
 				const update = updatesByBotId.get(bot.bot_user_id);
 				if (!update) return bot;
@@ -252,7 +256,11 @@ const GuildBotsTab: React.FC<{guildId: string}> = observer(({guildId}) => {
 							>
 								<div className={styles.botHeader} data-flx="guild.guild-tabs.guild-bots-tab.bot-header">
 									<div className={styles.botIdentity} data-flx="guild.guild-tabs.guild-bots-tab.bot-identity">
-										<div className={styles.botIcon} aria-hidden={true} data-flx="guild.guild-tabs.guild-bots-tab.bot-icon">
+										<div
+											className={styles.botIcon}
+											aria-hidden={true}
+											data-flx="guild.guild-tabs.guild-bots-tab.bot-icon"
+										>
 											<RobotIcon size={20} weight="bold" data-flx="guild.guild-tabs.guild-bots-tab.robot-icon" />
 										</div>
 										<div className={styles.botText} data-flx="guild.guild-tabs.guild-bots-tab.bot-text">

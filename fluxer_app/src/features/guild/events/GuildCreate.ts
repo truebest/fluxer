@@ -7,6 +7,7 @@ import type {GatewayHandlerContext} from '@app/features/gateway/events/EventRout
 import type {GuildReadyData} from '@app/features/gateway/types/GatewayGuildTypes';
 import {handleGuildDelete} from '@app/features/guild/events/GuildDelete';
 import GuildAvailability from '@app/features/guild/state/GuildAvailability';
+import GuildBotChannelScopes from '@app/features/guild/state/GuildBotChannelScopes';
 import GuildCount from '@app/features/guild/state/GuildCount';
 import GuildList from '@app/features/guild/state/GuildList';
 import GuildReadState from '@app/features/guild/state/GuildReadState';
@@ -48,6 +49,7 @@ export function handleGuildCreate(data: GuildReadyData, _context: GatewayHandler
 	}
 	GuildAvailability.setGuildAvailable(data.id);
 	Guilds.handleGuildCreate(data);
+	GuildBotChannelScopes.handleGuildCreate(data);
 	GuildCount.handleGuildCreate(data);
 	MemberSidebar.handleGuildCreate(data.id);
 	if (!data.unavailable) {

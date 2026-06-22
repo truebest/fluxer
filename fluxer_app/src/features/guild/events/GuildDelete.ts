@@ -6,6 +6,7 @@ import Sticker from '@app/features/emoji/state/EmojiSticker';
 import type {GatewayHandlerContext} from '@app/features/gateway/events/EventRouter';
 import ChannelMemberCount from '@app/features/guild/state/ChannelMemberCount';
 import GuildAvailability from '@app/features/guild/state/GuildAvailability';
+import GuildBotChannelScopes from '@app/features/guild/state/GuildBotChannelScopes';
 import GuildCount from '@app/features/guild/state/GuildCount';
 import GuildList from '@app/features/guild/state/GuildList';
 import GuildReadState from '@app/features/guild/state/GuildReadState';
@@ -33,6 +34,7 @@ interface GuildDeletePayload {
 export function handleGuildDelete(data: GuildDeletePayload, _context: GatewayHandlerContext): void {
 	GuildAvailability.handleGuildAvailability(data.id, data.unavailable, data.unavailable_hidden);
 	Guilds.handleGuildDelete({guildId: data.id, unavailable: data.unavailable});
+	GuildBotChannelScopes.handleGuildDelete(data.id);
 	GuildList.handleGuildDelete(data.id, data.unavailable);
 	GuildMembers.handleGuildDelete(data.id);
 	GuildCount.handleGuildDelete(data.id);

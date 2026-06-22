@@ -8,6 +8,11 @@ import type {GuildMemberData} from '@fluxer/schema/src/domains/guild/GuildMember
 import type {Guild} from '@fluxer/schema/src/domains/guild/GuildResponseSchemas';
 import type {GuildRole} from '@fluxer/schema/src/domains/guild/GuildRoleSchemas';
 
+export type GatewayBotChannelScope = Readonly<{
+	bot_user_id: string;
+	channel_ids: ReadonlyArray<string>;
+}>;
+
 export type GuildReadyData = Readonly<{
 	id: string;
 	properties: Omit<Guild, 'roles'>;
@@ -19,6 +24,7 @@ export type GuildReadyData = Readonly<{
 	online_count?: number;
 	presences?: ReadonlyArray<PresenceRecord>;
 	voice_states?: ReadonlyArray<VoiceState>;
+	bot_channel_scopes?: ReadonlyArray<GatewayBotChannelScope>;
 	roles: ReadonlyArray<GuildRole>;
 	joined_at: string;
 	unavailable?: boolean;

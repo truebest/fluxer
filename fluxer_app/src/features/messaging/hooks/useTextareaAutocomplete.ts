@@ -29,6 +29,7 @@ import type {GuildSticker} from '@app/features/expressions/models/GuildSticker';
 import FavoriteMemes from '@app/features/expressions/state/FavoriteMemes';
 import {filterStickersForAutocomplete} from '@app/features/expressions/utils/ExpressionPermissionUtils';
 import * as KlipyUtils from '@app/features/expressions/utils/KlipyUtils';
+import GuildBotChannelScopes from '@app/features/guild/state/GuildBotChannelScopes';
 import Guilds from '@app/features/guild/state/Guilds';
 import type {GuildMember} from '@app/features/member/models/GuildMember';
 import GuildMembers from '@app/features/member/state/GuildMembers';
@@ -470,7 +471,20 @@ export function useTextareaAutocomplete({
 		},
 		[channel],
 	);
-	const canViewChannel = useCallback((_userId: string): boolean => true, []);
+	const botChannelScopeVersion = useSyncExternalStore(
+		GuildBotChannelScopes.subscribe.bind(GuildBotChannelScopes),
+		() => GuildBotChannelScopes.version,
+		() => GuildBotChannelScopes.version,
+	);
+	const canViewChannel = useCallback(
+		(userId: string): boolean => {
+			if (!channel?.guildId || !channel.isGuildText()) return true;
+			const member = GuildMembers.getMember(channel.guildId, userId);
+			if (!member?.user.bot) return true;
+			return GuildBotChannelScopes.isBotAllowedInChannel(channel.guildId, userId, channel.id);
+		},
+		[channel, botChannelScopeVersion],
+	);
 	useEffect(() => {
 		let options: Array<AutocompleteOption> = [];
 		if (!autocompleteTrigger) {

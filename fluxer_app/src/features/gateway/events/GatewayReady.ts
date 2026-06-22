@@ -17,6 +17,7 @@ import type {GuildReadyData} from '@app/features/gateway/types/GatewayGuildTypes
 import type {PresenceRecord} from '@app/features/gateway/types/GatewayPresenceTypes';
 import ChannelMemberCount from '@app/features/guild/state/ChannelMemberCount';
 import GuildAvailability from '@app/features/guild/state/GuildAvailability';
+import GuildBotChannelScopes from '@app/features/guild/state/GuildBotChannelScopes';
 import GuildCount from '@app/features/guild/state/GuildCount';
 import GuildList from '@app/features/guild/state/GuildList';
 import GuildReadState from '@app/features/guild/state/GuildReadState';
@@ -152,6 +153,7 @@ function handleReadyInternal(data: ReadyPayload, context: GatewayHandlerContext)
 		logger.warn('Failed to refresh premium state after READY', error);
 	});
 	Guilds.handleConnectionOpen({guilds});
+	GuildBotChannelScopes.handleConnectionOpen(guilds);
 	UserSettings.handleConnectionOpen(data.user_settings);
 	GuildList.handleConnectionOpen(guilds);
 	GuildCount.handleConnectionOpen(guilds);

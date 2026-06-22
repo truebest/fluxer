@@ -144,6 +144,7 @@ build_guild_collection_data(Data, Channels, State) ->
         <<"channels">> => map_utils:ensure_list(Channels),
         <<"emojis">> => map_utils:ensure_list(maps:get(<<"emojis">>, Data, [])),
         <<"stickers">> => map_utils:ensure_list(maps:get(<<"stickers">>, Data, [])),
+        <<"bot_channel_scopes">> => bot_channel_scopes_for_channels(Data, Channels),
         <<"member_count">> => maps:get(
             member_count, State, guild_data_index:member_count(Data)
         ),
@@ -190,6 +191,7 @@ build_guild_state_map(
         <<"emojis">> => maps:get(<<"emojis">>, Data, []),
         <<"stickers">> => maps:get(<<"stickers">>, Data, []),
         <<"members">> => Members,
+        <<"bot_channel_scopes">> => bot_channel_scopes_for_channels(Data, Channels),
         <<"member_count">> => MemberCount,
         <<"online_count">> => OnlineCount,
         <<"presences">> => [],
@@ -271,6 +273,30 @@ channel_id_item(Channel) ->
         _ -> false
     end.
 
+-spec bot_channel_scopes_for_channels(map(), [map()]) -> [map()].
+bot_channel_scopes_for_channels(Data, Channels) ->
+    ViewableChannelIds = channel_id_set(Channels),
+    [
+        Scope#{<<"channel_ids">> => filter_scope_channel_ids(Scope, ViewableChannelIds)}
+     || Scope <- map_utils:ensure_list(maps:get(<<"bot_channel_scopes">>, Data, [])),
+        is_map(Scope)
+    ].
+
+-spec filter_scope_channel_ids(map(), sets:set(integer())) -> [term()].
+filter_scope_channel_ids(Scope, ViewableChannelIds) ->
+    [
+        ChannelId
+     || ChannelId <- map_utils:ensure_list(maps:get(<<"channel_ids">>, Scope, [])),
+        scope_channel_is_viewable(ChannelId, ViewableChannelIds)
+    ].
+
+-spec scope_channel_is_viewable(term(), sets:set(integer())) -> boolean().
+scope_channel_is_viewable(ChannelId, ViewableChannelIds) ->
+    case snowflake_id:parse_maybe(ChannelId) of
+        Parsed when is_integer(Parsed) -> sets:is_element(Parsed, ViewableChannelIds);
+        _ -> false
+    end.
+
 -spec voice_state_in_viewable_channel(map(), sets:set(integer())) -> boolean().
 voice_state_in_viewable_channel(VoiceState, ViewableChannelIds) ->
     SafeVoiceState = map_utils:ensure_map(VoiceState),
@@ -284,3 +310,38 @@ guild_id_wire_value(undefined) ->
     null;
 guild_id_wire_value(GuildId) ->
     integer_to_binary(GuildId).
+
+-ifdef(TEST).
+-include_lib("eunit/include/eunit.hrl").
+
+bot_channel_scopes_for_channels_filters_hidden_channel_ids_test() ->
+    Data = #{
+        <<"bot_channel_scopes">> => [
+            #{
+                <<"bot_user_id">> => <<"200">>,
+                <<"channel_ids">> => [<<"10">>, <<"11">>, <<"bad">>]
+            }
+        ]
+    },
+    Channels = [#{<<"id">> => <<"10">>}, #{<<"id">> => <<"12">>}],
+    ?assertEqual(
+        [#{<<"bot_user_id">> => <<"200">>, <<"channel_ids">> => [<<"10">>]}],
+        bot_channel_scopes_for_channels(Data, Channels)
+    ).
+
+bot_channel_scopes_for_channels_keeps_empty_scope_row_test() ->
+    Data = #{
+        <<"bot_channel_scopes">> => [
+            #{
+                <<"bot_user_id">> => <<"200">>,
+                <<"channel_ids">> => [<<"11">>]
+            }
+        ]
+    },
+    Channels = [#{<<"id">> => <<"10">>}],
+    ?assertEqual(
+        [#{<<"bot_user_id">> => <<"200">>, <<"channel_ids">> => []}],
+        bot_channel_scopes_for_channels(Data, Channels)
+    ).
+
+-endif.
