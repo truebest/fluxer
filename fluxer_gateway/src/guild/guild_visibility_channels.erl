@@ -261,7 +261,20 @@ ensure_viewable_channel_map(SessionData, UserId, State) ->
     boolean().
 channel_is_visible(UserId, ChannelId, Member, State) ->
     guild_permissions:can_view_channel(UserId, ChannelId, Member, State) andalso
-        guild_bot_channel_scope:allows(UserId, ChannelId, Member, State).
+        bot_scope_allows_channel(UserId, ChannelId, Member, State).
+
+-spec bot_scope_allows_channel(user_id(), channel_id(), map() | undefined, guild_state()) ->
+    boolean().
+bot_scope_allows_channel(UserId, ChannelId, Member, State) ->
+    case guild_permissions:find_channel_by_id(ChannelId, State) of
+        Channel when is_map(Channel) ->
+            case map_utils:get_integer(Channel, <<"type">>, undefined) of
+                0 -> guild_bot_channel_scope:allows(UserId, ChannelId, Member, State);
+                _ -> true
+            end;
+        _ ->
+            true
+    end.
 
 -spec ensure_new_channel_visibility(
     user_id(), channel_id(), sets:set(channel_id()), guild_state()
@@ -324,14 +337,14 @@ channel_parent_id(Channel) ->
 
 get_user_viewable_channels_applies_bot_scope_test() ->
     State = bot_scope_test_state([500]),
-    ?assertEqual([500], get_user_viewable_channels(200, State)),
-    ?assertEqual([500, 600], get_user_viewable_channels(201, State)).
+    ?assertEqual([500, 700, 800], get_user_viewable_channels(200, State)),
+    ?assertEqual([500, 600, 700, 800], get_user_viewable_channels(201, State)).
 
 get_user_viewable_channels_allows_legacy_bot_without_scope_test() ->
     State0 = bot_scope_test_state([]),
     Data0 = maps:get(data, State0),
     State = State0#{data => maps:remove(<<"bot_channel_scopes">>, Data0)},
-    ?assertEqual([500, 600], get_user_viewable_channels(200, State)).
+    ?assertEqual([500, 600, 700, 800], get_user_viewable_channels(200, State)).
 
 bot_scope_test_state(AllowedChannelIds) ->
     GuildId = 100,
@@ -349,7 +362,9 @@ bot_scope_test_state(AllowedChannelIds) ->
         ],
         <<"channels">> => [
             #{<<"id">> => <<"500">>, <<"type">> => 0, <<"permission_overwrites">> => []},
-            #{<<"id">> => <<"600">>, <<"type">> => 0, <<"permission_overwrites">> => []}
+            #{<<"id">> => <<"600">>, <<"type">> => 0, <<"permission_overwrites">> => []},
+            #{<<"id">> => <<"700">>, <<"type">> => 2, <<"permission_overwrites">> => []},
+            #{<<"id">> => <<"800">>, <<"type">> => 4, <<"permission_overwrites">> => []}
         ],
         <<"members">> => [
             bot_scope_test_member(200, true),

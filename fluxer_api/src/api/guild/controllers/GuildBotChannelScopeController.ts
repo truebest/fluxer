@@ -23,7 +23,7 @@ const GuildBotChannelScopeGuildParam = z.object({
 });
 
 const BotChannelScopeUpdateRequest = z.object({
-	channel_ids: z.array(SnowflakeType).max(100).describe('Text channel IDs this bot can access in the guild'),
+	channel_ids: z.array(SnowflakeType).describe('Text channel IDs this bot can access in the guild'),
 });
 
 const BotChannelScopeResponse = z.object({
@@ -184,5 +184,6 @@ async function reloadGuildAfterBotScopeChange(
 			{guildId: guildId.toString(), botUserId: botUserId.toString(), error},
 			'Failed to reload guild after bot channel scope update',
 		);
+		throw error;
 	}
 }

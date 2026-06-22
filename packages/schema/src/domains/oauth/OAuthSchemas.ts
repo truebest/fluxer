@@ -67,15 +67,22 @@ const DisableGuildSelectType = withOpenApiType(
 const GuildChannelIdsType = z
 	.preprocess((value) => {
 		if (typeof value === 'string') {
-			return value
-				.split(',')
-				.map((item) => item.trim())
-				.filter(Boolean);
+			return splitGuildChannelIds(value);
+		}
+		if (Array.isArray(value)) {
+			return value.flatMap((item) => (typeof item === 'string' ? splitGuildChannelIds(item) : item));
 		}
 		return value;
 	}, z.array(SnowflakeType).max(100))
 	.optional()
 	.describe('Guild text channel IDs to attach the bot to during guild authorization');
+
+function splitGuildChannelIds(value: string): Array<string> {
+	return value
+		.split(',')
+		.map((item) => item.trim())
+		.filter(Boolean);
+}
 
 export const AuthorizeRequest = z.object({
 	response_type: z.literal('code').optional().describe('The OAuth2 response type, must be "code"'),
