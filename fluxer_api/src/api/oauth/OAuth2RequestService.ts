@@ -265,6 +265,11 @@ export class OAuth2RequestService {
 				const botUserId = application.botUserId;
 				if (guildId) {
 					const botChannelScopeService = new BotChannelScopeService();
+					const scopeChannelIds = await botChannelScopeService.resolveScopeChannelIds({
+						guildId,
+						channelIds: guildChannelIds,
+						channelRepository: this.channelRepository,
+					});
 					const userPermissions = await this.apiContext.services.gateway.getUserPermissions({
 						guildId,
 						userId: params.userId,
@@ -318,24 +323,14 @@ export class OAuth2RequestService {
 							requestCache: params.requestCache,
 						});
 					}
-					if (guildChannelIds === null) {
-						await botChannelScopeService.setDefaultScope({
-							guildId,
-							botUserId,
-							applicationId,
-							updatedBy: params.userId,
-							channelRepository: this.channelRepository,
-						});
-					} else {
-						await botChannelScopeService.setScope({
-							guildId,
-							botUserId,
-							applicationId,
-							channelIds: guildChannelIds,
-							updatedBy: params.userId,
-							channelRepository: this.channelRepository,
-						});
-					}
+					await botChannelScopeService.setScope({
+						guildId,
+						botUserId,
+						applicationId,
+						channelIds: scopeChannelIds,
+						updatedBy: params.userId,
+						channelRepository: this.channelRepository,
+					});
 					await this.reloadGuildAfterBotScopeChange(guildId, botUserId);
 				} else if (channelId) {
 					await this.channelService.groupDms.addBotRecipientToChannel({

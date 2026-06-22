@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import {describe, expect, it} from 'vitest';
+import {ChannelTypes} from '@fluxer/constants/src/ChannelConstants';
+import {InputValidationError} from '@fluxer/errors/src/domains/core/InputValidationError';
 import {UnknownGuildMemberError} from '@fluxer/errors/src/domains/guild/UnknownGuildMemberError';
 import type {ApplicationID} from '../../BrandedTypes';
 import {createApplicationID, createChannelID, createGuildID, createUserID} from '../../BrandedTypes';
@@ -173,6 +175,78 @@ describe('BotChannelScopeService', () => {
 				channel_ids: ['12'],
 			},
 		]);
+	});
+
+	it('allows bot channel access when no scope row exists for legacy consistency', async () => {
+		const service = new BotChannelScopeService({
+			getScope: async () => null,
+			listGuildScopes: async () => [],
+			upsertScope: async () => undefined,
+		} as BotChannelScopeRepository);
+
+		await expect(
+			service.isBotAllowedInChannel({
+				guildId: createGuildID(snowflake('100')),
+				botUserId: createUserID(snowflake('200')),
+				channelId: createChannelID(snowflake('10')),
+			}),
+		).resolves.toBe(true);
+	});
+
+	it('resolves requested scope channel ids before invite mutations', async () => {
+		const guildId = createGuildID(snowflake('100'));
+		const textChannelId = createChannelID(snowflake('10'));
+		const service = new BotChannelScopeService({
+			getScope: async () => null,
+			listGuildScopes: async () => [],
+			upsertScope: async () => undefined,
+		} as BotChannelScopeRepository);
+		const channelRepository = {
+			channelData: {
+				listGuildChannels: async () => [
+					{id: textChannelId, guildId, type: ChannelTypes.GUILD_TEXT, name: 'general', position: 0},
+				],
+				listChannels: async () => [
+					{id: textChannelId, guildId, type: ChannelTypes.GUILD_TEXT, name: 'general', position: 0},
+				],
+			},
+		} as never;
+
+		await expect(
+			service.resolveScopeChannelIds({
+				guildId,
+				channelIds: null,
+				channelRepository,
+			}),
+		).resolves.toEqual([textChannelId]);
+		await expect(
+			service.resolveScopeChannelIds({
+				guildId,
+				channelIds: [textChannelId],
+				channelRepository,
+			}),
+		).resolves.toEqual([textChannelId]);
+	});
+
+	it('rejects default scope resolution before invite mutations when a guild has no text channels', async () => {
+		const service = new BotChannelScopeService({
+			getScope: async () => null,
+			listGuildScopes: async () => [],
+			upsertScope: async () => undefined,
+		} as BotChannelScopeRepository);
+
+		await expect(
+			service.resolveScopeChannelIds({
+				guildId: createGuildID(snowflake('100')),
+				channelIds: null,
+				channelRepository: {
+					channelData: {
+						listGuildChannels: async () => [],
+						listChannels: async () => [],
+					},
+				} as never,
+			}),
+		).rejects.toBeInstanceOf(InputValidationError);
 	});
 
 	it('accepts an installed bot using persisted guild membership and user state', async () => {

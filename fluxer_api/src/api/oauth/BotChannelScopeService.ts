@@ -210,6 +210,21 @@ export class BotChannelScopeService {
 		return this.mapScope(row);
 	}
 
+	async resolveScopeChannelIds(params: {
+		guildId: GuildID;
+		channelIds: Array<ChannelID> | null;
+		channelRepository: IChannelRepositoryAggregate;
+	}): Promise<Array<ChannelID>> {
+		if (params.channelIds === null) {
+			return await this.resolveDefaultTextChannelIds(params.guildId, params.channelRepository);
+		}
+		return await this.validateTextChannelIds({
+			guildId: params.guildId,
+			channelIds: params.channelIds,
+			channelRepository: params.channelRepository,
+		});
+	}
+
 	async setDefaultScope(params: {
 		guildId: GuildID;
 		botUserId: UserID;
@@ -242,7 +257,7 @@ export class BotChannelScopeService {
 	}): Promise<boolean> {
 		const row = await this.repository.getScope(params.guildId, params.botUserId);
 		if (!row) {
-			return false;
+			return true;
 		}
 		return this.channelSet(row.channel_ids).has(params.channelId);
 	}
