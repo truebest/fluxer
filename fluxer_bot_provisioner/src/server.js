@@ -15,7 +15,15 @@ const DOCKER_NETWORK = process.env.DOCKER_NETWORK ?? 'fluxer_fluxer';
 const OPENCLAW_UID = Number.parseInt(process.env.OPENCLAW_UID ?? '1000', 10);
 const OPENCLAW_GID = Number.parseInt(process.env.OPENCLAW_GID ?? '1000', 10);
 
-const PERSONA_FILE_NAMES = new Set(['AGENTS', 'SOUL', 'IDENTITY', 'USER', 'TOOLS', 'HEARTBEAT', 'MEMORY', 'DREAMS']);
+const PERSONA_FILE_NAMES = ['AGENTS', 'SOUL', 'TOOLS'];
+const PERSONA_FILE_NAME_SET = new Set(PERSONA_FILE_NAMES);
+const LEGACY_PERSONA_FILE_NAMES = ['IDENTITY', 'USER', 'HEARTBEAT', 'MEMORY', 'DREAMS'];
+const LEGACY_TO_PERSONA_FILE_NAME = {
+	IDENTITY: 'AGENTS',
+	USER: 'SOUL',
+	TOOLS: 'TOOLS',
+};
+const LEGACY_APPEND_TO_AGENTS_FILE_NAMES = ['HEARTBEAT', 'MEMORY', 'DREAMS'];
 
 function sendJson(res, status, body) {
 	res.writeHead(status, {'content-type': 'application/json'});
@@ -182,6 +190,32 @@ function createOpenClawConfig(body) {
 	};
 }
 
+function normalizePersonaFiles(personaFiles) {
+	const source = personaFiles && typeof personaFiles === 'object' ? personaFiles : {};
+	const normalized = {};
+	const legacyAgentSections = [];
+	for (const [name, content] of Object.entries(source)) {
+		if (PERSONA_FILE_NAME_SET.has(name)) {
+			normalized[name] = String(content);
+			continue;
+		}
+		if (LEGACY_APPEND_TO_AGENTS_FILE_NAMES.includes(name)) {
+			legacyAgentSections.push(`## ${name}.md\n\n${String(content)}`);
+			continue;
+		}
+		const targetName = LEGACY_TO_PERSONA_FILE_NAME[name];
+		if (targetName && normalized[targetName] === undefined) {
+			normalized[targetName] = String(content);
+		}
+	}
+	if (normalized.AGENTS === undefined && legacyAgentSections.length > 0) {
+		normalized.AGENTS = legacyAgentSections.join('\n\n');
+	} else if (legacyAgentSections.length > 0) {
+		normalized.AGENTS = `${normalized.AGENTS}\n\n${legacyAgentSections.join('\n\n')}`;
+	}
+	return normalized;
+}
+
 async function provision(body) {
 	if (body.runtime_type !== 'openclaw') {
 		throw new Error('Only openclaw runtime is supported');
@@ -201,12 +235,20 @@ async function provision(body) {
 	await writeFile(join(stateDir, 'openclaw.json'), `${JSON.stringify(createOpenClawConfig(body), null, 2)}\n`, {
 		mode: 0o600,
 	});
-	const personaFiles = body.persona_files && typeof body.persona_files === 'object' ? body.persona_files : {};
+	const personaFiles = normalizePersonaFiles(body.persona_files);
 	for (const [name, content] of Object.entries(personaFiles)) {
-		if (!PERSONA_FILE_NAMES.has(name)) continue;
 		const personaPath = join(workspaceDir, `${name}.md`);
-		await writeFile(personaPath, String(content), {mode: 0o644});
+		await writeFile(personaPath, content, {mode: 0o644});
 		await chownNode(personaPath);
+	}
+	for (const name of PERSONA_FILE_NAMES) {
+		if (Object.prototype.hasOwnProperty.call(personaFiles, name)) continue;
+		const personaPath = join(workspaceDir, `${name}.md`);
+		await writeFile(personaPath, '', {mode: 0o644});
+		await chownNode(personaPath);
+	}
+	for (const name of LEGACY_PERSONA_FILE_NAMES) {
+		await rm(join(workspaceDir, `${name}.md`), {force: true});
 	}
 	const botToken = body.bot_token
 		? String(body.bot_token)

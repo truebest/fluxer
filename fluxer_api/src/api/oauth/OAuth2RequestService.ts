@@ -488,6 +488,7 @@ export class OAuth2RequestService {
 				params.userId,
 				createApplicationID(params.applicationId),
 			);
+			await params.ctx.get('managedBotService').reprovisionApplication(createApplicationID(params.applicationId), token);
 			const application = await this.applicationRepository.getApplication(createApplicationID(params.applicationId));
 			if (!application || !application.botUserId) {
 				throw new BotUserNotFoundError();

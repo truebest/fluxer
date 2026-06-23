@@ -20,6 +20,7 @@ import {mapManagedBotSpecToApplicationMarker} from '../bots/ManagedBotMappers';
 import type {ManagedBotRepository} from '../bots/ManagedBotRepository';
 import {createApplicationID, type UserID} from '../BrandedTypes';
 import {UsernameNotAvailableError} from '../infrastructure/DiscriminatorService';
+import {Logger} from '../Logger';
 import type {Application} from '../models/Application';
 import type {User} from '../models/User';
 import type {ApplicationService} from './ApplicationService';
@@ -183,6 +184,17 @@ export class OAuth2ApplicationsRequestService {
 				throw err;
 			}
 			throw err;
+		}
+	}
+
+	async deleteApplicationForCreateRollback(userId: UserID, applicationId: bigint): Promise<void> {
+		try {
+			await this.applicationService.deleteApplication(userId, createApplicationID(applicationId));
+		} catch (err) {
+			Logger.warn(
+				{applicationId: applicationId.toString(), error: err instanceof Error ? err.message : String(err)},
+				'Failed to roll back application after managed bot create failure',
+			);
 		}
 	}
 

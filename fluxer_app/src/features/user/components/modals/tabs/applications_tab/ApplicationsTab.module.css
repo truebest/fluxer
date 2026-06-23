@@ -103,6 +103,48 @@
 	justify-content: center;
 }
 
+.managedBotLoading {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 10rem;
+}
+
+.managedBotForm {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-3);
+}
+
+.managedBotTwoColumn {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: var(--spacing-3);
+}
+
+.managedBotSelect {
+	width: 100%;
+	min-height: var(--input-container-min-height);
+	padding: 0 var(--input-container-padding);
+	border: 0.0625rem solid var(--background-modifier-accent);
+	border-radius: var(--radius-md);
+	background-color: var(--background-textarea);
+	color: var(--text-primary);
+	font: inherit;
+}
+
+.managedBotPersonaFiles {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-3);
+}
+
+@media (min-width: 768px) {
+	.managedBotTwoColumn {
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+	}
+}
+
 .listContainer {
 	display: flex;
 	flex-direction: column;

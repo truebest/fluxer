@@ -44,10 +44,15 @@ export class ManagedBotService {
 		});
 		const applicationId = createApplicationID(BigInt(application.id));
 		if (body.username !== undefined || body.bio !== undefined) {
-			await this.oauth2ApplicationsRequestService.updateBotProfile(userId, BigInt(application.id), {
-				username: body.username,
-				bio: body.bio,
-			});
+			try {
+				await this.oauth2ApplicationsRequestService.updateBotProfile(userId, BigInt(application.id), {
+					username: body.username,
+					bio: body.bio,
+				});
+			} catch (error) {
+				await this.oauth2ApplicationsRequestService.deleteApplicationForCreateRollback(userId, BigInt(application.id));
+				throw error;
+			}
 		}
 		const refreshedApplication = await this.oauth2ApplicationsRequestService.getApplication(userId, BigInt(application.id));
 		const botUserId = refreshedApplication.bot?.id;
@@ -128,12 +133,12 @@ export class ManagedBotService {
 		await this.repository.delete(applicationId);
 	}
 
-	async reprovisionApplication(applicationId: ApplicationID): Promise<void> {
+	async reprovisionApplication(applicationId: ApplicationID, botToken?: string): Promise<void> {
 		const spec = await this.repository.get(applicationId);
-		if (!spec || spec.token_delivery_state !== 'accepted') {
+		if (!spec || (spec.token_delivery_state !== 'accepted' && !botToken)) {
 			return;
 		}
-		await this.provisionSpec(spec);
+		await this.provisionSpec(spec, botToken);
 	}
 
 	private async getOwnedRow(userId: UserID, applicationId: ApplicationID): Promise<ManagedBotSpecRow> {
@@ -169,9 +174,7 @@ export class ManagedBotService {
 		const files: Record<string, string> = {};
 		for (const fileName of MANAGED_BOT_PERSONA_FILE_NAMES) {
 			const value = customFiles[fileName] ?? template?.personaFiles[fileName];
-			if (value !== undefined) {
-				files[fileName] = value;
-			}
+			files[fileName] = value ?? '';
 		}
 		return files;
 	}
@@ -237,6 +240,7 @@ export function extractApplicationId(response: ApplicationResponse): Application
 }
 
 function createRuntimeInstanceId(name: string, fallbackId: string): string {
+	const maxSlugLength = Math.max(0, 62 - fallbackId.length);
 	const slug = name
 		.trim()
 		.toLowerCase()
@@ -244,7 +248,6 @@ function createRuntimeInstanceId(name: string, fallbackId: string): string {
 		.replace(/^[^a-z0-9]+/u, '')
 		.replace(/-+/gu, '-')
 		.replace(/[^a-z0-9]+$/u, '')
-		.slice(0, 40);
-	const suffix = fallbackId.slice(-6);
-	return slug ? `bot-${slug}-${suffix}` : `bot-${fallbackId}`;
+		.slice(0, maxSlugLength);
+	return slug ? `bot-${slug}-${fallbackId}` : `bot-${fallbackId}`;
 }

@@ -11,6 +11,17 @@ export interface DeveloperApplicationBot {
 	flags?: number;
 }
 
+export interface DeveloperApplicationManagedBot {
+	kind: 'managed_bot';
+	application_id: string;
+	bot_user_id: string;
+	runtime_type: string;
+	provider: string;
+	model: string;
+	provision_status: string;
+	runtime_instance_id: string | null;
+}
+
 export interface DeveloperApplicationWire {
 	id: string;
 	name: string;
@@ -19,6 +30,7 @@ export interface DeveloperApplicationWire {
 	bot_require_code_grant: boolean;
 	client_secret?: string;
 	bot?: DeveloperApplicationBot;
+	managed_bot?: DeveloperApplicationManagedBot;
 }
 
 type DeveloperApplicationInput = DeveloperApplicationWire | DeveloperApplication;
@@ -31,6 +43,7 @@ export class DeveloperApplication {
 	readonly bot_require_code_grant: boolean;
 	readonly client_secret?: string;
 	readonly bot?: DeveloperApplicationBot;
+	readonly managed_bot?: DeveloperApplicationManagedBot;
 
 	constructor(application: DeveloperApplicationInput) {
 		this.id = application.id;
@@ -52,6 +65,9 @@ export class DeveloperApplication {
 				banner: application.bot.banner ?? null,
 				flags: application.bot.flags,
 			};
+		}
+		if ('managed_bot' in application) {
+			this.managed_bot = application.managed_bot;
 		}
 	}
 
@@ -82,6 +98,7 @@ export class DeveloperApplication {
 						flags: this.bot.flags,
 					}
 				: undefined,
+			managed_bot: this.managed_bot,
 		};
 	}
 }

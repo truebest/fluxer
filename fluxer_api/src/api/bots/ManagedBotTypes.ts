@@ -11,12 +11,7 @@ export type ManagedBotTokenDeliveryState = 'accepted' | 'not_delivered';
 export const MANAGED_BOT_PERSONA_FILE_NAMES = [
 	'AGENTS',
 	'SOUL',
-	'IDENTITY',
-	'USER',
 	'TOOLS',
-	'HEARTBEAT',
-	'MEMORY',
-	'DREAMS',
 ] as const;
 
 export type ManagedBotPersonaFileName = (typeof MANAGED_BOT_PERSONA_FILE_NAMES)[number];

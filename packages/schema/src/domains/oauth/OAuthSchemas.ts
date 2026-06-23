@@ -511,14 +511,18 @@ const ManagedBotTokenDeliveryState = createNamedStringLiteralUnion(
 
 const ManagedBotPersonaFiles = z
 	.object({
-		AGENTS: createStringType(0, 20000).optional(),
-		SOUL: createStringType(0, 20000).optional(),
-		IDENTITY: createStringType(0, 20000).optional(),
-		USER: createStringType(0, 20000).optional(),
-		TOOLS: createStringType(0, 20000).optional(),
-		HEARTBEAT: createStringType(0, 20000).optional(),
-		MEMORY: createStringType(0, 20000).optional(),
-		DREAMS: createStringType(0, 20000).optional(),
+		AGENTS: createStringType(0, 20000)
+			.nullable()
+			.optional()
+			.transform((value) => (value === null ? '' : value)),
+		SOUL: createStringType(0, 20000)
+			.nullable()
+			.optional()
+			.transform((value) => (value === null ? '' : value)),
+		TOOLS: createStringType(0, 20000)
+			.nullable()
+			.optional()
+			.transform((value) => (value === null ? '' : value)),
 	})
 	.strict();
 

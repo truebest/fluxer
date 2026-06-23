@@ -16,6 +16,7 @@ import {ApplicationDetail} from '@app/features/user/components/modals/tabs/appli
 import {ApplicationsList} from '@app/features/user/components/modals/tabs/applications_tab/ApplicationsList';
 import styles from '@app/features/user/components/modals/tabs/applications_tab/ApplicationsTab.module.css';
 import ApplicationsTabState from '@app/features/user/components/modals/tabs/applications_tab/ApplicationsTabState';
+import {ManagedBotCreateModal} from '@app/features/user/components/modals/tabs/applications_tab/ManagedBotCreateModal';
 import {useSettingsContentKey} from '@app/features/user/hooks/useSettingsContentKey';
 import {useUnsavedChangesFlash} from '@app/features/user/hooks/useUnsavedChangesFlash';
 import Users from '@app/features/user/state/Users';
@@ -62,6 +63,18 @@ const ApplicationsTab: React.FC = observer(() => {
 						void store.fetchApplications({showLoading: false});
 					}}
 					data-flx="user.applications-tab.open-create-modal.application-create-modal"
+				/>
+			)),
+		);
+	}, [store]);
+	const openCreateBotModal = useCallback(() => {
+		ModalCommands.push(
+			modal(() => (
+				<ManagedBotCreateModal
+					onCreated={(app: DeveloperApplication) => {
+						store.navigateToCreatedApplication(app);
+					}}
+					data-flx="user.applications-tab.open-create-bot-modal.managed-bot-create-modal"
 				/>
 			)),
 		);
@@ -145,17 +158,36 @@ const ApplicationsTab: React.FC = observer(() => {
 									>
 										<Trans>Create application</Trans>
 									</Button>
+									<Button
+										variant="secondary"
+										fitContent
+										onClick={openCreateBotModal}
+										disabled
+										data-flx="user.applications-tab.button.open-create-bot-modal"
+									>
+										<Trans>Create Bot</Trans>
+									</Button>
 								</div>
 							</Tooltip>
 						) : (
-							<Button
-								variant="primary"
-								fitContent
-								onClick={openCreateModal}
-								data-flx="user.applications-tab.button.open-create-modal--2"
-							>
-								<Trans>Create application</Trans>
-							</Button>
+							<>
+								<Button
+									variant="primary"
+									fitContent
+									onClick={openCreateModal}
+									data-flx="user.applications-tab.button.open-create-modal--2"
+								>
+									<Trans>Create application</Trans>
+								</Button>
+								<Button
+									variant="secondary"
+									fitContent
+									onClick={openCreateBotModal}
+									data-flx="user.applications-tab.button.open-create-bot-modal--2"
+								>
+									<Trans>Create Bot</Trans>
+								</Button>
+							</>
 						)}
 						<a
 							className={styles.documentationLink}

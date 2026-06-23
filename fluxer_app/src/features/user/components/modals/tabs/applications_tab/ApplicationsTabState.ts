@@ -176,6 +176,15 @@ class ApplicationsTabState {
 		await this.fetchApplication(appId, {showLoading: !cacheHit});
 	}
 
+	@action
+	navigateToCreatedApplication(application: DeveloperApplicationWire | DeveloperApplication): void {
+		const record = this.cacheApplication(application);
+		this.selectedAppId = record.id;
+		this.error = null;
+		this.isLoading = false;
+		this.navigationState = NavigationState.DETAIL;
+	}
+
 	async navigateToList(): Promise<void> {
 		if (this.detailAbortController) {
 			this.detailAbortController.abort();
