@@ -6,6 +6,7 @@ import type {Application} from '../../models/Application';
 
 export interface IApplicationRepository {
 	getApplication(applicationId: ApplicationID): Promise<Application | null>;
+	getApplicationByBotUserId(botUserId: UserID): Promise<Application | null>;
 	listApplicationsByOwner(ownerUserId: UserID): Promise<Array<Application>>;
 	upsertApplication(data: ApplicationRow, oldData?: ApplicationRow | null): Promise<Application>;
 	deleteApplication(applicationId: ApplicationID): Promise<void>;

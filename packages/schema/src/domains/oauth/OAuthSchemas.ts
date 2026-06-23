@@ -203,6 +203,19 @@ export const ApplicationResponse = z.object({
 	bot_require_code_grant: z.boolean().describe('Whether the bot requires OAuth2 code grant'),
 	client_secret: z.string().optional().describe('The client secret for OAuth2 authentication'),
 	bot: ApplicationBotResponse.optional().describe('The bot user associated with the application'),
+	managed_bot: z
+		.object({
+			kind: z.literal('managed_bot'),
+			application_id: SnowflakeStringType,
+			bot_user_id: SnowflakeStringType,
+			runtime_type: z.string(),
+			provider: z.string(),
+			model: z.string(),
+			provision_status: z.string(),
+			runtime_instance_id: z.string().nullable(),
+		})
+		.optional()
+		.describe('Managed bot metadata when this application is provisioned by Fluxer'),
 });
 
 export type ApplicationResponse = z.infer<typeof ApplicationResponse>;
@@ -468,3 +481,118 @@ export const BotProfileUpdateRequest = z.object({
 });
 
 export type BotProfileUpdateRequest = z.infer<typeof BotProfileUpdateRequest>;
+
+const ManagedBotRuntimeType = createNamedStringLiteralUnion(
+	[['openclaw', 'OPENCLAW', 'OpenClaw runtime']] as const,
+	'The managed bot runtime type',
+);
+
+const ManagedBotProviderType = createNamedStringLiteralUnion(
+	[['openrouter', 'OPENROUTER', 'OpenRouter provider']] as const,
+	'The managed bot model provider',
+);
+
+const ManagedBotProvisionStatus = createNamedStringLiteralUnion(
+	[
+		['pending', 'PENDING', 'Provisioning has not completed'],
+		['running', 'RUNNING', 'Runtime is provisioned'],
+		['failed', 'FAILED', 'Provisioning failed'],
+	],
+	'The managed bot provisioning status',
+);
+
+const ManagedBotTokenDeliveryState = createNamedStringLiteralUnion(
+	[
+		['accepted', 'ACCEPTED', 'Provisioner accepted the one-time bot token'],
+		['not_delivered', 'NOT_DELIVERED', 'Provisioner did not accept the one-time bot token'],
+	],
+	'Whether the one-time bot token was accepted by the provisioner',
+);
+
+const ManagedBotPersonaFiles = z
+	.object({
+		AGENTS: createStringType(0, 20000).optional(),
+		SOUL: createStringType(0, 20000).optional(),
+		IDENTITY: createStringType(0, 20000).optional(),
+		USER: createStringType(0, 20000).optional(),
+		TOOLS: createStringType(0, 20000).optional(),
+		HEARTBEAT: createStringType(0, 20000).optional(),
+		MEMORY: createStringType(0, 20000).optional(),
+		DREAMS: createStringType(0, 20000).optional(),
+	})
+	.strict();
+
+export const ManagedBotOptionsResponse = z.object({
+	runtimes: z.array(
+		z.object({
+			id: ManagedBotRuntimeType,
+			name: z.string(),
+			available: z.boolean(),
+		}),
+	),
+	persona_templates: z.array(
+		z.object({
+			id: z.string(),
+			name: z.string(),
+			persona_files: ManagedBotPersonaFiles,
+		}),
+	),
+	providers: z.array(
+		z.object({
+			id: ManagedBotProviderType,
+			name: z.string(),
+			models: z.array(z.string()),
+		}),
+	),
+	provisioner_available: z.boolean(),
+});
+
+export type ManagedBotOptionsResponse = z.infer<typeof ManagedBotOptionsResponse>;
+
+export const ManagedBotCreateRequest = z.object({
+	runtime_type: ManagedBotRuntimeType,
+	name: createStringType(1, 100).describe('The OAuth2 application name'),
+	username: UsernameType.optional().describe('The bot username'),
+	bio: createStringType(0, 1024).nullish().describe('The bot bio'),
+	persona_template_id: createStringType(1, 80).nullish(),
+	persona_files: ManagedBotPersonaFiles.nullish(),
+	provider: ManagedBotProviderType,
+	model: createStringType(1, 200),
+});
+
+export type ManagedBotCreateRequest = z.infer<typeof ManagedBotCreateRequest>;
+
+export const ManagedBotReprovisionRequest = z
+	.object({
+		bot_token: createStringType(1).optional().describe('Existing bot token required after not_delivered failures'),
+	})
+	.optional();
+
+export type ManagedBotReprovisionRequest = z.infer<typeof ManagedBotReprovisionRequest>;
+
+export const ManagedBotSpecResponse = z.object({
+	application_id: SnowflakeStringType,
+	owner_user_id: SnowflakeStringType,
+	bot_user_id: SnowflakeStringType,
+	runtime_type: ManagedBotRuntimeType,
+	persona_template_id: z.string().nullable(),
+	persona_files: ManagedBotPersonaFiles,
+	provider: ManagedBotProviderType,
+	model: z.string(),
+	provision_status: ManagedBotProvisionStatus,
+	provision_error: z.string().nullable(),
+	runtime_instance_id: z.string().nullable(),
+	token_delivery_state: ManagedBotTokenDeliveryState,
+	created_at: z.string(),
+	updated_at: z.string(),
+	version: z.number().nullable().optional(),
+});
+
+export type ManagedBotSpecResponse = z.infer<typeof ManagedBotSpecResponse>;
+
+export const ManagedBotCreateResponse = z.object({
+	application: ApplicationResponse,
+	managed_bot: ManagedBotSpecResponse,
+});
+
+export type ManagedBotCreateResponse = z.infer<typeof ManagedBotCreateResponse>;

@@ -833,12 +833,6 @@ export class GatewayService {
 		});
 	}
 
-	async reloadGuildAndSync(guildId: GuildID): Promise<void> {
-		await this.call('guild.reload_and_sync', {
-			guild_id: guildId.toString(),
-		});
-	}
-
 	async reloadAllGuilds(guildIds: Array<GuildID>): Promise<{
 		count: number;
 	}> {

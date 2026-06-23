@@ -14,6 +14,9 @@ import {
 import type {IRegistrationRiskEvaluator} from '../auth/services/IRegistrationRiskEvaluator';
 import {noopRegistrationRiskEvaluator, RegistrationRiskEvaluator} from '../auth/services/RegistrationRiskEvaluator';
 import {SsoService} from '../auth/services/SsoService';
+import {ManagedBotProvisionerClient} from '../bots/ManagedBotProvisionerClient';
+import {ManagedBotRepository} from '../bots/ManagedBotRepository';
+import {ManagedBotService} from '../bots/ManagedBotService';
 import {Config} from '../Config';
 import {createApiContext} from '../CreateApiContext';
 import {ChannelRequestService} from '../channel/services/ChannelRequestService';
@@ -590,6 +593,18 @@ export const ServiceMiddleware = createMiddleware<HonoEnv>(async (ctx, next) => 
 		botAuthService,
 	});
 	const oauth2Service = new OAuth2Service(apiContext, {applicationRepository, oauth2TokenRepository});
+	const managedBotRepository = new ManagedBotRepository();
+	const oauth2ApplicationsRequestService = new OAuth2ApplicationsRequestService(
+		apiContext,
+		applicationService,
+		applicationRepository,
+		managedBotRepository,
+	);
+	const managedBotService = new ManagedBotService(
+		managedBotRepository,
+		oauth2ApplicationsRequestService,
+		new ManagedBotProvisionerClient(),
+	);
 	ctx.set('adminService', adminService);
 	ctx.set(
 		'adminArchiveService',
@@ -677,10 +692,8 @@ export const ServiceMiddleware = createMiddleware<HonoEnv>(async (ctx, next) => 
 			channelRepository,
 		),
 	);
-	ctx.set(
-		'oauth2ApplicationsRequestService',
-		new OAuth2ApplicationsRequestService(apiContext, applicationService, applicationRepository),
-	);
+	ctx.set('oauth2ApplicationsRequestService', oauth2ApplicationsRequestService);
+	ctx.set('managedBotService', managedBotService);
 	ctx.set('oauth2TokenRepository', oauth2TokenRepository);
 	ctx.set('rateLimitService', rateLimitService);
 	ctx.set('readStateService', readStateService);

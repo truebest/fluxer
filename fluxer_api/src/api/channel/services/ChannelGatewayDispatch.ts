@@ -5,6 +5,7 @@ import {SYSTEM_USER_ID} from '@app/api/constants/Core';
 import type {GatewayDispatchEvent} from '@app/api/constants/Gateway';
 import type {IGatewayService} from '@app/api/infrastructure/IGatewayService';
 import type {Channel} from '@app/api/models/Channel';
+import {BotChannelScopeService} from '@app/api/oauth/BotChannelScopeService';
 import {ChannelTypes} from '@fluxer/constants/src/ChannelConstants';
 
 interface DispatchChannelEventParams {
@@ -32,7 +33,14 @@ export async function dispatchChannelEvent({
 		});
 	}
 	if (channel.guildId) {
-		return gatewayService.dispatchGuild({guildId: channel.guildId, event, data});
+		const excludedUserIds =
+			channel.type === ChannelTypes.GUILD_TEXT
+				? await new BotChannelScopeService().listExcludedBotUserIds({
+						guildId: channel.guildId,
+						channelId: channel.id,
+					})
+				: [];
+		return gatewayService.dispatchGuild({guildId: channel.guildId, event, data, excludedUserIds});
 	}
 	await Promise.all(
 		Array.from(channel.recipientIds)

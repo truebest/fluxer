@@ -4,12 +4,12 @@ import {ADMIN_OAUTH2_APPLICATION_ID} from '@fluxer/constants/src/Core';
 import {type ApplicationID, createApplicationID, type UserID} from '../../BrandedTypes';
 import {Config} from '../../Config';
 import {SYSTEM_USER_ID} from '../../constants/Core';
-import {BatchBuilder, fetchMany, fetchOne} from '../../database/CassandraQueryExecution';
+import {BatchBuilder, fetchMany, fetchOne, upsertOne} from '../../database/CassandraQueryExecution';
 import {buildPatchFromData, executeVersionedUpdate} from '../../database/CassandraVersionedUpdate';
-import type {ApplicationByOwnerRow, ApplicationRow} from '../../database/types/OAuth2Types';
+import type {ApplicationByBotUserRow, ApplicationByOwnerRow, ApplicationRow} from '../../database/types/OAuth2Types';
 import {APPLICATION_COLUMNS} from '../../database/types/OAuth2Types';
 import {Application} from '../../models/Application';
-import {Applications, ApplicationsByOwner} from '../../Tables';
+import {Applications, ApplicationsByBotUser, ApplicationsByOwner} from '../../Tables';
 import {hashPassword} from '../../utils/PasswordUtils';
 import type {IApplicationRepository} from './IApplicationRepository';
 
@@ -19,6 +19,10 @@ const SELECT_APPLICATION_CQL = Applications.selectCql({
 const SELECT_APPLICATION_IDS_BY_OWNER_CQL = ApplicationsByOwner.selectCql({
 	columns: ['application_id'],
 	where: ApplicationsByOwner.where.eq('owner_user_id'),
+});
+const SELECT_APPLICATION_ID_BY_BOT_USER_CQL = ApplicationsByBotUser.selectCql({
+	columns: ['application_id'],
+	where: ApplicationsByBotUser.where.eq('bot_user_id'),
 });
 const FETCH_APPLICATIONS_BY_IDS_CQL = Applications.selectCql({
 	where: Applications.where.in('application_id', 'application_ids'),
@@ -73,6 +77,27 @@ export class ApplicationRepository implements IApplicationRepository {
 		return row ? new Application(row) : null;
 	}
 
+	async getApplicationByBotUserId(botUserId: UserID): Promise<Application | null> {
+		const row = await fetchOne<ApplicationByBotUserRow>(SELECT_APPLICATION_ID_BY_BOT_USER_CQL, {
+			bot_user_id: botUserId,
+		});
+		if (!row) {
+			const legacyApplication = await this.getApplication(createApplicationID(BigInt(botUserId)));
+			if (legacyApplication?.botUserId !== botUserId) {
+				return null;
+			}
+			await upsertOne(
+				ApplicationsByBotUser.upsertAll({
+					bot_user_id: botUserId,
+					application_id: legacyApplication.applicationId,
+				}),
+			);
+			return legacyApplication;
+		}
+		const application = await this.getApplication(row.application_id);
+		return application?.botUserId === botUserId ? application : null;
+	}
+
 	async listApplicationsByOwner(ownerUserId: UserID): Promise<Array<Application>> {
 		const ids = await fetchMany<ApplicationByOwnerRow>(SELECT_APPLICATION_IDS_BY_OWNER_CQL, {
 			owner_user_id: ownerUserId,
@@ -107,6 +132,14 @@ export class ApplicationRepository implements IApplicationRepository {
 				application_id: data.application_id,
 			}),
 		);
+		if (data.bot_user_id) {
+			batch.addPrepared(
+				ApplicationsByBotUser.upsertAll({
+					bot_user_id: data.bot_user_id,
+					application_id: data.application_id,
+				}),
+			);
+		}
 		if (oldData && oldData.owner_user_id !== data.owner_user_id) {
 			batch.addPrepared(
 				ApplicationsByOwner.deleteByPk({
@@ -114,6 +147,9 @@ export class ApplicationRepository implements IApplicationRepository {
 					application_id: data.application_id,
 				}),
 			);
+		}
+		if (oldData?.bot_user_id && oldData.bot_user_id !== data.bot_user_id) {
+			batch.addPrepared(ApplicationsByBotUser.deleteByPk({bot_user_id: oldData.bot_user_id}));
 		}
 		await batch.execute();
 		return new Application({...data, version: result.finalVersion});
@@ -136,6 +172,9 @@ export class ApplicationRepository implements IApplicationRepository {
 				application_id: applicationId,
 			}),
 		);
+		if (application.botUserId) {
+			batch.addPrepared(ApplicationsByBotUser.deleteByPk({bot_user_id: application.botUserId}));
+		}
 		await batch.execute();
 	}
 }

@@ -6,6 +6,7 @@ import {BlueskyOAuthController} from '../bluesky/BlueskyOAuthController';
 import {Config} from '../Config';
 import {CanaryTesterController} from '../canary_tester/CanaryTesterController';
 import {ChannelController} from '../channel/ChannelController';
+import {ManagedBotController} from '../bots/ManagedBotController';
 import type {APIConfig} from '../config/APIConfig';
 import {ConnectionController} from '../connection/ConnectionController';
 import {DonationController} from '../donation/DonationController';
@@ -72,6 +73,7 @@ export function registerControllers(routes: HonoApp, config: APIConfig): void {
 	WebhookController(routes);
 	OAuth2Controller(routes);
 	OAuth2ApplicationsController(routes);
+	ManagedBotController(routes);
 	PremiumController(routes);
 	if (!config.instance.selfHosted) {
 		DonationController(routes);

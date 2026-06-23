@@ -23,6 +23,11 @@ export interface ApplicationByOwnerRow {
 	application_id: ApplicationID;
 }
 
+export interface ApplicationByBotUserRow {
+	bot_user_id: UserID;
+	application_id: ApplicationID;
+}
+
 export interface OAuth2AuthorizationCodeRow {
 	code: string;
 	application_id: ApplicationID;
@@ -73,6 +78,24 @@ export interface BotChannelScopeRow {
 	version?: number | null;
 }
 
+export interface ManagedBotSpecRow {
+	application_id: ApplicationID;
+	owner_user_id: UserID;
+	bot_user_id: UserID;
+	runtime_type: string;
+	persona_template_id: string | null;
+	persona_files: Record<string, string>;
+	provider: string;
+	model: string;
+	provision_status: string;
+	provision_error: string | null;
+	runtime_instance_id: string | null;
+	token_delivery_state: string;
+	created_at: Date;
+	updated_at: Date;
+	version?: number | null;
+}
+
 export const APPLICATION_COLUMNS = [
 	'application_id',
 	'owner_user_id',
@@ -88,6 +111,10 @@ export const APPLICATION_COLUMNS = [
 	'client_secret_created_at',
 	'version',
 ] as const satisfies ReadonlyArray<keyof ApplicationRow>;
+export const APPLICATION_BY_BOT_USER_COLUMNS = [
+	'bot_user_id',
+	'application_id',
+] as const satisfies ReadonlyArray<keyof ApplicationByBotUserRow>;
 export const OAUTH2_AUTHORIZATION_CODE_COLUMNS = [
 	'code',
 	'application_id',
@@ -124,3 +151,20 @@ export const BOT_CHANNEL_SCOPE_COLUMNS = [
 	'updated_at',
 	'version',
 ] as const satisfies ReadonlyArray<keyof BotChannelScopeRow>;
+export const MANAGED_BOT_SPEC_COLUMNS = [
+	'application_id',
+	'owner_user_id',
+	'bot_user_id',
+	'runtime_type',
+	'persona_template_id',
+	'persona_files',
+	'provider',
+	'model',
+	'provision_status',
+	'provision_error',
+	'runtime_instance_id',
+	'token_delivery_state',
+	'created_at',
+	'updated_at',
+	'version',
+] as const satisfies ReadonlyArray<keyof ManagedBotSpecRow>;

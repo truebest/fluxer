@@ -198,6 +198,9 @@ services:
       <<: *fluxer-env
       FLUXER_API_PORT: "8080"
       FLUXER_API_PRESIGNED_ATTACHMENT_UPLOADS_ENABLED: "true"
+      FLUXER_BOT_PROVISIONER_URL: http://bot-provisioner:8080
+      FLUXER_BOT_PROVISIONER_TOKEN: ${FLUXER_BOT_PROVISIONER_TOKEN:-dev-change-me}
+      FLUXER_BOT_OPENROUTER_MODELS: ${FLUXER_BOT_OPENROUTER_MODELS:-google/gemini-3.1-flash-lite,openai/gpt-4.1-mini,anthropic/claude-3.5-sonnet,google/gemini-2.0-flash}
     healthcheck:
       test: ["CMD-SHELL", "node -e \"fetch('http://127.0.0.1:8080/_health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))\""]
       interval: 10s
@@ -216,6 +219,21 @@ services:
       messages-shard: {condition: service_started}
       users: {condition: service_started}
       users-shard: {condition: service_started}
+      bot-provisioner: {condition: service_started}
+
+  bot-provisioner:
+    <<: *fluxer-service
+    image: ${FLUXER_REGISTRY:-ghcr.io/${FLUXER_REGISTRY_OWNER:-fluxerapp}}/fluxer-bot-provisioner:${FLUXER_IMAGE_TAG:-v1}
+    environment:
+      PORT: "8080"
+      PROVISIONER_AUTH_TOKEN: ${FLUXER_BOT_PROVISIONER_TOKEN:-dev-change-me}
+      PROVISIONER_DATA_DIR: /var/lib/fluxer_bot_provisioner
+      OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:-}
+      OPENCLAW_IMAGE: ${OPENCLAW_IMAGE:-ghcr.io/openclaw/openclaw:latest}
+      DOCKER_NETWORK: ${FLUXER_DOCKER_NETWORK:-fluxer_fluxer}
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/lib/fluxer_bot_provisioner:/var/lib/fluxer_bot_provisioner
 
   worker:
     <<: *fluxer-service

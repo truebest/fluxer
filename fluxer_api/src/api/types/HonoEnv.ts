@@ -12,6 +12,7 @@ import type {AdminArchiveService} from '../admin/services/AdminArchiveService';
 import type {AuthRequestService} from '../auth/AuthRequestService';
 import type {DesktopHandoffService} from '../auth/services/DesktopHandoffService';
 import type {SsoService} from '../auth/services/SsoService';
+import type {ManagedBotService} from '../bots/ManagedBotService';
 import type {ApplicationID, UserID} from '../BrandedTypes';
 import type {IBlueskyOAuthService} from '../bluesky/IBlueskyOAuthService';
 import type {IChannelRepository} from '../channel/IChannelRepository';
@@ -184,6 +185,7 @@ export interface HonoEnv {
 		oauth2Service: OAuth2Service;
 		oauth2RequestService: OAuth2RequestService;
 		oauth2ApplicationsRequestService: OAuth2ApplicationsRequestService;
+		managedBotService: ManagedBotService;
 		applicationRepository: IApplicationRepository;
 		oauth2TokenRepository: IOAuth2TokenRepository;
 		botAuthService: BotAuthService;

@@ -214,10 +214,13 @@ import {
 } from './database/types/MessageTypes';
 import {
 	APPLICATION_COLUMNS,
+	type ApplicationByBotUserRow,
 	type ApplicationByOwnerRow,
 	type ApplicationRow,
 	BOT_CHANNEL_SCOPE_COLUMNS,
 	type BotChannelScopeRow,
+	MANAGED_BOT_SPEC_COLUMNS,
+	type ManagedBotSpecRow,
 	OAUTH2_ACCESS_TOKEN_COLUMNS,
 	OAUTH2_AUTHORIZATION_CODE_COLUMNS,
 	OAUTH2_REFRESH_TOKEN_COLUMNS,
@@ -1069,6 +1072,9 @@ export const InvitesByGuild = defineTable<InvitesByGuildRow, 'guild_id' | 'code'
 const APPLICATIONS_BY_OWNER_COLUMNS = ['owner_user_id', 'application_id'] as const satisfies ReadonlyArray<
 	keyof ApplicationByOwnerRow
 >;
+const APPLICATIONS_BY_BOT_USER_COLUMNS = ['bot_user_id', 'application_id'] as const satisfies ReadonlyArray<
+	keyof ApplicationByBotUserRow
+>;
 export const Applications = defineTable<ApplicationRow, 'application_id'>({
 	name: 'applications',
 	columns: APPLICATION_COLUMNS,
@@ -1078,6 +1084,11 @@ export const ApplicationsByOwner = defineTable<ApplicationByOwnerRow, 'owner_use
 	name: 'applications_by_owner',
 	columns: APPLICATIONS_BY_OWNER_COLUMNS,
 	primaryKey: ['owner_user_id', 'application_id'],
+});
+export const ApplicationsByBotUser = defineTable<ApplicationByBotUserRow, 'bot_user_id'>({
+	name: 'applications_by_bot_user_id',
+	columns: APPLICATIONS_BY_BOT_USER_COLUMNS,
+	primaryKey: ['bot_user_id'],
 });
 const OAUTH2_ACCESS_TOKENS_BY_USER_COLUMNS = ['user_id', 'token_'] as const satisfies ReadonlyArray<
 	keyof OAuth2AccessTokenByUserRow
@@ -1115,6 +1126,11 @@ export const BotChannelScopes = defineTable<BotChannelScopeRow, 'guild_id' | 'bo
 	columns: BOT_CHANNEL_SCOPE_COLUMNS,
 	primaryKey: ['guild_id', 'bot_user_id'],
 	partitionKey: ['guild_id'],
+});
+export const ManagedBotSpecs = defineTable<ManagedBotSpecRow, 'application_id'>({
+	name: 'managed_bot_specs',
+	columns: MANAGED_BOT_SPEC_COLUMNS,
+	primaryKey: ['application_id'],
 });
 
 interface WebhooksByChannelRow {

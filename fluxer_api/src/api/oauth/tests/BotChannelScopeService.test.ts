@@ -4,7 +4,7 @@ import {ChannelTypes} from '@fluxer/constants/src/ChannelConstants';
 import {InputValidationError} from '@fluxer/errors/src/domains/core/InputValidationError';
 import {UnknownGuildMemberError} from '@fluxer/errors/src/domains/guild/UnknownGuildMemberError';
 import {describe, expect, it} from 'vitest';
-import type {ApplicationID} from '../../BrandedTypes';
+import type {UserID} from '../../BrandedTypes';
 import {createApplicationID, createChannelID, createGuildID, createUserID} from '../../BrandedTypes';
 import type {BotChannelScopeRow} from '../../database/types/OAuth2Types';
 import type {GuildMember} from '../../models/GuildMember';
@@ -83,10 +83,10 @@ describe('BotChannelScopeService', () => {
 				],
 			} as never,
 			applicationRepository: {
-				getApplication: async (applicationId: ApplicationID) =>
-					applicationId === createApplicationID(snowflake('200'))
+				getApplicationByBotUserId: async (lookupBotUserId: UserID) =>
+					lookupBotUserId === botUserId
 						? {
-								applicationId,
+								applicationId: createApplicationID(snowflake('200')),
 								botUserId,
 								name: 'Alpha App',
 							}
@@ -112,15 +112,14 @@ describe('BotChannelScopeService', () => {
 		});
 	});
 
-	it('returns all text channels when an installed bot has no saved scope', async () => {
+	it('returns an empty configured channel list when an installed bot has no saved scope', async () => {
 		const guildId = createGuildID(snowflake('100'));
+		const botUserId = createUserID(snowflake('200'));
 		const service = new BotChannelScopeService({
 			getScope: async () => null,
 			listGuildScopes: async () => [],
 			upsertScope: async () => undefined,
 		} as BotChannelScopeRepository);
-		const textChannelId = createChannelID(snowflake('10'));
-		const otherTextChannelId = createChannelID(snowflake('11'));
 
 		const result = await service.listInstalledBots({
 			guildId,
@@ -131,37 +130,21 @@ describe('BotChannelScopeService', () => {
 				listUsers: async () => [user({id: '200', username: 'bot-alpha', isBot: true})],
 			} as never,
 			applicationRepository: {
-				getApplication: async (applicationId: ApplicationID) => ({
-					applicationId,
-					botUserId: createUserID(snowflake('200')),
+				getApplicationByBotUserId: async () => ({
+					applicationId: createApplicationID(snowflake('200')),
+					botUserId,
 					name: 'Alpha App',
 				}),
-			} as never,
-			channelRepository: {
-				channelData: {
-					listGuildChannels: async () => [
-						{id: otherTextChannelId, guildId, type: ChannelTypes.GUILD_TEXT, name: 'other', position: 1},
-						{id: textChannelId, guildId, type: ChannelTypes.GUILD_TEXT, name: 'general', position: 0},
-						{
-							id: createChannelID(snowflake('12')),
-							guildId,
-							type: ChannelTypes.GUILD_VOICE,
-							name: 'voice',
-							position: 2,
-						},
-					],
-				},
 			} as never,
 		});
 
 		expect(result.bots).toHaveLength(1);
-		expect(result.bots[0]?.channel_ids).toEqual(['10', '11']);
+		expect(result.bots[0]?.channel_ids).toEqual([]);
 		expect(result.bots[0]?.updated_at).toBeNull();
 	});
 
-	it('reads an effective allow-all scope without creating a default row', async () => {
+	it('resolves default preview channels without creating a scope row', async () => {
 		const guildId = createGuildID(snowflake('100'));
-		const botUserId = createUserID(snowflake('200'));
 		let upserted = false;
 		const service = new BotChannelScopeService({
 			getScope: async () => null,
@@ -172,11 +155,7 @@ describe('BotChannelScopeService', () => {
 		} as BotChannelScopeRepository);
 
 		await expect(
-			service.getEffectiveScope({
-				guildId,
-				botUserId,
-				applicationId: createApplicationID(snowflake('200')),
-				channelRepository: {
+			service.resolveDefaultTextChannelIds(guildId, {
 					channelData: {
 						listGuildChannels: async () => [
 							{
@@ -188,15 +167,8 @@ describe('BotChannelScopeService', () => {
 							},
 						],
 					},
-				} as never,
-			}),
-		).resolves.toEqual({
-			guild_id: '100',
-			bot_user_id: '200',
-			application_id: '200',
-			channel_ids: ['10'],
-			updated_at: null,
-		});
+				} as never),
+		).resolves.toEqual([createChannelID(snowflake('10'))]);
 		expect(upserted).toBe(false);
 	});
 

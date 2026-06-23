@@ -16,6 +16,8 @@ import type {Context} from 'hono';
 import type {ApiContext} from '../ApiContext';
 import type {SudoVerificationBody} from '../auth/services/SudoVerificationService';
 import {requireSudoMode} from '../auth/services/SudoVerificationService';
+import {mapManagedBotSpecToApplicationMarker} from '../bots/ManagedBotMappers';
+import type {ManagedBotRepository} from '../bots/ManagedBotRepository';
 import {createApplicationID, type UserID} from '../BrandedTypes';
 import {UsernameNotAvailableError} from '../infrastructure/DiscriminatorService';
 import type {Application} from '../models/Application';
@@ -30,6 +32,7 @@ export class OAuth2ApplicationsRequestService {
 		private readonly apiContext: ApiContext,
 		private readonly applicationService: ApplicationService,
 		private readonly applicationRepository: IApplicationRepository,
+		private readonly managedBotRepository: ManagedBotRepository,
 	) {}
 
 	async listApplications(userId: UserID) {
@@ -57,10 +60,18 @@ export class OAuth2ApplicationsRequestService {
 				botUserMap.set(botUserFetches[i].id, user);
 			}
 		}
-		return applications.map((app: Application) => {
+		const managedBotSpecs = await Promise.all(
+			applications.map((app) => this.managedBotRepository.get(app.applicationId)),
+		);
+		return applications.map((app: Application, index: number) => {
 			const botUserId = app.hasBotUser() ? app.getBotUserId() : null;
 			const botUser = botUserId ? botUserMap.get(botUserId.toString()) : null;
-			return mapApplicationToResponse(app, {botUser: botUser ?? undefined});
+			const response = mapApplicationToResponse(app, {botUser: botUser ?? undefined});
+			const managedBotSpec = managedBotSpecs[index];
+			if (managedBotSpec) {
+				response.managed_bot = mapManagedBotSpecToApplicationMarker(managedBotSpec);
+			}
+			return response;
 		});
 	}
 
@@ -76,11 +87,16 @@ export class OAuth2ApplicationsRequestService {
 			botPublic: body.bot_public,
 			botRequireCodeGrant: body.bot_require_code_grant,
 		});
-		return mapApplicationToResponse(result.application, {
+		const response = mapApplicationToResponse(result.application, {
 			botUser: result.botUser,
 			botToken: result.botToken,
 			clientSecret: result.clientSecret,
 		});
+		const managedBotSpec = await this.managedBotRepository.get(result.application.applicationId);
+		if (managedBotSpec) {
+			response.managed_bot = mapManagedBotSpecToApplicationMarker(managedBotSpec);
+		}
+		return response;
 	}
 
 	async getApplication(userId: UserID, applicationId: bigint) {
@@ -99,7 +115,12 @@ export class OAuth2ApplicationsRequestService {
 				botUser = await this.apiContext.services.users.findUnique(botUserId);
 			}
 		}
-		return mapApplicationToResponse(application, {botUser});
+		const response = mapApplicationToResponse(application, {botUser});
+		const managedBotSpec = await this.managedBotRepository.get(appId);
+		if (managedBotSpec) {
+			response.managed_bot = mapManagedBotSpecToApplicationMarker(managedBotSpec);
+		}
+		return response;
 	}
 
 	async updateApplication(userId: UserID, applicationId: bigint, body: ApplicationUpdateRequest) {
@@ -119,7 +140,12 @@ export class OAuth2ApplicationsRequestService {
 					botUser = await this.apiContext.services.users.findUnique(botUserId);
 				}
 			}
-			return mapApplicationToResponse(updated, {botUser: botUser ?? undefined});
+			const response = mapApplicationToResponse(updated, {botUser: botUser ?? undefined});
+			const managedBotSpec = await this.managedBotRepository.get(createApplicationID(applicationId));
+			if (managedBotSpec) {
+				response.managed_bot = mapManagedBotSpecToApplicationMarker(managedBotSpec);
+			}
+			return response;
 		} catch (err) {
 			if (err instanceof ApplicationNotOwnedError) {
 				throw new AccessDeniedError();
@@ -139,7 +165,16 @@ export class OAuth2ApplicationsRequestService {
 	}): Promise<void> {
 		await requireSudoMode(params.ctx, params.ctx.get('user'), params.body);
 		try {
-			await this.applicationService.deleteApplication(params.userId, createApplicationID(params.applicationId));
+			const applicationId = createApplicationID(params.applicationId);
+			const application = await this.applicationRepository.getApplication(applicationId);
+			if (!application) {
+				throw new UnknownApplicationError();
+			}
+			if (application.ownerUserId !== params.userId) {
+				throw new ApplicationNotOwnedError();
+			}
+			await params.ctx.get('managedBotService').deprovisionOwned(params.userId, applicationId);
+			await this.applicationService.deleteApplication(params.userId, applicationId);
 		} catch (err) {
 			if (err instanceof ApplicationNotOwnedError) {
 				throw new AccessDeniedError();

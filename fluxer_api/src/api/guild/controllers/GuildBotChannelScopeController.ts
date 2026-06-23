@@ -1,8 +1,16 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import {SnowflakeType} from '@fluxer/schema/src/primitives/SchemaPrimitives';
+import type {Context} from 'hono';
 import {z} from 'zod';
-import {createChannelID, createGuildID, createUserID, type GuildID, type UserID} from '../../BrandedTypes';
+import {
+	createChannelID,
+	createGuildID,
+	createUserID,
+	type ApplicationID,
+	type GuildID,
+	type UserID,
+} from '../../BrandedTypes';
 import type {IGatewayService} from '../../infrastructure/IGatewayService';
 import {Logger} from '../../Logger';
 import {DefaultUserOnly, LoginRequired} from '../../middleware/AuthMiddleware';
@@ -10,7 +18,7 @@ import {RateLimitMiddleware} from '../../middleware/RateLimitMiddleware';
 import {OpenAPI} from '../../middleware/ResponseTypeMiddleware';
 import {BotChannelScopeService} from '../../oauth/BotChannelScopeService';
 import {RateLimitConfigs} from '../../RateLimitConfig';
-import type {HonoApp} from '../../types/HonoEnv';
+import type {HonoApp, HonoEnv} from '../../types/HonoEnv';
 import {Validator} from '../../Validator';
 
 const GuildBotChannelScopeParam = z.object({
@@ -23,7 +31,7 @@ const GuildBotChannelScopeGuildParam = z.object({
 });
 
 const BotChannelScopeUpdateRequest = z.object({
-	channel_ids: z.array(SnowflakeType).describe('Text channel IDs this bot can access in the guild'),
+	channel_ids: z.array(SnowflakeType).max(100).describe('Text channel IDs this bot can access in the guild'),
 });
 
 const BotChannelScopeResponse = z.object({
@@ -78,7 +86,6 @@ export function GuildBotChannelScopeController(app: HonoApp) {
 					guildRepository: ctx.get('guildRepository'),
 					userRepository: ctx.get('userRepository'),
 					applicationRepository: ctx.get('applicationRepository'),
-					channelRepository: ctx.get('channelRepository'),
 				}),
 			);
 		},
@@ -113,14 +120,18 @@ export function GuildBotChannelScopeController(app: HonoApp) {
 				botUserId,
 			});
 			const applicationId = await service.requireBotApplication(ctx.get('applicationRepository'), botUserId);
-			return ctx.json(
-				await service.getEffectiveScope({
-					guildId,
-					botUserId,
-					applicationId,
-					channelRepository: ctx.get('channelRepository'),
-				}),
-			);
+			const existing = await service.getScope(guildId, botUserId);
+			if (existing) {
+				return ctx.json(existing);
+			}
+			const channelIds = await service.resolveDefaultTextChannelIds(guildId, ctx.get('channelRepository'));
+			return ctx.json({
+				guild_id: guildId.toString(),
+				bot_user_id: botUserId.toString(),
+				application_id: applicationId.toString(),
+				channel_ids: channelIds.map((channelId) => channelId.toString()),
+				updated_at: null,
+			});
 		},
 	);
 
@@ -167,9 +178,26 @@ export function GuildBotChannelScopeController(app: HonoApp) {
 				channelRepository: ctx.get('channelRepository'),
 			});
 			await reloadGuildAfterBotScopeChange(ctx.get('gatewayService'), guildId, botUserId);
+			await reprovisionManagedBotAfterScopeChange(ctx, applicationId, guildId, botUserId);
 			return ctx.json(response);
 		},
 	);
+}
+
+async function reprovisionManagedBotAfterScopeChange(
+	ctx: Context<HonoEnv>,
+	applicationId: ApplicationID,
+	guildId: GuildID,
+	botUserId: UserID,
+): Promise<void> {
+	try {
+		await ctx.get('managedBotService').reprovisionApplication(applicationId);
+	} catch (error) {
+		Logger.warn(
+			{guildId: guildId.toString(), botUserId: botUserId.toString(), applicationId: applicationId.toString(), error},
+			'Failed to reprovision managed bot after channel scope update',
+		);
+	}
 }
 
 async function reloadGuildAfterBotScopeChange(
@@ -178,12 +206,11 @@ async function reloadGuildAfterBotScopeChange(
 	botUserId: UserID,
 ): Promise<void> {
 	try {
-		await gatewayService.reloadGuildAndSync(guildId);
+		await gatewayService.reloadGuild(guildId);
 	} catch (error) {
 		Logger.warn(
 			{guildId: guildId.toString(), botUserId: botUserId.toString(), error},
 			'Failed to reload guild after bot channel scope update',
 		);
-		throw error;
 	}
 }

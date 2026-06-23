@@ -23,4 +23,14 @@ export interface ApplicationResponse {
 	bot_require_code_grant: boolean;
 	client_secret?: string;
 	bot?: ApplicationBotResponse;
+	managed_bot?: {
+		kind: 'managed_bot';
+		application_id: string;
+		bot_user_id: string;
+		runtime_type: string;
+		provider: string;
+		model: string;
+		provision_status: string;
+		runtime_instance_id: string | null;
+	};
 }
