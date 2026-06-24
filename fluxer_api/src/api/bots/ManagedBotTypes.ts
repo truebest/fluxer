@@ -1,9 +1,14 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 export const MANAGED_BOT_RUNTIME_OPENCLAW = 'openclaw' as const;
+export const MANAGED_BOT_RUNTIME_NANOCLAW = 'nanoclaw' as const;
+export const MANAGED_BOT_RUNTIME_HERMES = 'hermes' as const;
 export const MANAGED_BOT_PROVIDER_OPENROUTER = 'openrouter' as const;
 
-export type ManagedBotRuntimeType = typeof MANAGED_BOT_RUNTIME_OPENCLAW;
+export type ManagedBotRuntimeType =
+	| typeof MANAGED_BOT_RUNTIME_OPENCLAW
+	| typeof MANAGED_BOT_RUNTIME_NANOCLAW
+	| typeof MANAGED_BOT_RUNTIME_HERMES;
 export type ManagedBotProvider = typeof MANAGED_BOT_PROVIDER_OPENROUTER;
 export type ManagedBotProvisionStatus = 'pending' | 'running' | 'failed';
 export type ManagedBotTokenDeliveryState = 'accepted' | 'not_delivered';

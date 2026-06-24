@@ -1,11 +1,12 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import {observer} from 'mobx-react-lite';
+import type {BaseSyntheticEvent} from 'react';
 import type {FieldValues, UseFormReturn} from 'react-hook-form';
 
 type FormProps<T extends FieldValues> = Omit<React.HTMLAttributes<HTMLFormElement>, 'onSubmit'> & {
 	form: UseFormReturn<T>;
-	onSubmit: (values: T) => void;
+	onSubmit: (values: T, event?: BaseSyntheticEvent) => void;
 	'aria-label'?: string;
 	'aria-labelledby'?: string;
 };
@@ -28,7 +29,7 @@ export const Form = observer(
 			onSubmit={(event) => {
 				event.preventDefault();
 				form.clearErrors();
-				form.handleSubmit(onSubmit)(event);
+				form.handleSubmit((values, submitEvent) => onSubmit(values, submitEvent))(event);
 			}}
 		>
 			{children}

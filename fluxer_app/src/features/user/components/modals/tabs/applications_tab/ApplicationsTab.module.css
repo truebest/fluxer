@@ -9,6 +9,13 @@
 	flex-wrap: wrap;
 }
 
+.actionButtonGroup {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-2);
+	flex-wrap: wrap;
+}
+
 .devControls {
 	display: flex;
 	align-items: center;
@@ -113,7 +120,159 @@
 .managedBotForm {
 	display: flex;
 	flex-direction: column;
+	gap: var(--spacing-4);
+	width: min(100%, 44rem);
+	margin: 0 auto;
+}
+
+.managedBotStepHeader {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	padding-bottom: var(--spacing-2);
+	border-bottom: 0.0625rem solid var(--background-modifier-accent);
+}
+
+.managedBotStepCounter {
+	display: flex;
+	align-items: center;
+	min-width: 0;
+	color: var(--text-primary);
+	font-size: 0.8125rem;
+	font-weight: 700;
+	line-height: 1rem;
+}
+
+.managedBotProgressTrack {
+	width: 100%;
+	height: 0.375rem;
+	overflow: hidden;
+	border-radius: 999px;
+	background-color: var(--background-modifier-accent);
+}
+
+.managedBotProgressFill {
+	display: block;
+	height: 100%;
+	border-radius: inherit;
+	background-color: var(--brand-primary);
+	transition: width 160ms ease;
+}
+
+.managedBotWizardLayout {
+	display: block;
+}
+
+.managedBotStepNav {
+	display: none;
+}
+
+.managedBotWizardMain {
+	display: flex;
+	flex-direction: column;
 	gap: var(--spacing-3);
+	min-width: 0;
+}
+
+.managedBotWizardMain > .managedBotStepTitle {
+	display: none;
+}
+
+.managedBotStepTitle {
+	margin: 0;
+	color: var(--text-primary);
+	font-size: 1rem;
+	font-weight: 700;
+	line-height: 1.25rem;
+}
+
+.managedBotStepNavItem {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	min-width: 0;
+	padding: 0.4375rem 0.5rem;
+	border-radius: var(--radius-sm);
+	color: var(--text-primary-muted);
+}
+
+.managedBotStepNavItem[data-state='complete'] {
+	color: var(--text-primary);
+}
+
+.managedBotStepNavItem[data-state='active'] {
+	background-color: var(--background-modifier-accent);
+	color: var(--text-primary);
+}
+
+.managedBotStepNavItem[data-state='upcoming'] {
+	opacity: 0.65;
+}
+
+.managedBotStepMarker {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex: 0 0 1.375rem;
+	width: 1.375rem;
+	height: 1.375rem;
+	border: 0.0625rem solid var(--background-modifier-accent);
+	border-radius: 999px;
+	background-color: var(--background-secondary);
+	color: inherit;
+	font-size: 0.6875rem;
+	font-weight: 700;
+	line-height: 1;
+}
+
+.managedBotStepNavItem[data-state='active'] .managedBotStepMarker,
+.managedBotStepNavItem[data-state='complete'] .managedBotStepMarker {
+	border-color: var(--brand-primary);
+	background-color: var(--brand-primary);
+	color: var(--brand-primary-fill);
+}
+
+.managedBotStepNavLabel {
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-size: 0.8125rem;
+	font-weight: 700;
+	line-height: 1rem;
+}
+
+.managedBotStepBody {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-3);
+	min-height: 12rem;
+	padding-top: var(--spacing-1);
+}
+
+@media (min-width: 42rem) {
+	.managedBotStepHeader {
+		display: none;
+	}
+
+	.managedBotWizardLayout {
+		display: grid;
+		grid-template-columns: 9.5rem minmax(0, 1fr);
+		gap: var(--spacing-4);
+		align-items: start;
+	}
+
+	.managedBotStepNav {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+		padding-right: var(--spacing-3);
+		border-right: 0.0625rem solid var(--background-modifier-accent);
+	}
+
+	.managedBotWizardMain > .managedBotStepTitle {
+		display: block;
+	}
 }
 
 .managedBotTwoColumn {
@@ -124,19 +283,137 @@
 
 .managedBotSelect {
 	width: 100%;
-	min-height: var(--input-container-min-height);
-	padding: 0 var(--input-container-padding);
+	height: 2.25rem;
+	padding: 0 0.75rem;
 	border: 0.0625rem solid var(--background-modifier-accent);
-	border-radius: var(--radius-md);
+	border-radius: var(--radius-sm);
 	background-color: var(--background-textarea);
 	color: var(--text-primary);
 	font: inherit;
+	font-size: 0.875rem;
+	line-height: 1;
+}
+
+.managedBotSelect:focus {
+	outline: none;
+	border-color: var(--brand-primary);
+	box-shadow: 0 0 0 0.125rem color-mix(in srgb, var(--brand-primary) 22%, transparent);
+}
+
+.managedBotCompactField {
+	max-width: 24rem;
+	width: 100%;
 }
 
 .managedBotPersonaFiles {
 	display: flex;
 	flex-direction: column;
+	gap: var(--spacing-2);
+}
+
+.managedBotPersonaFileTabs {
+	display: flex;
+	align-items: center;
+	gap: 0.25rem;
+	flex-wrap: wrap;
+	padding: 0.25rem;
+	border: 0.0625rem solid var(--background-modifier-accent);
+	border-radius: var(--radius-md);
+	background-color: var(--background-tertiary);
+	width: fit-content;
+	max-width: 100%;
+}
+
+.managedBotPersonaFileTab {
+	height: 2rem;
+	padding: 0 0.75rem;
+	border: none;
+	border-radius: var(--radius-sm);
+	background: transparent;
+	color: var(--text-secondary);
+	font: inherit;
+	font-size: 0.8125rem;
+	font-weight: 600;
+	line-height: 1;
+	cursor: pointer;
+}
+
+.managedBotPersonaFileTab:hover {
+	background-color: var(--background-modifier-hover);
+	color: var(--text-primary);
+}
+
+.managedBotPersonaFileTab[data-active='true'] {
+	background-color: var(--background-secondary);
+	color: var(--text-primary);
+	box-shadow: 0 0 0 0.0625rem var(--background-modifier-accent);
+}
+
+.managedBotPersonaEditor {
+	padding: var(--spacing-2);
+	border: 0.0625rem solid var(--background-modifier-accent);
+	border-radius: var(--radius-md);
+	background-color: var(--background-secondary);
+	height: 20rem;
+	min-height: 20rem;
+	max-height: 20rem;
+	overflow: hidden;
+}
+
+.managedBotPersonaEditor fieldset {
+	height: 100%;
+	min-height: 0;
+}
+
+.managedBotPersonaEditor textarea {
+	height: 17rem !important;
+	min-height: 17rem !important;
+	max-height: 17rem !important;
+	resize: none;
+	overflow-y: auto !important;
+}
+
+.managedBotNotice {
+	padding: 1rem;
+	border: 0.0625rem solid var(--background-modifier-accent);
+	border-radius: var(--radius-md);
+	background-color: var(--background-secondary);
+}
+
+.managedBotReviewList {
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	border: 0.0625rem solid var(--background-modifier-accent);
+	border-radius: var(--radius-md);
+	background-color: var(--background-secondary);
+}
+
+.managedBotReviewList > div {
+	display: grid;
+	grid-template-columns: minmax(8rem, 0.42fr) minmax(0, 1fr);
 	gap: var(--spacing-3);
+	align-items: start;
+	padding: 0.75rem 1rem;
+	border-bottom: 0.0625rem solid var(--background-modifier-accent);
+}
+
+.managedBotReviewList > div:last-child {
+	border-bottom: none;
+}
+
+.managedBotReviewList span {
+	color: var(--text-primary-muted);
+	font-size: 0.8125rem;
+	line-height: 1.125rem;
+}
+
+.managedBotReviewList strong {
+	color: var(--text-primary);
+	font-size: 0.875rem;
+	font-weight: 600;
+	line-height: 1.25rem;
+	overflow-wrap: anywhere;
 }
 
 @media (min-width: 768px) {

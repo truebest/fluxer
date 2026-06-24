@@ -5,6 +5,7 @@ import type {RestResponse} from '@app/features/platform/types/TransportTypes';
 import * as FormUtils from '@app/lib/forms';
 import {useLingui} from '@lingui/react/macro';
 import {useCallback} from 'react';
+import type {BaseSyntheticEvent} from 'react';
 import type {FieldValues, Path, UseFormReturn} from 'react-hook-form';
 
 interface UseFormSubmitOptions<T extends FieldValues> {
@@ -12,6 +13,10 @@ interface UseFormSubmitOptions<T extends FieldValues> {
 	onSubmit: (data: T) => Promise<void> | void;
 	defaultErrorField: Path<T>;
 	pathMap?: Partial<Record<string, Path<T>>>;
+}
+
+function isSubmitEvent(value: unknown): value is BaseSyntheticEvent {
+	return typeof value === 'object' && value !== null && 'preventDefault' in value;
 }
 
 export function useFormSubmit<T extends FieldValues>({
@@ -35,7 +40,8 @@ export function useFormSubmit<T extends FieldValues>({
 		},
 		[form, onSubmit, defaultErrorField, pathMap, i18n],
 	);
-	const submitWithErrorClearing = useCallback(async () => {
+	const submitWithErrorClearing = useCallback(async (valueOrEvent?: unknown, event?: BaseSyntheticEvent) => {
+		const submitEvent = event ?? (isSubmitEvent(valueOrEvent) ? valueOrEvent : undefined);
 		const errors = form.formState.errors;
 		const errorFields = Object.keys(errors) as Array<Path<T>>;
 		errorFields.forEach((field) => {
@@ -45,7 +51,7 @@ export function useFormSubmit<T extends FieldValues>({
 			}
 		});
 		await form
-			.handleSubmit(handleSubmit)()
+			.handleSubmit(handleSubmit)(submitEvent)
 			.catch(() => undefined);
 	}, [form, handleSubmit]);
 	return {

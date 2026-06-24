@@ -14,13 +14,12 @@ import {createApplicationID, createUserID, type ApplicationID, type UserID} from
 import type {ManagedBotSpecRow} from '../database/types/OAuth2Types';
 import {Logger} from '../Logger';
 import type {OAuth2ApplicationsRequestService} from '../oauth/OAuth2ApplicationsRequestService';
-import {MANAGED_BOT_PERSONA_TEMPLATES} from './ManagedBotCatalog';
+import {isManagedBotModelAllowed, isManagedBotRuntimeEnabled, MANAGED_BOT_PERSONA_TEMPLATES} from './ManagedBotCatalog';
 import {mapManagedBotSpecToApplicationMarker, mapManagedBotSpecToResponse} from './ManagedBotMappers';
 import {ManagedBotProvisionerClient} from './ManagedBotProvisionerClient';
 import {ManagedBotRepository} from './ManagedBotRepository';
 import {
 	MANAGED_BOT_PROVIDER_OPENROUTER,
-	MANAGED_BOT_RUNTIME_OPENCLAW,
 	MANAGED_BOT_PERSONA_FILE_NAMES,
 	type ManagedBotPersonaFiles,
 } from './ManagedBotTypes';
@@ -79,17 +78,18 @@ export class ManagedBotService {
 			version: 1,
 		};
 		await this.repository.upsert(spec);
-		spec = await this.provisionSpec(spec, botToken);
-		const responseApplication =
-			spec.token_delivery_state === 'not_delivered' && refreshedApplication.bot
-				? {
-						...refreshedApplication,
-						bot: {
+		spec = await this.provisionSpec(spec, botToken, resolveManagedBotDisplayName(body.name, body.username));
+		const responseApplication = {
+			...refreshedApplication,
+			client_secret: application.client_secret,
+			bot:
+				spec.token_delivery_state === 'not_delivered' && refreshedApplication.bot
+					? {
 							...refreshedApplication.bot,
 							token: botToken,
-						},
-					}
-				: refreshedApplication;
+						}
+					: refreshedApplication.bot,
+		};
 		return {
 			application: {
 				...responseApplication,
@@ -117,7 +117,7 @@ export class ManagedBotService {
 				'Existing bot token is required because the previous token was not delivered to the provisioner',
 			);
 		}
-		const updated = await this.provisionSpec(spec, token);
+		const updated = await this.provisionSpec(spec, token, displayNameFromRuntimeInstanceId(spec.runtime_instance_id, spec.application_id));
 		return mapManagedBotSpecToResponse(updated);
 	}
 
@@ -138,7 +138,7 @@ export class ManagedBotService {
 		if (!spec || (spec.token_delivery_state !== 'accepted' && !botToken)) {
 			return;
 		}
-		await this.provisionSpec(spec, botToken);
+		await this.provisionSpec(spec, botToken, displayNameFromRuntimeInstanceId(spec.runtime_instance_id, spec.application_id));
 	}
 
 	private async getOwnedRow(userId: UserID, applicationId: ApplicationID): Promise<ManagedBotSpecRow> {
@@ -153,14 +153,17 @@ export class ManagedBotService {
 	}
 
 	private validateRuntimeProviderModel(runtimeType: string, provider: string, model: string): void {
-		if (runtimeType !== MANAGED_BOT_RUNTIME_OPENCLAW) {
-			throw InputValidationError.create('runtime_type', 'Only openclaw is supported');
+		if (!isManagedBotRuntimeEnabled(runtimeType)) {
+			throw InputValidationError.create('runtime_type', 'Bot runtime is not available in this deployment');
 		}
 		if (provider !== MANAGED_BOT_PROVIDER_OPENROUTER) {
 			throw InputValidationError.create('provider', 'Only openrouter is supported');
 		}
 		if (!model.trim()) {
 			throw InputValidationError.create('model', 'Model is required');
+		}
+		if (!isManagedBotModelAllowed(model)) {
+			throw InputValidationError.create('model', 'Model is not available in this deployment');
 		}
 	}
 
@@ -179,13 +182,14 @@ export class ManagedBotService {
 		return files;
 	}
 
-	private async provisionSpec(spec: ManagedBotSpecRow, botToken?: string): Promise<ManagedBotSpecRow> {
+	private async provisionSpec(spec: ManagedBotSpecRow, botToken?: string, botName?: string): Promise<ManagedBotSpecRow> {
 		try {
 			const result = await this.provisioner.provision({
 				runtimeType: spec.runtime_type,
 				applicationId: spec.application_id,
 				botUserId: spec.bot_user_id,
 				runtimeInstanceId: spec.runtime_instance_id,
+				botName,
 				botToken,
 				personaFiles: spec.persona_files,
 				provider: spec.provider,
@@ -250,4 +254,22 @@ function createRuntimeInstanceId(name: string, fallbackId: string): string {
 		.replace(/[^a-z0-9]+$/u, '')
 		.slice(0, maxSlugLength);
 	return slug ? `bot-${slug}-${fallbackId}` : `bot-${fallbackId}`;
+}
+
+function resolveManagedBotDisplayName(name: string, username?: string): string {
+	return (username?.trim() || name.trim()).slice(0, 100);
+}
+
+function displayNameFromRuntimeInstanceId(runtimeInstanceId: string | null, applicationId: ApplicationID): string | undefined {
+	if (!runtimeInstanceId) return undefined;
+	const suffix = `-${applicationId.toString()}`;
+	const value = runtimeInstanceId
+		.replace(/^bot-/u, '')
+		.replace(new RegExp(`${escapeRegExp(suffix)}$`, 'u'), '')
+		.trim();
+	return value || undefined;
+}
+
+function escapeRegExp(value: string): string {
+	return value.replace(/[.*+?^${}()|[\]\\]/gu, '\\$&');
 }

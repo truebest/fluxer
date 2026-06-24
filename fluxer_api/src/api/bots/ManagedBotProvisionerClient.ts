@@ -1,12 +1,14 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import type {ApplicationID, UserID} from '../BrandedTypes';
+import {Config} from '../Config';
 
 interface ProvisionPayload {
 	runtime_type: string;
 	application_id: string;
 	bot_user_id: string;
 	runtime_instance_id?: string;
+	bot_name?: string;
 	bot_token?: string;
 	fluxer_base_url: string;
 	persona_files: Record<string, string>;
@@ -40,6 +42,7 @@ export class ManagedBotProvisionerClient {
 		applicationId: ApplicationID;
 		botUserId: UserID;
 		runtimeInstanceId?: string | null;
+		botName?: string | null;
 		botToken?: string;
 		personaFiles: Record<string, string>;
 		provider: string;
@@ -53,17 +56,19 @@ export class ManagedBotProvisionerClient {
 				error: 'Bot provisioner is not configured',
 			};
 		}
-		const publicBaseUrl =
+		const fluxerBaseUrl =
 			process.env.FLUXER_PUBLIC_BASE_URL ??
 			(process.env.FLUXER_BASE_DOMAIN
 				? `${process.env.FLUXER_PUBLIC_SCHEME ?? 'https'}://${process.env.FLUXER_BASE_DOMAIN}`
-				: undefined);
+				: undefined) ??
+			stripApiSuffix(process.env.FLUXER_PUBLIC_API_BASE_URL ?? Config.endpoints.apiPublic);
 		const payload: ProvisionPayload = {
 			runtime_type: params.runtimeType,
 			application_id: params.applicationId.toString(),
 			bot_user_id: params.botUserId.toString(),
 			runtime_instance_id: params.runtimeInstanceId ?? undefined,
-			fluxer_base_url: publicBaseUrl ?? process.env.FLUXER_PUBLIC_API_BASE_URL ?? process.env.FLUXER_INTERNAL_API_ENDPOINT ?? '',
+			bot_name: params.botName?.trim() || undefined,
+			fluxer_base_url: fluxerBaseUrl || process.env.FLUXER_INTERNAL_API_ENDPOINT || '',
 			persona_files: params.personaFiles,
 			provider: params.provider,
 			model: params.model,
@@ -133,4 +138,8 @@ export class ManagedBotProvisionerClient {
 			return {};
 		}
 	}
+}
+
+function stripApiSuffix(value: string | undefined): string {
+	return (value ?? '').replace(/\/+$/u, '').replace(/\/api(?:\/v1)?$/u, '');
 }

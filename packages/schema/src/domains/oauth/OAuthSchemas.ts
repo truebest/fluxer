@@ -483,7 +483,11 @@ export const BotProfileUpdateRequest = z.object({
 export type BotProfileUpdateRequest = z.infer<typeof BotProfileUpdateRequest>;
 
 const ManagedBotRuntimeType = createNamedStringLiteralUnion(
-	[['openclaw', 'OPENCLAW', 'OpenClaw runtime']] as const,
+	[
+		['openclaw', 'OPENCLAW', 'OpenClaw runtime'],
+		['nanoclaw', 'NANOCLAW', 'NanoClaw runtime'],
+		['hermes', 'HERMES', 'Hermes Agent runtime'],
+	] as const,
 	'The managed bot runtime type',
 );
 

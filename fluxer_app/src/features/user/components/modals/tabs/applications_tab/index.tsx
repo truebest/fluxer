@@ -14,9 +14,9 @@ import {Tooltip} from '@app/features/ui/tooltip/Tooltip';
 import {ApplicationCreateModal} from '@app/features/user/components/modals/tabs/applications_tab/ApplicationCreateModal';
 import {ApplicationDetail} from '@app/features/user/components/modals/tabs/applications_tab/ApplicationDetail';
 import {ApplicationsList} from '@app/features/user/components/modals/tabs/applications_tab/ApplicationsList';
+import {ManagedBotCreateModal} from '@app/features/user/components/modals/tabs/applications_tab/ManagedBotCreateModal';
 import styles from '@app/features/user/components/modals/tabs/applications_tab/ApplicationsTab.module.css';
 import ApplicationsTabState from '@app/features/user/components/modals/tabs/applications_tab/ApplicationsTabState';
-import {ManagedBotCreateModal} from '@app/features/user/components/modals/tabs/applications_tab/ManagedBotCreateModal';
 import {useSettingsContentKey} from '@app/features/user/hooks/useSettingsContentKey';
 import {useUnsavedChangesFlash} from '@app/features/user/hooks/useUnsavedChangesFlash';
 import Users from '@app/features/user/state/Users';
@@ -54,7 +54,7 @@ const ApplicationsTab: React.FC = observer(() => {
 		},
 		[store, checkUnsavedChanges],
 	);
-	const openCreateModal = useCallback(() => {
+	const openCreateApplicationModal = useCallback(() => {
 		ModalCommands.push(
 			modal(() => (
 				<ApplicationCreateModal
@@ -148,11 +148,11 @@ const ApplicationsTab: React.FC = observer(() => {
 								text={i18n._(CLAIM_YOUR_ACCOUNT_TO_CREATE_APPLICATIONS_DESCRIPTOR)}
 								data-flx="user.applications-tab.tooltip"
 							>
-								<div data-flx="user.applications-tab.div">
+								<div className={styles.actionButtonGroup} data-flx="user.applications-tab.div">
 									<Button
 										variant="primary"
 										fitContent
-										onClick={openCreateModal}
+										onClick={openCreateApplicationModal}
 										disabled
 										data-flx="user.applications-tab.button.open-create-modal"
 									>
@@ -174,7 +174,7 @@ const ApplicationsTab: React.FC = observer(() => {
 								<Button
 									variant="primary"
 									fitContent
-									onClick={openCreateModal}
+									onClick={openCreateApplicationModal}
 									data-flx="user.applications-tab.button.open-create-modal--2"
 								>
 									<Trans>Create application</Trans>
